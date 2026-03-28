@@ -1,8 +1,5 @@
-def generate_cms_page(title:, slug:, category:, text: nil, tags: ["published"], days_ago: 7, id: nil)
-  attrs = { slug: slug, category_id: category.id }
-  attrs[:id] = id if id
-
-  Cms::Page.find_or_create_by!(**attrs) do |page|
+def generate_cms_page(title:, slug:, category_id:, text: nil, tags: ["published"], days_ago: 7)
+  Cms::Page.find_or_create_by!(slug: slug, category_id: category_id) do |page|
     page.title = title
     page.text = text || 5.times.map { Faker::Lorem.paragraph_by_chars }.map { |par| "<p>#{par}</p>" }.join("\n")
     page.raw = ""
@@ -28,21 +25,14 @@ end
 
 # Static pages
 [
-  { slug: "o-nas", title: "O nás" },
-  { slug: "kontakt", title: "Kontakt" },
-].each { |params| generate_cms_page(category: cms_root, **params) }
-
-# Random announcements
-25.times do |n|
-  title = Faker::Lorem.sentence
-
-  generate_cms_page(
-    category: cms_novinky,
-    slug: title.parameterize,
-    title: title,
-    days_ago: 40 - n,
-  )
-end
+  "O nás",
+  "Pravidla",
+  "Kontakt",
+  "Pridajte sa",
+  "Podporte nás",
+  "Zásady ochrany osobných údajov",
+  "Partneri",
+].each { |title| generate_cms_page(category_id: cms_root.id, title: title, slug: title.parameterize) }
 
 # Named announcements
 [
@@ -60,4 +50,16 @@ end
     text: "<p><strong>Great news!</strong> Our brand-new mobile app is now available for download on iOS and Android. Enjoy a seamless experience with enhanced features, push notifications, and improved performance. Get it today and stay connected on the go!</p>" * 4 },
   { slug: "dashboard-upgrade", title: "New and Improved User Dashboard!", days_ago: 1, tags: [],
     text: "<p><strong>Exciting updates!</strong> Your user dashboard just got a major upgrade. We've improved navigation, added new analytics tools, and enhanced performance to make your experience smoother and more efficient. Log in now to explore the new design!</p>" * 4 },
-].each { |params| generate_cms_page(category: cms_novinky, **params) }
+].each { |params| generate_cms_page(category_id: cms_novinky.id, **params) }
+
+# Random announcements
+10.times do |n|
+  title = Faker::Lorem.sentence
+
+  generate_cms_page(
+    category_id: cms_novinky.id,
+    slug: title.parameterize,
+    title: title,
+    days_ago: 40 - n,
+  )
+end

@@ -31,12 +31,16 @@ env:
     AWS_S3_BUCKET: portal-ops-dev-storage
     AWS_S3_REGION: eu-central-1
     AWS_REGION: eu-central-1
+    COMMENT_EDITING_WINDOW_SECONDS: 10
+    USER_ISSUE_CREATION_MONTHLY_LIMIT: 100
+    USER_ISSUE_UPDATE_DAILY_LIMIT: 50
 
 proxy:
   host: ops.dev.slovensko.digital
 
 volumes:
   - "ops_portal_storage:/rails/storage"
+  - "ops_portal_sitemaps:/rails/public/sitemaps"
 
 ssh:
   user: kamal

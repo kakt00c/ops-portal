@@ -35,7 +35,8 @@ class Issues::Update < ApplicationRecord
 
   enum :verification_status, { pending: 0, approved: 1, rejected: 2 }, default: :pending
 
-  validates_presence_of :attachments, unless: -> { legacy_id }
+  validates_presence_of :text, if: -> { resolves_issue? && attachments.empty? }
+  validates_presence_of :attachments, if: -> { !legacy_id && !resolves_issue? }
 
   before_create -> { self.uuid = SecureRandom.uuid }
 

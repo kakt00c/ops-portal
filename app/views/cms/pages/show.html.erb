@@ -3,6 +3,6 @@
   <article>
     <div class="date"><%= l @page.created_at.to_date %></div>
     <h1><%= @page.title %></h1>
-    <%= sanitize @page.text, tags: %w(p strong i em a img h2 h3 h4 h5 div ol ul li), attributes: %w(href alt class title style target src) %>
+    <%= sanitize @page.text, tags: %w(p strong i em a img h2 h3 h4 h5 div ol ul li), attributes: %w(href alt class title style target src width height) %>
   </article>
 </section>

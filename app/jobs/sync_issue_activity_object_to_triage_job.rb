@@ -14,9 +14,9 @@ class SyncIssueActivityObjectToTriageJob < ApplicationJob
     external_id = issue.triage_process? ? issue.triage_external_id : issue.resolution_external_id
 
     begin
-      article_id = if activity_object.author.is_a?(User::Citizen)
+      article_id = if activity_object.author.is_a?(User::Citizen) || activity_object.author.is_a?(Legacy::Agent) ||  activity_object.author.is_a?(NilClass)
         client.create_article!(external_id, activity_object, sender: sender_type(activity_object))
-      elsif activity_object.author.is_a?(ResponsibleSubject)
+      elsif activity_object.author.is_a?(ResponsibleSubject) || activity_object.author.is_a?(::ResponsibleSubjects::User)
         client.create_rs_portal_article!(external_id, activity_object)
       else
         raise "Unsupported author type: #{activity_object.author.class.name}"

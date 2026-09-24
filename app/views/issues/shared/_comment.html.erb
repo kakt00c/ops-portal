@@ -14,7 +14,13 @@
       <turbo-frame target="_top">
         <div class="comment-content">
           <% if comment.legacy_data.blank? %>
-            <div class="prose"><%= simple_format(comment.text) %></div>
+            <div class="prose">
+              <% if comment.responsible_subject? || comment.agent? %>
+                <%= simple_format(comment.text, {}, wrapper_tag: "div") %>
+              <% else %>
+                <%= simple_format(comment.text) %>
+              <% end %>
+            </div>
           <% else %>
             <div class="comment-legacy">
               <div class="comment-legacy-text">

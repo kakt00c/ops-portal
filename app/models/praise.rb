@@ -38,7 +38,7 @@
 #  category_id                         :bigint
 #  legacy_id                           :integer
 #  municipality_district_id            :bigint
-#  municipality_id                     :bigint
+#  municipality_id                     :bigint           not null
 #  owner_id                            :bigint
 #  resolution_external_id              :integer
 #  responsible_subject_id              :bigint

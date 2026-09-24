@@ -55,6 +55,25 @@
               </div>
             </div>
           <% end %>
+          <% if @startujeme_page %>
+            <%= link_to cms_page_path(@startujeme_page.slug), class: "podnet-block" do %>
+              <div class="photo">
+                <figure>
+                  <picture>
+                    <%= image_tag "startujeme-s-odkazom-znacka.svg", alt: "" %>
+                  </picture>
+                </figure>
+              </div>
+              <div class="info-con">
+                <div class="description-con">
+                  <div class="description">
+                    <div class="title">Štartujeme s odkazom</div>
+                    <div class="date">Možnosti zapojenia do Odkazu pre starostu a kontakt.</div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
           <% if @manual_page %>
             <%= link_to cms_page_path(@manual_page.slug), class: "podnet-block" do %>
               <div class="photo">

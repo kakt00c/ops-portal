@@ -66,6 +66,10 @@ class Issues::Comment < ApplicationRecord
     false
   end
 
+  def agent?
+    false
+  end
+
   def edited?
     last_edited_at.present?
   end

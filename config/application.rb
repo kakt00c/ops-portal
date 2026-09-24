@@ -42,6 +42,11 @@ module Ops
       user_stats_daily_refresh: {
         cron: "0 0 * * *",
         class: "UserStats::CalculatePercentilesJob"
+      },
+      sitemap_daily_refresh: {
+        cron: "0 2 * * *",
+        class: "GenerateSitemapJob",
+        description: "Daily sitemap generation"
       }
     }
 

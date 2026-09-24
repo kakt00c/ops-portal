@@ -45,4 +45,8 @@ class Issues::AgentPrivateComment < Issues::Comment
   def triage_visible?
     !hidden
   end
+
+  def agent?
+    true
+  end
 end

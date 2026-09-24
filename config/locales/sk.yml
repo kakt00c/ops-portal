@@ -135,6 +135,7 @@ sk:
         text: "Text komentára"
       issues/update:
         attachments: "Fotografia pri overovaní podnetu"
+        text: "Text komentára"
       issues/responsible_subject_change:
         responsible_subject: "Zodpovedný subjekt"
         text: "Text komentára"

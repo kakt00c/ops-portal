@@ -2,15 +2,16 @@
 #
 # Table name: cms_pages
 #
-#  id          :bigint           not null, primary key
-#  raw         :text             not null
-#  slug        :string           not null
-#  tags        :string           default([]), is an Array
-#  text        :text             not null
-#  title       :string           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  category_id :bigint           not null
+#  id            :bigint           not null, primary key
+#  raw           :text             not null
+#  slug          :string           not null
+#  tags          :string           default([]), is an Array
+#  text          :text             not null
+#  thumbnail_url :string
+#  title         :string           not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  category_id   :bigint           not null
 #
 module Ai
   class Prompt < Cms::Page

@@ -32,6 +32,8 @@
 !/tmp/storage/.keep
 
 /public/assets
+/public/sitemaps/*
+!/public/sitemaps/.keep
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key

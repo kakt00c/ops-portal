@@ -1,6 +1,7 @@
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
@@ -8,13 +9,6 @@ SET check_function_bodies = false;
 SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
-
---
--- Name: public; Type: SCHEMA; Schema: -; Owner: -
---
-
--- *not* creating schema, since initdb creates it
-
 
 --
 -- Name: citext; Type: EXTENSION; Schema: -; Owner: -
@@ -281,7 +275,8 @@ CREATE TABLE public.cms_pages (
     updated_at timestamp(6) without time zone NOT NULL,
     tags character varying[] DEFAULT '{}'::character varying[],
     category_id bigint NOT NULL,
-    raw text NOT NULL
+    raw text NOT NULL,
+    thumbnail_url character varying
 );
 
 
@@ -667,7 +662,7 @@ CREATE TABLE public.issues (
     author_id bigint,
     category_id bigint,
     state_id bigint,
-    municipality_id bigint,
+    municipality_id bigint NOT NULL,
     legacy_id integer,
     municipality_district_id bigint,
     responsible_subject_id bigint,
@@ -1392,6 +1387,40 @@ CREATE SEQUENCE public.municipalities_id_seq
 --
 
 ALTER SEQUENCE public.municipalities_id_seq OWNED BY public.municipalities.id;
+
+
+--
+-- Name: municipality_boundaries; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.municipality_boundaries (
+    id bigint NOT NULL,
+    municipality_id bigint,
+    municipality_district_id bigint,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL,
+    boundary public.geometry(Geometry,4326) NOT NULL,
+    boundary_kind character varying DEFAULT 'municipality'::character varying NOT NULL
+);
+
+
+--
+-- Name: municipality_boundaries_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.municipality_boundaries_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: municipality_boundaries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.municipality_boundaries_id_seq OWNED BY public.municipality_boundaries.id;
 
 
 --
@@ -2181,6 +2210,13 @@ ALTER TABLE ONLY public.municipalities ALTER COLUMN id SET DEFAULT nextval('publ
 
 
 --
+-- Name: municipality_boundaries id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.municipality_boundaries ALTER COLUMN id SET DEFAULT nextval('public.municipality_boundaries_id_seq'::regclass);
+
+
+--
 -- Name: municipality_districts id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -2571,6 +2607,14 @@ ALTER TABLE ONLY public.legacy_prefetched_blobs
 
 ALTER TABLE ONLY public.municipalities
     ADD CONSTRAINT municipalities_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: municipality_boundaries municipality_boundaries_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.municipality_boundaries
+    ADD CONSTRAINT municipality_boundaries_pkey PRIMARY KEY (id);
 
 
 --
@@ -3528,6 +3572,27 @@ CREATE INDEX index_municipalities_on_longitude ON public.municipalities USING bt
 
 
 --
+-- Name: index_municipality_boundaries_on_boundary; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_municipality_boundaries_on_boundary ON public.municipality_boundaries USING gist (boundary);
+
+
+--
+-- Name: index_municipality_boundaries_on_municipality_district_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_municipality_boundaries_on_municipality_district_id ON public.municipality_boundaries USING btree (municipality_district_id);
+
+
+--
+-- Name: index_municipality_boundaries_on_municipality_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_municipality_boundaries_on_municipality_id ON public.municipality_boundaries USING btree (municipality_id);
+
+
+--
 -- Name: index_municipality_districts_on_legacy_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -4022,6 +4087,14 @@ ALTER TABLE ONLY public.user_identities
 
 
 --
+-- Name: municipality_boundaries fk_rails_6ac85b5672; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.municipality_boundaries
+    ADD CONSTRAINT fk_rails_6ac85b5672 FOREIGN KEY (municipality_district_id) REFERENCES public.municipality_districts(id);
+
+
+--
 -- Name: issues fk_rails_6e8f6d948e; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4171,6 +4244,14 @@ ALTER TABLE ONLY public.responsible_subjects_users
 
 ALTER TABLE ONLY public.responsible_subjects_organization_units
     ADD CONSTRAINT fk_rails_ac40c26458 FOREIGN KEY (responsible_subject_id) REFERENCES public.responsible_subjects(id);
+
+
+--
+-- Name: municipality_boundaries fk_rails_ac7afc9016; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.municipality_boundaries
+    ADD CONSTRAINT fk_rails_ac7afc9016 FOREIGN KEY (municipality_id) REFERENCES public.municipalities(id);
 
 
 --
@@ -4348,6 +4429,15 @@ ALTER TABLE ONLY public.cms_categories
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20260705131733'),
+('20260524143000'),
+('20260524134500'),
+('20260524113000'),
+('20260522170432'),
+('20260522000002'),
+('20260501141746'),
+('20260424105720'),
+('20260328185530'),
 ('20260227123031'),
 ('20260210135328'),
 ('20260210092444'),

@@ -56,6 +56,10 @@ class NotificationMailer < ApplicationMailer
     mail
   end
 
+  def issue_waiting_for_author
+    mail
+  end
+
   def praise_accepted
     mail
   end

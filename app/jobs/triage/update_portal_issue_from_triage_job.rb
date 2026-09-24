@@ -7,6 +7,10 @@ class Triage::UpdatePortalIssueFromTriageJob < ApplicationJob
       ops_state = Issues::State.find_by!(key: "resolved_private")
     end
 
+    if issue.responsible_subject && (issue.responsible_subject != ticket[:responsible_subject])
+      Triage::SyncPreviousResponsibleSubjectJob.perform_later(issue, issue.responsible_subject)
+    end
+
     issue.update!(
       title: ticket[:title],
       description: ticket[:description],

@@ -16,7 +16,7 @@ one:
 
 two:
   title: Issue from Bratislava
-  description: Hello
+  description: Hello, this is an issue reported from Bratislava.
   author: one
   created_at: 2024-11-05 09:59:21
   last_synced_at: 2024-11-05 09:59:23

@@ -19,7 +19,7 @@ proxy:
 
 env:
   clear:
-    RAILS_LOG_LEVEL: <%= ENV.fetch("RAILS_LOG_LEVEL", "info") %>
+    RAILS_LOG_LEVEL: <%= ENV["RAILS_LOG_LEVEL"].presence || "warn" %>
     TRIAGE_ZAMMAD_TECH_USER_ID: <%= ENV.fetch("TRIAGE_ZAMMAD_TECH_USER_ID", "313") %>
     DISCOURSE_API_USERNAME: <%= ENV.fetch("DISCOURSE_API_USERNAME", "dummy") %>
     ADMIN_EMAILS: <%= ENV.fetch("ADMIN_EMAILS", "dummy") %>

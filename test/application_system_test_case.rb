@@ -23,6 +23,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   include ActiveJob::TestHelper
   include AuthHelper
+  include MunicipalityBoundaryTestHelper
 
   teardown do
     Capybara.reset_sessions!

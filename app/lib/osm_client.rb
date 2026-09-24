@@ -13,13 +13,29 @@ module OsmClient
     address = details["address"]
     address = address.sort { |a, b| a["rank_address"] <=> b["rank_address"] } if address.is_a?(Array)
     administratives = address.select { it["type"] == "administrative" }
+    place_settlements = address.select { it["class"] == "place" && [ "city", "town", "village", "municipality" ].include?(it["type"]) }
 
     level_9 = administratives.select { it["admin_level"] == 9 }
+    level_8 = administratives.select { it["admin_level"] == 8 }
     municipality = level_9.find { _1["isaddress"] }&.dig("localname")
     municipality ||= level_9.first&.dig("localname")
+    municipality ||= level_8.find { _1["isaddress"] }&.dig("localname")
+    municipality ||= level_8.first&.dig("localname")
+    municipality ||= place_settlements.find { _1["isaddress"] }&.dig("localname")
+    municipality ||= place_settlements.first&.dig("localname")
 
     suburb = administratives.find { _1["admin_level"] == 10 }&.dig("localname")
     suburb ||= address.select { it["type"] == "suburb" }&.select { _1["admin_level"] == 15 }&.find { _1["isaddress"] }&.dig("localname")
+
+    if municipality.present? && suburb.present? && municipality == suburb
+      municipality = level_8.find { _1["localname"] != suburb }&.dig("localname") || municipality
+    end
+
+    city = place_settlements.find { _1["isaddress"] }&.dig("localname")
+    city ||= place_settlements.first&.dig("localname")
+    city ||= level_8.find { _1["isaddress"] }&.dig("localname")
+    city ||= level_8.first&.dig("localname")
+    city ||= municipality
 
     AddressDetails.new(
       house_number: address.find { _1["type"] == "house_number" }&.dig("localname"),
@@ -27,7 +43,7 @@ module OsmClient
       suburb: suburb,
       municipality: municipality,
       district: administratives.find { _1["admin_level"] == 8 }&.dig("localname"),
-      city: administratives.find { _1["admin_level"] == 6 }&.dig("localname"),
+      city: city,
       postcode: address.find { _1["type"] == "postcode" }&.dig("localname"),
       region: administratives.find { _1["admin_level"] == 4 }&.dig("localname"),
       country: address.find { _1["type"] == "country" }&.dig("localname"),

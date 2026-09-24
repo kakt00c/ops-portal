@@ -1,4 +1,6 @@
 class Triage::FireWebhookJob < ApplicationJob
+  retry_on StandardError, wait: :polynomially_longer, attempts: 10
+
   def perform(client, webhook_id, payload, provider: Faraday)
     private_key = OpenSSL::PKey::EC.new client.webhook_private_key
     attempt_timestamp = Time.now.to_i
@@ -13,6 +15,6 @@ class Triage::FireWebhookJob < ApplicationJob
     }
 
     response = provider.post(client.url, payload.to_json, headers)
-    raise unless response.status == 204
+    raise "Unexpected response status: #{response.status} with body: #{response.body}" unless response.status&.between?(200, 299)
   end
 end

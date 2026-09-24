@@ -6,7 +6,7 @@ class SyncIssueToTriageJob < ApplicationJob
 
     triage_group = find_municipality_group(issue, client) if import
 
-    if issue.resolution_external_id.present?
+    if issue.resolution_process?
       client.update_ticket_from_issue!(issue.resolution_external_id, issue)
       issue.touch(:last_synced_at)
 

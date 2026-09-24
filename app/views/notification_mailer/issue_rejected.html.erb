@@ -1,20 +1,20 @@
 <% if @issue.issue_type == "praise" %>
   <%= ops_title "Pochvala bola zamietnutá" %>
   <p class="ops-email-paragraph">
-    Ľutujeme, Vaša pochvala <%= ops_issue_link @issue %>, ktorú ste pridali <b><%= @issue.created_at.strftime("%d.%m.%Y") %></b> na portál Odkaz pre starostu, nespĺňala podmienky prijatia a preto bola zamietnutá.
+    Ľutujeme, Vaša pochvala <%= ops_issue_link @issue %>, ktorú ste pridali <b><%= @issue.created_at.strftime("%d.%m.%Y") %></b> na portál Odkaz pre starostu, bola zamietnutá. Dôvod zamietnutia nájdete v <b><%= link_to "detaile pochvaly", issue_url(@issue), class: "ops-email-link", target: "_blank" %></b>.
   </p>
 <% else %>
   <%= ops_title "Podnet bol zamietnutý" %>
   <p class="ops-email-paragraph">
     <% if @issue.author == @user %>
-      Ľutujeme, Váš podnet <%= ops_issue_link @issue %>, ktorý ste pridali <b><%= @issue.created_at.strftime("%d.%m.%Y") %></b> na portál Odkaz pre starostu, nespĺňal podmienky prijatia a preto bol zamietnutý.
+      Ľutujeme, Váš podnet <%= ops_issue_link @issue %>, ktorý ste pridali <b><%= @issue.created_at.strftime("%d.%m.%Y") %></b> na portál Odkaz pre starostu, bol zamietnutý. Dôvod zamietnutia nájdete v <b><%= link_to "detaile podnetu", issue_url(@issue), class: "ops-email-link", target: "_blank" %></b>.
     <% else %>
-      Ľutujeme, podnet <%= ops_issue_link @issue %>, ktorý sledujete na portáli Odkaz pre starostu, nespĺňal podmienky prijatia a preto bol zamietnutý.
+      Ľutujeme, podnet <%= ops_issue_link @issue %>, ktorý sledujete na portáli Odkaz pre starostu, bol zamietnutý. Dôvod zamietnutia nájdete v <b><%= link_to "detaile podnetu", issue_url(@issue), class: "ops-email-link", target: "_blank" %></b>.
     <% end %>
   </p>
 <% end %>
 <p class="ops-email-paragraph">
-  Viac informácií nájdete v sekcii <%= link_to "Pravidlá", url_for('/pravidla'), class: "ops-email-link", target: "_blank" %>.
+  Ak sa chcete dozvedieť viac o tom, aké podnety a pochvaly zverejňujeme, pozrite si našu sekciu <%= link_to "Pravidlá", cms_page_url('pravidla'), class: "ops-email-link", target: "_blank" %>.
 </p>
 <%= render "signature" %>
 <%= render "unsubscribe" %>

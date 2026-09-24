@@ -32,13 +32,15 @@ class Triage::UpdatePortalUserFromTriageJob < ApplicationJob
           phone_verified: true
         )
       end
-    elsif user.responsible_subject
+    elsif user&.responsible_subject
       user = user.becomes(User::Citizen)
 
       user.update!(
         type: "User::Citizen",
         responsible_subject_id: nil
       )
+    elsif triage_user.origin == "portal" && user.nil?
+      raise "User with email #{triage_user.email} not found in the portal, but exists in triage."
     end
 
     return unless triage_user.origin == "portal"

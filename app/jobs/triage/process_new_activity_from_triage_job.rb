@@ -21,11 +21,14 @@ class Triage::ProcessNewActivityFromTriageJob < ApplicationJob
     )
     return unless article
 
-    client = Client.find_by!(responsible_subject: responsible_subject)
-    webhook_client.new(client).activity_created(
-      ticket_id,
-      article_id,
-      activity_type: article[:article_type]
-    )
+    raise "No clients found for responsible subject: #{responsible_subject.label}" if responsible_subject.clients.empty?
+
+    responsible_subject.clients.each do |client|
+      webhook_client.new(client).activity_created(
+        ticket_id,
+        article_id,
+        activity_type: article[:article_type]
+      )
+    end
   end
 end

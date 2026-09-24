@@ -46,11 +46,11 @@ class Issues::ResponsibleSubjectComment < Issues::Comment
   end
 
   def triage_activity_body
-    [ TriageZammadEnvironment::OPS_PORTAL_ARTICLE_TAG, super ].join(" ")
+    super
   end
 
   def backoffice_activity_body
-    [ TriageZammadEnvironment::OPS_PORTAL_ARTICLE_TAG, text ].join(" ")
+    text
   end
 
   def internal?
@@ -63,10 +63,6 @@ class Issues::ResponsibleSubjectComment < Issues::Comment
 
   def triage_visible?
     visible?
-  end
-
-  def triage_activity_body
-    [ TriageZammadEnvironment::OPS_PORTAL_ARTICLE_TAG, super ].join(" ")
   end
 
   def responsible_subject?

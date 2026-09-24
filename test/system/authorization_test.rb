@@ -2,6 +2,7 @@ require "application_system_test_case"
 
 class AccountsTest < ApplicationSystemTestCase
   include ActiveJob::TestHelper
+  include ActionMailer::TestHelper
 
   test "creating an account with email verification" do
     visit "/create-account"
@@ -22,6 +23,46 @@ class AccountsTest < ApplicationSystemTestCase
     assert_selector ".flash-message-container", text: "Zaslali sme Vám email odkazom na overenie účtu"
 
     verify_account
+  end
+
+  test "creating an account via Google SSO" do
+    email = "google-user-#{SecureRandom.hex(4)}@example.com"
+    original_test_mode = OmniAuth.config.test_mode
+    original_mock_auth = OmniAuth.config.mock_auth.dup
+
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new(
+      "provider" => "google",
+      "uid" => "google-uid-#{SecureRandom.hex(4)}",
+      "info" => {
+        "email" => email,
+        "name" => "Google User",
+        "first_name" => "Google",
+        "last_name" => "User"
+      }
+    )
+
+    visit "/create-account"
+
+    assert_no_enqueued_emails do
+      click_button "Vytvoriť účet cez Google"
+    end
+
+    assert_selector "a.login", text: "Google User"
+    assert_selector "h1", text: "Vitajte na portáli Odkaz pre starostu!"
+    assert_equal "true", find("input[name='user[onboarded]']", visible: false).value
+
+    user = User.find_by!(email: email)
+    assert user.verified?
+    refute user.onboarded?
+
+    check "user_terms_of_service"
+    click_button "Uložiť"
+
+    assert_current_path root_path
+  ensure
+    OmniAuth.config.test_mode = original_test_mode
+    OmniAuth.config.mock_auth = original_mock_auth
   end
 
   test "login" do

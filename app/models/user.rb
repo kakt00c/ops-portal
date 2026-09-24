@@ -158,11 +158,11 @@ class User < ApplicationRecord
   end
 
   def create_issue_limit_exceeded?
-    issues.where(created_at: 1.month.ago..).count >= 10
+    issues.where(created_at: 1.month.ago..).count >= ENV.fetch("USER_ISSUE_CREATION_MONTHLY_LIMIT", 10).to_i
   end
 
   def create_issue_update_limit_exceeded?
-    issues_updates.where(created_at: 1.day.ago...).count >= 5
+    issues_updates.where(created_at: 1.day.ago...).count >= ENV.fetch("USER_ISSUE_UPDATE_DAILY_LIMIT", 5).to_i
   end
 
   def responsible_subject_for_issue?(issue)

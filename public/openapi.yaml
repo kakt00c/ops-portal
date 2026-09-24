@@ -716,8 +716,8 @@ components:
           description: |
             Activity content/body
 
-            Note: If body includes substring `[[ops portal]]` the activity will also be published to the OPS portal.
-            Otherwise it will be visible for OPS Admins only.
+            Responsible-subject activity is published to the OPS portal by default.
+            The legacy `[[ops portal]]` substring does not control visibility and is removed before public display.
         attachments:
           type: array
           description: List of attachments

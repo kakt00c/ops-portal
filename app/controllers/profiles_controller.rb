@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :require_user, except: [ :please_create ]
   before_action :set_user, except: [ :please_create, :please_verify ]
-  before_action :set_manual_page, only: :show, if: -> { current_user.responsible_subject }
+  before_action :set_cms_pages, only: :show, if: -> { current_user.responsible_subject }
 
   before_action :ensure_citizen, only: [ :edit, :update, :settings, :watched_issues ]
 
@@ -59,12 +59,13 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def set_manual_page
+  def set_cms_pages
     return unless ENV["CMS_ROOT_CATEGORY_ID"].present?
 
     root_category = Cms::Category.find_by(id: ENV["CMS_ROOT_CATEGORY_ID"])
     return unless root_category
 
+    @startujeme_page = root_category.find_page_with_slug("startujeme-s-odkazom")
     @manual_page = root_category.find_page_with_slug("manual")
   end
 end

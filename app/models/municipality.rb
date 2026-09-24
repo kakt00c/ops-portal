@@ -29,6 +29,7 @@ class Municipality < ApplicationRecord
   has_many :municipality_districts
   has_many :streets
   has_many :issues
+  has_many :municipality_boundaries
 
   scope :active, -> { where(active: true) }
   scope :archived, -> { where(archived: true) }
@@ -40,20 +41,34 @@ class Municipality < ApplicationRecord
     streets.whitelisted.find_by_name(name).present?
   end
 
-  def self.find_by_address(city:, municipality:, suburb:, street: nil)
-    municipality_district = MunicipalityDistrict.find_by_address(city: city, municipality: municipality, suburb: suburb)
-    if municipality_district
-      return [ municipality_district.municipality, municipality_district ] if municipality_district.active?
+  def self.find_by_coordinates(latitude, longitude, street: nil)
+    return [ nil, nil ] if latitude.blank? || longitude.blank?
 
-      if street.present? && municipality_district.municipality.whitelisted_street?(street)
-        return [ municipality_district.municipality, municipality_district ]
+    district_boundary = MunicipalityBoundary.districts
+      .containing_point(latitude, longitude)
+      .first
+
+    if district_boundary
+      district = district_boundary.municipality_district
+      municipality = district.municipality
+      return [ municipality, district ] if municipality.active? && district.active?
+
+      if street.present? && municipality.whitelisted_street?(street)
+        return [ municipality, district ]
       end
 
-      return [ nil, municipality_district ]
+      return [ nil, district ]
     end
 
-    r = active.where("? = ANY(aliases)", municipality).first
-    r ||= active.where("? = ANY(aliases)", suburb).first
-    [ r, nil ]
+    municipality_boundary = MunicipalityBoundary.municipalities
+      .containing_point(latitude, longitude)
+      .first
+
+    if municipality_boundary
+      municipality = municipality_boundary.municipality
+      return [ municipality, nil ] if municipality&.active?
+    end
+
+    [ nil, nil ]
   end
 end

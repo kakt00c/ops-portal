@@ -15,17 +15,22 @@ class RodauthMain < Rodauth::Rails::Auth
 
     enable :i18n
 
-    omniauth_provider :facebook,
-                      ENV.fetch("FACEBOOK_APP_ID"),
-                      ENV.fetch("FACEBOOK_APP_SECRET"),
-                      scope: "email",
-                      info_fields: "name,email,first_name,last_name"
+    if ENV["FACEBOOK_APP_ID"].present?
+      omniauth_provider :facebook,
+                        ENV.fetch("FACEBOOK_APP_ID"),
+                        ENV.fetch("FACEBOOK_APP_SECRET"),
+                        scope: "email",
+                        info_fields: "name,email,first_name,last_name"
+    end
 
     # Make sure provider name is explicitly set as a string for database queries
-    omniauth_provider :google_oauth2,
-                      ENV.fetch("GOOGLE_CLIENT_ID"),
-                      ENV.fetch("GOOGLE_CLIENT_SECRET"),
-                      name: "google" # Using a string instead of symbol
+
+    if ENV["GOOGLE_CLIENT_ID"].present?
+      omniauth_provider :google_oauth2,
+                        ENV.fetch("GOOGLE_CLIENT_ID"),
+                        ENV.fetch("GOOGLE_CLIENT_SECRET"),
+                        name: "google" # Using a string instead of symbol
+    end
 
     use_multi_phase_login? false
 
@@ -199,6 +204,7 @@ class RodauthMain < Rodauth::Rails::Auth
     }
 
     before_omniauth_create_account {
+      account[:type] = "User::Citizen"
       account[:firstname] = omniauth_info["first_name"]
       account[:lastname] = omniauth_info["last_name"]
       account[:email_global_unsubscribe_token] = generate_unsubscribe_token

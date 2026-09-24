@@ -1,10 +1,8 @@
 <%= link_to cms_page_path([ page.category.slug, page.slug ]), class: "news-block" do %>
-  <div class="date"><%= l page.created_at.to_date %></div>
-  <h2 class="news-block-title"><%= page.title %></h2>
-  <div class="button-read-more-news">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 20">
-      <path d="M11.5,19l9-9L11.5,1" fill="none"/>
-      <path d="M.5,10h20" fill="none"/>
-    </svg>
+  <% thumbnail = page.thumbnail_url.presence || image_path("og-image.png") %>
+  <div class="news-block-image" style="background-image: url('<%= thumbnail %>')">
+    <%= image_tag thumbnail, alt: page.title %>
   </div>
+  <h2 class="news-block-title"><%= page.title %></h2>
+  <div class="date"><%= l page.created_at.to_date %></div>
 <% end %>

@@ -1,5 +1,5 @@
 class Connector::CreateNewBackofficeIssueFromTriageJob < ApplicationJob
-  SKIPPED_TICKETS_OPS_STATES = %w[waiting rejected]
+  SKIPPED_TICKETS_OPS_STATES = %w[waiting waiting_for_author rejected]
 
   def perform(
     tenant,
@@ -8,7 +8,6 @@ class Connector::CreateNewBackofficeIssueFromTriageJob < ApplicationJob
     zammad_client: Connector::BackofficeZammadEnvironment.client(tenant),
     ops_api_client: Connector::OpsApiClient,
     import_legacy_backoffice_activity_job: Connector::Legacy::ImportBackofficeActivityFromTriageToBackofficeJob,
-    import_legacy_internal_backoffice_activity_job: Connector::Legacy::ImportInternalBackofficeActivityFromLegacyDbToBackofficeJob,
     set_ticket_owner_and_group_job: Connector::Legacy::SetBackofficeTicketOwnerAndGroupJob,
     add_ticket_tag_job: Connector::Legacy::AddTicketTagJob
   )
@@ -28,8 +27,7 @@ class Connector::CreateNewBackofficeIssueFromTriageJob < ApplicationJob
     zammad_client.create_issue!(issue_data, state: backoffice_state, group: zammad_group)
 
     import_legacy_backoffice_activity_job.set(queue: queue_name).perform_later(tenant, issue_id)
-    import_legacy_internal_backoffice_activity_job.set(queue: queue_name).perform_later(tenant, issue_id)
-    # set_ticket_owner_and_group_job.set(queue: queue_name).perform_later(tenant, issue_id)
+    set_ticket_owner_and_group_job.set(queue: queue_name).perform_later(tenant, issue_id)
     add_ticket_tag_job.set(queue: queue_name).perform_later(tenant, issue_id) if tenant.migrate_legacy_labels?
   end
 

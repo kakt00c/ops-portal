@@ -63,7 +63,10 @@
 		gap: 40px 20px;
 	}
 	
-	
+	.news-latest-grid {
+		grid-template-columns: 2fr 1fr;
+	}
+
 	// Podnety
 	.view-switch {
 		align-items: center;

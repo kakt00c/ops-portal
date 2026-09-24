@@ -1,15 +1,25 @@
 class Triage::CreateIssueResolutionProcessTicketJob < ApplicationJob
   def perform(issue, triage_group:, triage_owner_id:, triage_zammad_client: TriageZammadEnvironment.client)
     resolution_external_issue_number = "R-#{issue.id.to_s.rjust(4, '0')}"
-    resolution_external_id = triage_zammad_client.create_ticket_from_issue!(
-      issue,
-      issue_number: resolution_external_issue_number,
-      process_type: "portal_issue_resolution",
-      **{
-        group: triage_group,
-        owner_id: triage_owner_id
-      }.compact
-    )
+    resolution_external_id = begin
+      triage_zammad_client.create_ticket_from_issue!(
+        issue,
+        issue_number: resolution_external_issue_number,
+        process_type: "portal_issue_resolution",
+        **{
+          group: triage_group,
+          owner_id: triage_owner_id
+        }.compact
+      )
+    rescue RuntimeError => e
+      raise e unless /.*This object already exists/.match?(e.message)
+
+      search_result = triage_zammad_client.client.ticket.search(query: "\"#{resolution_external_issue_number}\"").select { |r| r.number == resolution_external_issue_number }
+      raise e if search_result.count == 0
+      raise "Found multiple matches for ticket!" unless search_result.count == 1
+
+      search_result.first.id
+    end
 
     issue.update!(
       resolution_external_id: resolution_external_id,

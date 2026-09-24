@@ -36,6 +36,7 @@ proxy:
 
 volumes:
   - "ops_portal_storage:/rails/storage"
+  - "ops_portal_sitemaps:/rails/public/sitemaps"
 
 accessories:
   nginx:

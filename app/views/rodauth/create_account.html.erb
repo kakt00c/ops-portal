@@ -2,8 +2,8 @@
 
 <section class="forms-container report">
   <h1>Vytvoriť účet</h1>
-  <%= form_with url: rodauth.create_account_path, method: :post, data: { turbo: false }, html: { novalidate: true } do |form| %>
-    <div class="form-other-con">
+
+  <div class="form-other-con">
       <% if true # cookies[:legacy_visit] %>
         <div class="form-description prose">
           <p><strong>Mali ste účet na pôvodnom portáli Odkaz&nbsp;pre&nbsp;starostu a chcete sa prihlásiť do svojho účtu?</strong> Pred prvým prihlásením si kvôli bezpečnosti musíte <%= link_to 'vyžiadať nové heslo', rodauth.reset_password_request_route, class: :link %>.</p>
@@ -11,7 +11,14 @@
         </div>
       <% end %>
 
-      <div class="form-description">Polia označené * sú povinné.</div>
+      <% if ENV["FACEBOOK_APP_ID"].present? || ENV["GOOGLE_CLIENT_ID"].present? %>
+        <%= render "rodauth/sso_buttons", label: "Vytvoriť účet" %>
+        <div class="form-or-notice">alebo</div>
+      <% end %>
+
+      <%= form_with url: rodauth.create_account_path, method: :post, data: { turbo: false }, html: { novalidate: true } do |form| %>
+      <div class="form-items-con">
+        <div class="form-description">Polia označené * sú povinné.</div>
 
       <div class="form-items-con">
         <div class="form-item-wrapper">
@@ -45,15 +52,16 @@
 
       <%= form.submit rodauth.create_account_button, class: "button" %>
 
-      <div class="form-notice prose">Pri registrácii spracúvame vaše osobné údaje v&nbsp;rozsahu nevyhnutnom na splnenie úlohy
-        realizovanej vo verejnom záujme na základe GDPR čl. 6, odsek 1 písm. e). Podmienkou pre vytvorenie (registráciu)
-        používateľského
-        účtu pre osoby mladšie ako 16 rokov je súhlas ich rodičov alebo zákonných zástupcov. Viac informácií o
-        spracúvaní
-        osobných údajoch a vašich právach nájdete v
-        časti  <%= link_to 'Zásady ochrany osobných údajov', '/zasady-ochrany-osobnych-udajov', target: :_blank %>.
+        <div class="form-notice prose">Pri registrácii spracúvame vaše osobné údaje v&nbsp;rozsahu nevyhnutnom na splnenie úlohy
+          realizovanej vo verejnom záujme na základe GDPR čl. 6, odsek 1 písm. e). Podmienkou pre vytvorenie (registráciu)
+          používateľského
+          účtu pre osoby mladšie ako 16 rokov je súhlas ich rodičov alebo zákonných zástupcov. Viac informácií o
+          spracúvaní
+          osobných údajoch a vašich právach nájdete v
+          časti  <%= link_to 'Zásady ochrany osobných údajov', '/zasady-ochrany-osobnych-udajov', target: :_blank %>.
+        </div>
       </div>
-    </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+
 </section>

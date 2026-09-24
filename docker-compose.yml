@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgis/postgis:17-3.5
+    platform: linux/amd64
+    container_name: ops-postgres
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: ops
+      POSTGRES_PASSWORD: ops
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+volumes:
+  postgres_data:
+

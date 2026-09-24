@@ -19,6 +19,8 @@ module Notifications
           notification_mailer.with(subscription: subscription).issue_unresolved.deliver_later
         when "referred"
           notification_mailer.with(subscription: subscription).issue_referred.deliver_later
+        when "waiting_for_author"
+          notification_mailer.with(subscription: subscription).issue_waiting_for_author.deliver_later
         when "closed"
           notification_mailer.with(subscription: subscription).issue_closed.deliver_later
         end

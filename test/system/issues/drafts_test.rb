@@ -39,6 +39,12 @@ class Issues::DraftsTest < ApplicationSystemTestCase
   end
 
   test "full issue creation with checks" do
+    # Create boundaries for the test location (Bratislava, ~48.1631, 17.0493)
+    bratislava = municipalities("bratislava")
+    karlova_ves = municipality_districts("Karlova Ves")
+    create_municipality_boundary(municipality: bratislava, center_lat: 48.1631, center_lon: 17.0493, size: 0.5)
+    create_municipality_boundary(municipality: bratislava, district: karlova_ves, center_lat: 48.1631, center_lon: 17.0493, size: 0.1)
+
     login_as(@user)
 
     click_on "Nahlásiť podnet"
@@ -87,6 +93,9 @@ class Issues::DraftsTest < ApplicationSystemTestCase
     municipality = municipalities("bratislava")
     municipality.update!(active: false)
 
+    # Create only municipality boundary (no district), so point matches inactive municipality
+    create_municipality_boundary(municipality: municipality, center_lat: 48.1631, center_lon: 17.0493, size: 0.5)
+
     login_as(@user)
 
     click_on "Nahlásiť podnet"
@@ -101,30 +110,16 @@ class Issues::DraftsTest < ApplicationSystemTestCase
 
     click_on "Vlastný nadpis podnetu"
 
-    assert_text "Výber kategórie problému"
-    click_on "Zeleň a životné prostredie"
-
-    assert_text "Výber podkategórie problému"
-    click_on "Strom"
-
-    assert_text "Výber typu problému"
-    click_on "vyvaleny"
-
-    assert_text "Popis podnetu"
-    fill_in "Názov", with: "Graffiti na skrini"
-    fill_in "Popis", with: "Je tu graffiti, treba vycistit"
-    click_on "Pokračovať"
-
-    assert_text "Zhrnutie podnetu"
-    click_on "Odoslať podnet"
-
-    assert_text "Podnet má problém"
     assert_text "Samospráva nie je zatiaľ zapojená do portálu Odkaz pre starostu"
   end
 
   test "issue creation on unsupported municipality district" do
+    municipality = municipalities("bratislava")
     municipality_district = municipality_districts("Karlova Ves")
     municipality_district.update!(active: false)
+
+    # Create district boundary so point matches inactive district
+    create_municipality_boundary(municipality: municipality, district: municipality_district, center_lat: 48.1631, center_lon: 17.0493, size: 0.1)
 
     login_as(@user)
 
@@ -140,24 +135,6 @@ class Issues::DraftsTest < ApplicationSystemTestCase
 
     click_on "Vlastný nadpis podnetu"
 
-    assert_text "Výber kategórie problému"
-    click_on "Zeleň a životné prostredie"
-
-    assert_text "Výber podkategórie problému"
-    click_on "Strom"
-
-    assert_text "Výber typu problému"
-    click_on "vyvaleny"
-
-    assert_text "Popis podnetu"
-    fill_in "Názov", with: "Graffiti na skrini"
-    fill_in "Popis", with: "Je tu graffiti, treba vycistit"
-    click_on "Pokračovať"
-
-    assert_text "Zhrnutie podnetu"
-    click_on "Odoslať podnet"
-
-    assert_text "Podnet má problém"
     assert_text "Mestská časť nie je zatiaľ zapojená do portálu Odkaz pre starostu"
   end
 end

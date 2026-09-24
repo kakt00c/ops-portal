@@ -49,4 +49,8 @@ class Issues::AgentComment < Issues::Comment
   def triage_visible?
     visible?
   end
+
+  def agent?
+    true
+  end
 end

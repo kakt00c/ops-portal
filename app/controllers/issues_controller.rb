@@ -8,6 +8,8 @@ class IssuesController < ApplicationController
   def relevant
     path = if current_user.responsible_subject
       issues_path(zodpovedny: current_user.responsible_subject.subject_name)
+    elsif session[:last_municipality].present?
+      issues_path(obec: session[:last_municipality], cast: session[:last_municipality_district].presence)
     elsif current_user.municipality
       issues_path(obec: current_user.municipality.name)
     else
@@ -18,6 +20,14 @@ class IssuesController < ApplicationController
   end
 
   def index
+    if params[:obec].present?
+      session[:last_municipality] = params[:obec]
+      session[:last_municipality_district] = params[:cast]
+    else
+      session.delete(:last_municipality)
+      session.delete(:last_municipality_district)
+    end
+
     @tab = params[:tab].in?(%w[map stats]) ? params[:tab] : "list"
 
     scope = Issue.searchable.includes(:state, :municipality_district, :municipality, :responsible_subject)
@@ -158,7 +168,7 @@ class IssuesController < ApplicationController
           label: "Stav podnetu",
           items: -> do
             Issues::State.order(:name).pluck(:name) -
-            [ "Archivovaný", "Čakajúci", "Zamietnutý", "Vyriešený (skrytý)", "Duplicitný" ] +
+            [ "Archivovaný", "Čakajúci", "Čaká na autora", "Zamietnutý", "Vyriešený (skrytý)", "Duplicitný" ] +
             [ "Archivovaný" ] # add as last option
           end,
           filter: ->(scope, params) do
@@ -244,7 +254,7 @@ class IssuesController < ApplicationController
           end
         ),
 
-        SearchEngine::Controls::Dropdown.new(
+        SearchEngine::Controls::Autocomplete.new(
           param_name: :obec,
           label: "Obec",
           items: -> { Municipality.active.where(active_on_old_portal: false).order(Arel.sql("name COLLATE unicode")).pluck(:name) },

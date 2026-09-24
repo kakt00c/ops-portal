@@ -1,0 +1,15 @@
+<%= ops_title "Podnet si vyžaduje Vašu pozornosť" %>
+<p class="ops-email-paragraph">
+  Dobrý deň, pri Vašom podnete <%= ops_issue_link @issue %> sú potrebné doplňujúce informácie.
+</p>
+
+<p class="ops-email-paragraph">
+  Prečítajte si prosím najnovšiu správu v <b><%= link_to "detaile podnetu", issue_url(@issue), class: "ops-email-link", target: "_blank" %></b> a doplňte požadované údaje.
+</p>
+
+<p class="ops-email-paragraph">
+  <%= ops_button "Reagovať na nový status", "#{issue_url(@issue)}#new_issue_activity" %>
+</p>
+
+<%= render "signature" %>
+<%= render "unsubscribe" %>

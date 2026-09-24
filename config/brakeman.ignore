@@ -3,13 +3,13 @@
     {
       "warning_type": "SQL Injection",
       "warning_code": 0,
-      "fingerprint": "73bd92709f02ddbd8826ec99c4c2acf9dc235503aa5a82cea6330f20e427f317",
+      "fingerprint": "16987c8f23faaba879342d11caa5832509de79e78de5f77079e3ed0b336a4c27",
       "check_name": "SQL",
       "message": "Possible SQL injection",
       "file": "app/lib/pg_search/faster.rb",
-      "line": 11,
+      "line": 17,
       "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
-      "code": "where(\"#{fulltext_index_expression(:against => against, :unaccent_f => unaccent_f)} @@ (#{query.split.compact.map do\n \"to_tsquery('simple', ''' ' || #{unaccent_f}(?) || ' ''')\"\n end.join(\" && \")})\", *query.split.compact)",
+      "code": "where(\"#{fulltext_index_expression(:against => against, :unaccent_f => unaccent_f)} @@ (#{sanitize_terms(query).map do\n \"to_tsquery('simple', ''' ' || #{unaccent_f}(?) || ' ''')\"\n end.join(\" && \")})\", *sanitize_terms(query))",
       "render_path": null,
       "location": {
         "type": "method",
@@ -21,8 +21,8 @@
       "cwe_id": [
         89
       ],
-      "note": ""
+      "note": "Safe: 'against' contains only column names defined by developer, 'unaccent_f' is a controlled function name. User input is sanitized via sanitize_terms() and passed as bind parameters."
     }
   ],
-  "brakeman_version": "8.0.2"
+  "brakeman_version": "8.0.4"
 }

@@ -1,9 +1,34 @@
-<% content_for :title, @category.name + " | Odkaz pre starostu" %>
-
 <section class="news">
   <h1><%= @category.name %></h1>
-  <div class="news-con">
+
+  <% if params[:page].blank? || params[:page] == '1' %>
+    <div class="news-top-section">
+      <div class="news-latest-grid">
+        <div class="news-latest-main">
+          <%= render @hero_pages[0] if @hero_pages.length > 0 %>
+        </div>
+        <div class="news-latest-secondary">
+          <%= render @hero_pages[1] if @hero_pages.length > 1 %>
+          <%= render @hero_pages[2] if @hero_pages.length > 2 %>
+        </div>
+      </div>
+
+      <div class="news-top-articles">
+        <h2 class="top-articles-title">Top články</h2>
+        <div class="top-articles-list">
+          <% if @top_pages.any? %>
+            <%= render @top_pages %>
+          <% else %>
+            <p>Zatiaľ žiadne top články.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="news-grid-bottom">
     <%= render @pages %>
   </div>
+
   <%= ops_paginate @pages %>
 </section>

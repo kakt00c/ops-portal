@@ -22,6 +22,7 @@
 class ResponsibleSubject < ApplicationRecord
   has_many :categories, class_name: "ResponsibleSubjects::Category"
   has_many :issues
+  has_many :clients
   belongs_to :responsible_subjects_type, optional: true, class_name: "ResponsibleSubjects::Type"
   belongs_to :district, optional: true
   belongs_to :municipality, optional: true

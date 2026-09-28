@@ -1,7 +1,7 @@
 class SyncIssueActivityObjectToTriageJob < ApplicationJob
   def perform(issue:, activity_object:, triage_group: nil, client: TriageZammadEnvironment.client, import: false)
     if activity_object.is_a?(Issues::Update)
-      create_portal_issue_verification_process(activity_object, client) unless activity_object.external_id.present?
+      create_portal_issue_verification_process(issue, activity_object, client) unless activity_object.external_id.present?
       return unless activity_object.confirmed? && activity_object.published?
     end
 
@@ -40,9 +40,21 @@ class SyncIssueActivityObjectToTriageJob < ApplicationJob
     end
   end
 
-  def create_portal_issue_verification_process(issue_update, client)
+  def create_portal_issue_verification_process(issue, issue_update, client)
     external_id = client.create_ticket_from_issue_update!(issue_update)
     issue_update.update!(external_id: external_id)
+
+    if issue_update.author == issue.author && issue_update.resolves_issue?
+      client.update_ticket!(external_id, "ops_state" => "accepted")
+
+      client.create_system_note!(
+        issue.resolution_external_id,
+        "[[ops portal]] Stav podnetu bol zmenený na Vyriešený na základe informácie od zadávateľa podnetu.",
+        internal: false,
+        sender: "Agent"
+      )
+      client.close_ticket!(issue.resolution_external_id)
+    end
 
   rescue RuntimeError => e
     raise e unless /.*This object already exists/.match?(e.message) || /.*Can't save object \(ZammadAPI::Resources::Ticket\): Error ID.*/.match?(e.message)

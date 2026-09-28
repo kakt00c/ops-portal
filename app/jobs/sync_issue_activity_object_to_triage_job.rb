@@ -66,15 +66,15 @@ class SyncIssueActivityObjectToTriageJob < ApplicationJob
     return unless issue_update.author == issue_update.issue.author && issue_update.resolves_issue?
     return unless issue_update.external_id.present? && issue_update.issue.resolution_external_id.present?
 
-    client.update_ticket!(issue_update.external_id, "ops_state" => "accepted")
+    Triage::CloseIssueUpdateTriageTicketJob.perform_now(issue_update, "accepted")
 
     client.create_system_note!(
       issue_update.issue.resolution_external_id,
-      "[[ops portal]] Stav podnetu bol zmenený na Vyriešený na základe informácie od zadávateľa podnetu.",
+      "Stav podnetu bol zmenený na Vyriešený na základe informácie od zadávateľa podnetu.",
       internal: false,
       sender: "Agent"
     )
-    client.close_ticket!(issue_update.issue.resolution_external_id)
+    client.update_ticket!(issue_update.issue.resolution_external_id, "ops_state" => "resolved", "state" => "closed")
   end
 
   def find_or_create_triage_portal_user!(user, client, user_group: nil)

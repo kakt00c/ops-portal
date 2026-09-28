@@ -1,7 +1,11 @@
 class SyncIssueActivityObjectToTriageJob < ApplicationJob
   def perform(issue:, activity_object:, triage_group: nil, client: TriageZammadEnvironment.client, import: false)
     if activity_object.is_a?(Issues::Update)
-      create_portal_issue_verification_process(issue, activity_object, client) unless activity_object.external_id.present?
+      unless activity_object.external_id.present?
+        create_portal_issue_verification_process(activity_object, client)
+        auto_resolve_by_author!(activity_object, client)
+      end
+
       return unless activity_object.confirmed? && activity_object.published?
     end
 
@@ -40,21 +44,9 @@ class SyncIssueActivityObjectToTriageJob < ApplicationJob
     end
   end
 
-  def create_portal_issue_verification_process(issue, issue_update, client)
+  def create_portal_issue_verification_process(issue_update, client)
     external_id = client.create_ticket_from_issue_update!(issue_update)
     issue_update.update!(external_id: external_id)
-
-    if issue_update.author == issue.author && issue_update.resolves_issue?
-      client.update_ticket!(external_id, "ops_state" => "accepted")
-
-      client.create_system_note!(
-        issue.resolution_external_id,
-        "[[ops portal]] Stav podnetu bol zmenený na Vyriešený na základe informácie od zadávateľa podnetu.",
-        internal: false,
-        sender: "Agent"
-      )
-      client.close_ticket!(issue.resolution_external_id)
-    end
 
   rescue RuntimeError => e
     raise e unless /.*This object already exists/.match?(e.message) || /.*Can't save object \(ZammadAPI::Resources::Ticket\): Error ID.*/.match?(e.message)
@@ -68,6 +60,21 @@ class SyncIssueActivityObjectToTriageJob < ApplicationJob
     issue_update.update!(external_id: ticket.id)
 
     client.link_tickets!(parent_ticket_id: issue_update.issue.resolution_external_id, child_ticket_id: ticket.id) if issue_update.issue.resolution_external_id
+  end
+
+  def auto_resolve_by_author!(issue_update, client)
+    return unless issue_update.author == issue.author && issue_update.resolves_issue?
+    return unless issue_update.external_id.present? && issue_update.issue.resolution_external_id.present?
+
+    client.update_ticket!(issue_update.external_id, "ops_state" => "accepted")
+
+    client.create_system_note!(
+      issue_update.issue.resolution_external_id,
+      "[[ops portal]] Stav podnetu bol zmenený na Vyriešený na základe informácie od zadávateľa podnetu.",
+      internal: false,
+      sender: "Agent"
+    )
+    client.close_ticket!(issue_update.issue.resolution_external_id)
   end
 
   def find_or_create_triage_portal_user!(user, client, user_group: nil)

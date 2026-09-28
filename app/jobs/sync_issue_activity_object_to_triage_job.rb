@@ -63,7 +63,7 @@ class SyncIssueActivityObjectToTriageJob < ApplicationJob
   end
 
   def auto_resolve_by_author!(issue_update, client)
-    return unless issue_update.author == issue.author && issue_update.resolves_issue?
+    return unless issue_update.author == issue_update.issue.author && issue_update.resolves_issue?
     return unless issue_update.external_id.present? && issue_update.issue.resolution_external_id.present?
 
     client.update_ticket!(issue_update.external_id, "ops_state" => "accepted")

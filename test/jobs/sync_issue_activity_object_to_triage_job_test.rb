@@ -38,62 +38,62 @@ class SyncIssueActivityObjectToTriageJobTest < ActiveJob::TestCase
     Triage::CloseIssueUpdateTriageTicketJob.stub :perform_now, ->(update, state) {
       close_job_called = true if update == @issue_update && state == "accepted"
     } do
-      SyncIssueActivityObjectToTriageJob.perform_now(
+      SyncIssueActivityObjectToTriageJob.new.perform(
         issue: @issue,
         activity_object: @issue_update,
         client: triage_zammad_client_mock
       )
     end
 
-    assert close_job_called, "Expected Triage::CloseIssueUpdateTriageTicketJob to be executed"
-    assert_equal 99, @issue_update.reload.external_id
+    assert close_job_called
+    assert_equal "99", @issue_update.reload.external_id
     assert_mock triage_zammad_client_mock
   end
 
   test "creates verification ticket but does not auto-resolve issue if author is different" do
-    @issue_update.update!(author: users(:two))
+    @issue_update.update_columns(author_id: users(:two).id)
 
     triage_zammad_client_mock = Minitest::Mock.new
     triage_zammad_client_mock.expect :create_ticket_from_issue_update!, 99, [ @issue_update ]
 
-    SyncIssueActivityObjectToTriageJob.perform_now(
+    SyncIssueActivityObjectToTriageJob.new.perform(
       issue: @issue,
       activity_object: @issue_update,
       client: triage_zammad_client_mock
     )
 
-    assert_equal 99, @issue_update.reload.external_id
+    assert_equal "99", @issue_update.reload.external_id
     assert_mock triage_zammad_client_mock
   end
 
   test "creates verification ticket but does not auto-resolve issue if resolves_issue is false" do
-    @issue_update.update!(resolves_issue: false)
+    @issue_update.update_columns(resolves_issue: false)
 
     triage_zammad_client_mock = Minitest::Mock.new
     triage_zammad_client_mock.expect :create_ticket_from_issue_update!, 99, [ @issue_update ]
 
-    SyncIssueActivityObjectToTriageJob.perform_now(
+    SyncIssueActivityObjectToTriageJob.new.perform(
       issue: @issue,
       activity_object: @issue_update,
       client: triage_zammad_client_mock
     )
 
-    assert_equal 99, @issue_update.reload.external_id
+    assert_equal "99", @issue_update.reload.external_id
     assert_mock triage_zammad_client_mock
   end
 
   test "does nothing if issue update already has external_id" do
-    @issue_update.update!(external_id: 99, confirmed: false)
+    @issue_update.update_columns(external_id: "99", confirmed: false)
 
     triage_zammad_client_mock = Minitest::Mock.new
 
-    SyncIssueActivityObjectToTriageJob.perform_now(
+    SyncIssueActivityObjectToTriageJob.new.perform(
       issue: @issue,
       activity_object: @issue_update,
       client: triage_zammad_client_mock
     )
 
-    assert_equal 99, @issue_update.reload.external_id
+    assert_equal "99", @issue_update.reload.external_id
     assert_mock triage_zammad_client_mock
   end
 end

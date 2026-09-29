@@ -1,0 +1,3 @@
+issue_one_activity_update1:
+  type: Issues::UpdateActivity
+  issue: one

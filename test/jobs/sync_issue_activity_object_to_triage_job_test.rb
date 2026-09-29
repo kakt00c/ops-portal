@@ -4,16 +4,13 @@ class SyncIssueActivityObjectToTriageJobTest < ActiveJob::TestCase
   setup do
     @issue = issues(:one)
 
-    activity = Issues::UpdateActivity.create!(issue: @issue)
+    @issue_update = issues_updates(:one)
 
-    @issue_update = Issues::Update.new(
-      activity: activity,
-      author: @issue.author,
-      text: "Vyriešené!",
-      resolves_issue: true,
-      published: true
+    @issue_update.attachments.attach(
+      io: File.open(Rails.root.join("test/fixtures/files/graffiti-with-geo.jpg")),
+      filename: "graffiti-with-geo.jpg",
+      content_type: "image/jpeg"
     )
-    @issue_update.save!(validate: false)
   end
 
   test "creates verification ticket and auto-resolves issue in triage when author marks it resolved" do
@@ -51,7 +48,7 @@ class SyncIssueActivityObjectToTriageJobTest < ActiveJob::TestCase
   end
 
   test "creates verification ticket but does not auto-resolve issue if author is different" do
-    @issue_update.update_columns(author_id: users(:two).id)
+    @issue_update.update!(author_id: users(:two).id)
 
     triage_zammad_client_mock = Minitest::Mock.new
     triage_zammad_client_mock.expect :create_ticket_from_issue_update!, 99, [ @issue_update ]
@@ -67,7 +64,7 @@ class SyncIssueActivityObjectToTriageJobTest < ActiveJob::TestCase
   end
 
   test "creates verification ticket but does not auto-resolve issue if resolves_issue is false" do
-    @issue_update.update_columns(resolves_issue: false)
+    @issue_update.update!(resolves_issue: false)
 
     triage_zammad_client_mock = Minitest::Mock.new
     triage_zammad_client_mock.expect :create_ticket_from_issue_update!, 99, [ @issue_update ]
@@ -83,7 +80,7 @@ class SyncIssueActivityObjectToTriageJobTest < ActiveJob::TestCase
   end
 
   test "does nothing if issue update already has external_id" do
-    @issue_update.update_columns(external_id: "99", confirmed: false)
+    @issue_update.update!(external_id: "99", confirmed: false)
 
     triage_zammad_client_mock = Minitest::Mock.new
 

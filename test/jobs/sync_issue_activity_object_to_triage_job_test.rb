@@ -3,7 +3,6 @@ require "test_helper"
 class SyncIssueActivityObjectToTriageJobTest < ActiveJob::TestCase
   setup do
     @issue = issues(:one)
-    @issue.update!(resolution_external_id: 123)
 
     @issue_update = issues_updates(:one)
     @issue_update.update!(

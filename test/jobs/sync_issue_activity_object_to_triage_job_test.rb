@@ -4,12 +4,14 @@ class SyncIssueActivityObjectToTriageJobTest < ActiveJob::TestCase
   setup do
     @issue = issues(:one)
 
-    @issue_update = issues_updates(:one)
-    @issue_update.update!(
+    @issue_update = Issues::Update.new(
+      activity: activity,
       author: @issue.author,
+      text: "Vyriešené!",
       resolves_issue: true,
-      external_id: nil
+      published: true
     )
+    @issue_update.save!(validate: false)
   end
 
   test "creates verification ticket and auto-resolves issue in triage when author marks it resolved" do

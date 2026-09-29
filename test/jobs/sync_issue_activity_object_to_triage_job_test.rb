@@ -4,6 +4,8 @@ class SyncIssueActivityObjectToTriageJobTest < ActiveJob::TestCase
   setup do
     @issue = issues(:one)
 
+    activity = Issues::UpdateActivity.create!(issue: @issue)
+
     @issue_update = Issues::Update.new(
       activity: activity,
       author: @issue.author,

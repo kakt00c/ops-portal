@@ -7,7 +7,7 @@ class Issues::ModerateCommentJobTest < ActiveJob::TestCase
   setup do
     @comment = issues_comments(:one_comment1)
 
-    @comment.update!(hidden: false, ai_evaluation: nil)
+    @comment.update!(hidden: false, ai_evaluation: {})
 
     @gemini_url = /generativelanguage\.googleapis\.com\/v1beta\/models\/gemini.*:generateContent/
   end

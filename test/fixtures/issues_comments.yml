@@ -6,10 +6,11 @@ one_comment1:
   type: Issues::UserComment
   user_author: one
   text: test comment
+  ai_evaluation: {}
   activity: issue_one_activity_comment1
 
 two_comment1:
   type: Issues::UserComment
   user_author: one
+  ai_evaluation: {}
   activity: issue_two_activity_comment1
-

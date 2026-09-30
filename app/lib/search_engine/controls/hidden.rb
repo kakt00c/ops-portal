@@ -14,8 +14,8 @@ module SearchEngine
         @filter.call(scope, params)
       end
 
-      def add_permitted_params(permitted_params)
-        permitted_params << @param_name
+      def required_params
+        [ @param_name ]
       end
 
       def add_applied_filter(results)

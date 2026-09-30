@@ -31,9 +31,8 @@ module SearchEngine
         @filter.call(scope, params)
       end
 
-      def add_permitted_params(permitted_params)
-        permitted_params << @param_name
-        permitted_params << { @param_name => [] } # allow arrays too
+      def required_params
+        [ @param_name, { @param_name => [] } ] # allow arrays too
       end
 
       def add_applied_filter(results)

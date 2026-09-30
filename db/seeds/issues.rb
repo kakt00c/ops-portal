@@ -1,10 +1,3 @@
-# Development issues spread over municipalities, categories, states and time,
-# with photos, comments, likes and subscriptions. Deterministic (fixed random
-# seed), so the same searches return the same results after reseeding.
-#
-# Titles and descriptions use real words with diacritics, so fulltext search
-# can be tested with and without accents (e.g. "vytlk" finds "výtlk").
-#
 # Runs only on an empty issues table; use `bin/rails db:seed:replant` to reseed.
 # SEED_ISSUES_COUNT overrides the number of generated issues.
 
@@ -160,7 +153,7 @@ else
     [ category, subcategory, subtype ]
   end
 
-  # Flatten municipalities to places issues can be reported at; Bratislava gets ~60% of issues
+  # Bratislava gets ~60% of issues, split evenly among its districts
   places = DEV_SEED_MUNICIPALITIES.flat_map do |data|
     municipality = Municipality.find_by!(name: data[:name])
     if data[:districts]

@@ -13,7 +13,6 @@ city = ResponsibleSubjects::Type.find_by!(name: "Mesto")
 other = ResponsibleSubjects::Type.find_by!(name: "Iný subjekt")
 
 [
-  # Bratislava city districts
   { type: city_district, subject_name: "MÚ Nové Mesto" },
   { type: city_district, subject_name: "MÚ Rača" },
   { type: city_district, subject_name: "MÚ Vajnory" },
@@ -32,7 +31,6 @@ other = ResponsibleSubjects::Type.find_by!(name: "Iný subjekt")
   { type: city_district, subject_name: "MÚ Rusovce" },
   { type: city_district, subject_name: "MÚ Čunovo" },
 
-  # Cities
   { type: city, subject_name: "Hlavné mesto SR Bratislava" },
   { type: city, subject_name: "Mesto Banská Bystrica" },
   { type: city, subject_name: "Trnava" },
@@ -40,7 +38,6 @@ other = ResponsibleSubjects::Type.find_by!(name: "Iný subjekt")
   { type: city, subject_name: "Malacky" },
   { type: city, subject_name: "Pezinok" },
 
-  # Other subjects
   { type: other, subject_name: "Národná diaľničná spoločnosť" },
   { type: other, subject_name: "Mestské lesy v Bratislave" },
   { type: other, subject_name: "Dopravný podnik Bratislava, a.s." },
@@ -68,7 +65,3 @@ other = ResponsibleSubjects::Type.find_by!(name: "Iný subjekt")
     rs.pro = true
   end.save!
 end
-
-# ResponsibleSubject.where(type: city_district).order(mame: :asc).limit(2).update_all(pro: true)
-# ResponsibleSubject.where(type: city_district).order(name: :desc).limit(2).update_all(active: false)
-# ResponsibleSubject.where(type: other).limit(2).update_all(pro: false)

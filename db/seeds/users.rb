@@ -1,5 +1,3 @@
-# Development users. All of them can log in with the password "password".
-
 DEV_SEED_PASSWORD = "password"
 
 def seed_user(email:, firstname:, lastname:, municipality_name: nil, type: User::Citizen, **attributes)
@@ -35,7 +33,6 @@ seed_user(
   responsible_subject: ResponsibleSubject.find_by!(subject_name: "MÚ Staré Mesto")
 )
 
-# A crowd of extra citizens to author issues, comments and likes
 Faker::Config.random = Random.new(42)
 20.times do |n|
   seed_user(

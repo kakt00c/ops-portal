@@ -18,7 +18,6 @@ if Rails.env.development?
   default_connector_zammad_api_token = "CsnpmnPAlMZCmbaClOoWE7QlFPgCsElVLsfgkJMZQfs"
   default_connector_zammad_webhook_secret = "6fvpqr777ryN9FTqkRH2xYGWFXU1W862R6NUyhQOErN"
 
-  # Connector tenants for responsible subjects using the backoffice
   [
     {
       name: "MÚ Staré Mesto",

@@ -1,9 +1,9 @@
 <%= ops_title "Podnet je v riešení" %>
 <p class="ops-email-paragraph">
   <% if @issue.author == @user %>
-    Dobrý deň, samospráva začala aktívne pracovať na Vašom podnete <%= ops_issue_link @issue %>.
+    Dobrý deň, zodpovedný subjekt začal aktívne pracovať na Vašom podnete <%= ops_issue_link @issue %>.
   <% else %>
-    Dobrý deň, samospráva začala aktívne pracovať na podnete <%= ops_issue_link @issue %>, ktorý sledujete.
+    Dobrý deň, zodpovedný subjekt začal aktívne pracovať na podnete <%= ops_issue_link @issue %>, ktorý sledujete.
   <% end %>
   Detailné informácie o postupe prác nájdete v <b><%= link_to "detaile podnetu", issue_url(@issue), class: "ops-email-link", target: "_blank" %></b>.
 </p>

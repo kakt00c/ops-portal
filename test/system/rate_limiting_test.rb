@@ -9,6 +9,7 @@ class RateLimitingTest < ApplicationSystemTestCase
   test "user is redirected when exceeding issue creation limit" do
     10.times do |i|
       Issue.create!(
+        photos: [ active_storage_blobs(:issue_photo) ],
         title: "Test Issue #{i}",
         description: "Description for test issue #{i}",
         category: issues_categories(:one),

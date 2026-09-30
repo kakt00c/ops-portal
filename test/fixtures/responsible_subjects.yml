@@ -6,3 +6,24 @@ one:
   subject_name: MÚ Staré Mesto
   name: MÚ Staré Mesto
   responsible_subjects_type: one
+  active: true
+
+two:
+  subject_name: BVS
+  name: Bratislavská vodárenská spoločnosť
+  responsible_subjects_type: one
+  active: true
+
+archived:
+  subject_name: Zrušený subjekt
+  name: Zrušený subjekt
+  responsible_subjects_type: one
+  active: false
+
+pro:
+  subject_name: Mesto Malacky
+  name: Mesto Malacky
+  responsible_subjects_type: one
+  active: true
+  pro: true
+  external_id: 4242

@@ -11,3 +11,10 @@ two:
   url: MyString
   api_token_public_key: MyString
   webhook_private_key: MyString
+
+pro_backoffice:
+  name: Malacky backoffice
+  url: https://backoffice.example.com/connector/webhook
+  api_token_public_key: <%= OpenSSL::PKey::EC.generate("prime256v1").public_to_pem.inspect %>
+  webhook_private_key: <%= OpenSSL::PKey::EC.generate("prime256v1").to_pem.inspect %>
+  responsible_subject: pro

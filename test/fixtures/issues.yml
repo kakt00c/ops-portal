@@ -1,8 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyString
+  title: Rozbitá lavička na námestí
+  description: Lavička na námestí má odlomené dosky a nedá sa na nej sedieť.
   author: one
   created_at: 2024-11-05 09:59:21
   last_synced_at: 2024-11-05 09:59:23
@@ -28,8 +28,8 @@ two:
   municipality_id: 1
 
 praise:
-  title: MyString
-  description: MyString
+  title: Pochvala za čisté námestie
+  description: Námestie je pravidelne čistené, ďakujeme za dobrú prácu.
   author: one
   created_at: 2024-11-05 09:59:21
   last_synced_at: 2024-11-05 09:59:23
@@ -79,8 +79,8 @@ legacy_discussion_closed:
 
 praise_published:
   issue_type: praise
-  title: Finally cleaned
-  description: Very good!
+  title: Finally cleaned park
+  description: Very good job cleaning the park, thank you!
   municipality_id: 1
   state: in_progress
   created_at: 2024-11-05 09:59:21
@@ -90,7 +90,7 @@ praise_published:
 praise_waiting:
   issue_type: praise
   title: Bike lanes are wide and safety
-  description: Very good job this time.
+  description: Very good job this time, the lanes are wide and safe.
   municipality_id: 1
   state: waiting
   created_at: 2024-11-05 09:59:21
@@ -108,3 +108,31 @@ resolved_private:
   address_city: Bratislava
   address_municipality: Bratislava
   municipality_id: 1
+
+sent_to_responsible:
+  title: Rozbitý chodník pred školou
+  description: Chodník pred základnou školou je rozbitý a nebezpečný pre deti.
+  author: one
+  created_at: 2024-11-05 09:59:21
+  last_synced_at: 2024-11-05 09:59:23
+  triage_external_id: 501
+  resolution_external_id: 601
+  resolution_started_at: 2024-11-06 09:00:00
+  category: one
+  state: sent_to_responsible
+  municipality_id: 1
+  responsible_subject: one
+
+resolved_by_responsible:
+  title: Opravená lavička v parku
+  description: Lavička v parku bola opravená a je znova použiteľná.
+  author: one
+  created_at: 2024-11-05 09:59:21
+  last_synced_at: 2024-11-05 09:59:23
+  triage_external_id: 502
+  resolution_external_id: 602
+  resolution_started_at: 2024-11-06 09:00:00
+  category: one
+  state: resolved
+  municipality_id: 1
+  responsible_subject: one

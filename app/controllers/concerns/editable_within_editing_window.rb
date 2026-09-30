@@ -8,7 +8,7 @@ module EditableWithinEditingWindow
   end
 
   def content_changed?
-    saved_change_to_text? || attachment_changes["attachments"].present?
+    will_save_change_to_text? || attachment_changes["attachments"].present?
   end
 
   def editing_window_end

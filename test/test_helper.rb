@@ -1,4 +1,14 @@
 ENV["RAILS_ENV"] ||= "test"
+
+require "simplecov"
+SimpleCov.command_name "test"
+SimpleCov.merge_timeout 3600
+SimpleCov.start "rails" do
+  enable_coverage :branch
+  group "Lib", "app/lib"
+  group "Misc", "app/misc"
+end
+
 require_relative "../config/environment"
 require "rails/test_help"
 require "minitest/autorun"

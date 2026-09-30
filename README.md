@@ -8,6 +8,10 @@ Install this before running `bundle`:
 - `brew install vips`
 
 
+## Testing
+
+Run `bin/rails test:all`. See [docs/TESTING.md](docs/TESTING.md) for what to test at which level.
+
 ## Connect new Backoffice instance
 
 Tip: Use [CyberChef](https://gchq.github.io/CyberChef/#recipe=Pseudo-Random_Number_Generator(32,'Raw')To_Base62('0-9A-Za-z')) to generate secrets.

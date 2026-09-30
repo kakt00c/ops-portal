@@ -46,7 +46,7 @@ class Issues::UpdatesTest < ApplicationSystemTestCase
 
     fill_in "issues_update_text", with: "Chodník je opravený, ďakujem."
 
-    assert_enqueued_with(job: SyncIssueToTriageJob, args: [ @issue, { sync_activities: false } ]) do
+    assert_enqueued_with(job: Issues::SyncEditableActivityToTriageJob, args: [ @issue, { sync_activities: false } ]) do
       click_on "Odoslať"
 
       within "#activities" do

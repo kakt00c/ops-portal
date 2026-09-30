@@ -74,7 +74,7 @@ class SyncIssueActivityObjectToTriageJob < ApplicationJob
       internal: false,
       sender: "Agent"
     )
-    client.update_ticket!(issue_update.issue.resolution_external_id, "ops_state" => "resolved", "state" => "closed")
+    client.update_ticket!(issue_update.issue.resolution_external_id, { "ops_state" => "resolved", "state" => "closed" })
   end
 
   def find_or_create_triage_portal_user!(user, client, user_group: nil)

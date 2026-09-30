@@ -525,7 +525,371 @@ class ZammadApiClientTest < ActiveSupport::TestCase
     assert_equal [ 42 ], @client.get_ticket_resolution_parent_links(44)
   end
 
+  test "get_ticket_resolution_parent_links returns nothing for a ticket without links" do
+    stub_zammad(:get, "links", body: {})
+
+    assert_equal [], @client.get_ticket_resolution_parent_links(44)
+  end
+
+  test "raw_api_request re-raises connection failures" do
+    stub_request(:get, zammad_url("settings")).to_timeout
+
+    assert_raises(Faraday::Error) { @client.check_import_mode! }
+  end
+
+  # create_ticket_from_issue_update!
+
+  test "create_ticket_from_issue_update! opens a verification ticket linked to the resolution ticket" do
+    update = build_issue_update(resolves_issue: true)
+    stub_zammad(:get, "tickets/3", fixture: "zammad/ticket_resolution", overrides: { id: 3 })
+    stub_zammad(:post, "tickets", status: 201, body: { id: 700 })
+    stub_ticket_number(700, update.ticket_number)
+    link = stub_zammad(:post, "links/add", body: {})
+
+    assert_equal 700, @client.create_ticket_from_issue_update!(update)
+
+    assert_requested :post, zammad_url("tickets"), query: hash_including({}), body: hash_including(
+      "number" => update.ticket_number,
+      "ops_issue_identifier" => update.id,
+      "process_type" => "portal_issue_verification",
+      "title" => "Overenie podnetu Issue from Bratislava",
+      "group" => "Dobrovoľníci::Bratislava",
+      "owner" => "agent@example.org",
+      "customer_id" => 1,
+      "ops_state" => "waiting",
+      "issue_resolved" => "yes",
+      "portal_url" => "#{Rails.application.routes.url_helpers.issue_url(issues(:two))}#komentar_#{update.id}",
+      "article" => hash_including(
+        "body" => "Lavička je opravená.", "sender" => "Customer", "type" => "web",
+        "attachments" => [ hash_including("filename" => "avatar.png", "mime-type" => "image/png") ]
+      )
+    )
+    assert_requested link.with(body: hash_including(link_object_target_value: 3, link_object_source_number: update.ticket_number))
+  end
+
+  test "create_ticket_from_issue_update! creates the Zammad customer for an author without one" do
+    update = build_issue_update(resolves_issue: false, author: users(:two))
+    stub_zammad(:get, "tickets/3", fixture: "zammad/ticket_resolution", overrides: { id: 3 })
+    stub_zammad(:post, "users", status: 201, body: { id: 56 })
+    stub_zammad(:post, "tickets", status: 201, body: { id: 700 })
+    stub_ticket_number(700, update.ticket_number)
+    stub_zammad(:post, "links/add", body: {})
+
+    @client.create_ticket_from_issue_update!(update)
+
+    assert_equal 56, users(:two).reload.external_id
+    assert_requested :post, zammad_url("tickets"), query: hash_including({}), body: hash_including(
+      "title" => "Aktualizácia podnetu Issue from Bratislava", "issue_resolved" => "no", "customer_id" => 56
+    )
+  end
+
+  # update_ticket_from_issue!
+
+  test "update_ticket_from_issue! sends the current issue fields" do
+    stub_ticket
+    stub_zammad(:put, "tickets/42", fixture: "zammad/ticket_resolution")
+    issue = issues(:one)
+    issue.municipality_district = municipality_districts(:stare_mesto_ba)
+    issue.responsible_subject = responsible_subjects(:one)
+
+    @client.update_ticket_from_issue!(42, issue)
+
+    assert_requested :put, zammad_url("tickets/42"), query: hash_including({}), body: hash_including(
+      "title" => "Rozbitá lavička na námestí",
+      "ops_state" => "waiting",
+      "address_municipality" => "Bratislava::Staré Mesto",
+      "category" => "Zeleň a životné prostredie",
+      "subcategory" => "Strom",
+      "responsible_subject" => rs_value(responsible_subjects(:one)).stringify_keys
+    )
+    assert_not_requested :post, zammad_url("ticket_articles"), query: hash_including({})
+  end
+
+  test "update_ticket_from_issue! syncs attachments when asked" do
+    stub_ticket
+    stub_zammad(:put, "tickets/42", fixture: "zammad/ticket_resolution")
+    stub_request(:delete, %r{/api/v1/attachments/})
+    stub_zammad(:post, "ticket_articles", status: 201, body: { id: 120 })
+
+    @client.update_ticket_from_issue!(42, issues(:one), update_attachments: true)
+
+    assert_requested :post, zammad_url("ticket_articles"), query: hash_including({}), body: hash_including("body" => "Aktualizované prílohy")
+  end
+
+  # Other ticket updates
+
+  test "update_ticket! sends the investment flag" do
+    stub_ticket
+    stub_zammad(:put, "tickets/42", fixture: "zammad/ticket_resolution")
+
+    @client.update_ticket!(42, { "investment" => "yes" })
+
+    assert_requested :put, zammad_url("tickets/42"), query: hash_including({}), body: { "investment" => "yes" }
+  end
+
+  test "close_ticket! closes the ticket" do
+    stub_ticket
+    stub_zammad(:put, "tickets/42", fixture: "zammad/ticket_resolution")
+
+    @client.close_ticket!(42)
+
+    assert_requested :put, zammad_url("tickets/42"), query: hash_including({}), body: { "state" => "closed" }
+  end
+
+  test "find_ticket_responsible_subject returns the ticket's responsible subject" do
+    stub_ticket(responsible_subject: rs_value(responsible_subjects(:one)))
+
+    assert_equal rs_value(responsible_subjects(:one)), @client.find_ticket_responsible_subject(42)
+  end
+
+  # Creating articles
+
+  test "create_article! posts a portal comment with its attachments" do
+    comment = issues_comments(:one_comment1)
+    comment.update!(text: "Stále to nie je opravené.")
+    comment.attachments.attach(io: file_fixture("avatar.png").open, filename: "avatar.png", content_type: "image/png")
+    stub_ticket
+    stub_zammad(:post, "ticket_articles", status: 201, body: { id: 120 })
+
+    assert_equal 120, @client.create_article!(42, comment, sender: "Customer")
+
+    assert_requested :post, zammad_url("ticket_articles"), query: hash_including({}), body: hash_including(
+      "ticket_id" => 42,
+      "uuid" => comment.uuid,
+      "origin_by_id" => 1,
+      "content_type" => "text/html",
+      "body" => "Stále to nie je opravené.",
+      "type" => "web",
+      "sender" => "Customer",
+      "attachments" => [ hash_including("filename" => "avatar.png", "mime-type" => "image/png") ]
+    )
+  end
+
+  test "create_article! uses a placeholder for an empty comment" do
+    stub_ticket
+    stub_zammad(:post, "ticket_articles", status: 201, body: { id: 120 })
+
+    @client.create_article!(42, issues_comments(:one_comment1), sender: "Customer")
+
+    assert_requested :post, zammad_url("ticket_articles"), query: hash_including({}), body: hash_including("body" => "(bez popisu)")
+  end
+
+  test "create_article! raises when Zammad returns no article id" do
+    stub_ticket
+    stub_zammad(:post, "ticket_articles", status: 201, body: {})
+
+    error = assert_raises(RuntimeError) { @client.create_article!(42, issues_comments(:one_comment1), sender: "Customer") }
+    assert_equal "No article ID returned", error.message
+  end
+
+  test "create_rs_portal_article! posts the comment as an email from the responsible subject" do
+    comment = issues_comments(:one_comment1)
+    comment.update!(text: "Opravu sme naplánovali.")
+    comment.attachments.attach(io: file_fixture("avatar.png").open, filename: "avatar.png", content_type: "image/png")
+    stub_ticket
+    stub_zammad(:post, "ticket_articles", status: 201, body: { id: 121 })
+
+    assert_equal 121, @client.create_rs_portal_article!(42, comment)
+
+    assert_requested :post, zammad_url("ticket_articles"), query: hash_including({}), body: hash_including(
+      "ticket_id" => 42,
+      "content_type" => "text/plain",
+      "body" => "Opravu sme naplánovali.",
+      "type" => "email",
+      "to" => "portal.responsible.subjects@odkazprestarostu.sk",
+      "sender" => "Customer",
+      "attachments" => [ hash_including("filename" => "avatar.png", "mime-type" => "image/png") ]
+    )
+  end
+
+  test "create_article_from_api! posts a public note from the backoffice" do
+    stub_ticket
+    stub_zammad(:post, "ticket_articles", status: 201, body: { id: 122 })
+    activity = {
+      "content_type" => "text/plain",
+      "body" => "Odpoveď z backoffice.",
+      "created_at" => "2024-11-07T08:00:00.000Z",
+      "attachments" => [ { "filename" => "photo.jpg", "content_type" => "image/jpeg", "data64" => "aW1hZ2U=" } ]
+    }
+
+    assert_equal 122, @client.create_article_from_api!(4242, 42, activity)
+
+    assert_requested :post, zammad_url("ticket_articles"), query: hash_including({}), body: hash_including(
+      "ticket_id" => 42,
+      "origin_by_id" => 4242,
+      "content_type" => "text/plain",
+      "body" => "Odpoveď z backoffice.",
+      "type" => "note",
+      "internal" => false,
+      "attachments" => [ { "filename" => "photo.jpg", "mime-type" => "image/jpeg", "data" => "aW1hZ2U=" } ]
+    )
+  end
+
+  # Reading articles and tickets: remaining edge cases
+
+  test "get_article re-raises other Zammad errors" do
+    stub_zammad(:get, "tickets/42", status: 500, body: { error: "Internal Server Error" })
+
+    assert_raises(RuntimeError) { @client.get_article(42, 101) }
+  end
+
+  test "get_ticket leaves the author empty when the customer is not a portal user" do
+    stub_ticket(customer_id: 999, created_by_id: 999)
+
+    ticket = @client.get_ticket(42)
+
+    assert_nil ticket[:author]
+    assert_nil ticket[:author_response]
+  end
+
+  test "get_article raises for a responsible subject author that cannot be matched to a responsible subject" do
+    stub_zammad(:get, "users/5000", fixture: "zammad/user_responsible_subject", overrides: { id: 5000 })
+    stub_article(sender: "Customer", type: "email", origin_by_id: 5000)
+
+    error = assert_raises(RuntimeError) { @client.get_article(42, 110) }
+    assert_equal "Responsible subject article author has no organization", error.message
+  end
+
+  # Users
+
+  test "get_users lists Zammad users" do
+    stub_zammad(:get, "users", body: [ zammad_fixture("zammad/user_portal"), zammad_fixture("zammad/user_agent") ])
+
+    assert_equal [ 1, 3 ], @client.get_users.first(2).map(&:id)
+  end
+
+  test "find_user returns the Zammad user" do
+    stub_zammad(:get, "users/1", fixture: "zammad/user_portal")
+
+    assert_equal "ops-user-1", @client.find_user(1).login
+  end
+
+  test "find_user returns nil when the user does not exist" do
+    stub_zammad(:get, "users/1", status: 404, body: zammad_not_found("User"))
+
+    assert_nil @client.find_user(1)
+  end
+
+  test "find_user re-raises other Zammad errors" do
+    stub_zammad(:get, "users/1", status: 500, body: { error: "Internal Server Error" })
+
+    assert_raises(RuntimeError) { @client.find_user(1) }
+  end
+
+  test "add_user_to_group grants full access to the group and keeps existing groups" do
+    stub_zammad(:get, "users/3", fixture: "zammad/user_agent")
+    stub_zammad(:put, "users/3", fixture: "zammad/user_agent")
+
+    @client.add_user_to_group(3, "Dobrovoľníci::Bratislava")
+
+    assert_requested :put, zammad_url("users/3"), query: hash_including({}),
+      body: { "groups" => { "Incoming" => "full", "Dobrovoľníci::Bratislava" => "full" } }
+  end
+
+  test "update_customer renames the portal user in Zammad" do
+    user = users(:one)
+    stub_zammad(:get, "users/search", body: [ zammad_fixture("zammad/user_portal", firstname: "Staré meno") ])
+    stub_zammad(:put, "users/1", fixture: "zammad/user_portal")
+
+    @client.update_customer(user)
+
+    assert_requested :put, zammad_url("users/1"), query: hash_including({}), body: { "firstname" => "Jozef Mokry" }
+  end
+
+  test "update_customer clears the last name of an anonymous user" do
+    user = users(:one)
+    user.anonymous = true
+    stub_zammad(:get, "users/search", body: [ zammad_fixture("zammad/user_portal", lastname: "Mokry") ])
+    stub_zammad(:put, "users/1", fixture: "zammad/user_portal")
+
+    @client.update_customer(user)
+
+    assert_requested :put, zammad_url("users/1"), query: hash_including({}), body: hash_including("lastname" => "")
+  end
+
+  test "update_customer returns false when the user is not in Zammad" do
+    stub_zammad(:get, "users/search", body: [])
+
+    assert_equal false, @client.update_customer(users(:one))
+  end
+
+  test "create_agent! creates an agent" do
+    stub_zammad(:post, "users", status: 201, body: { id: 57 })
+    user = users(:one)
+
+    assert_equal 57, @client.create_agent!(user)
+
+    assert_requested :post, zammad_url("users"), query: hash_including({}), body: hash_including(
+      "firstname" => "Jozef", "lastname" => "Mokry", "login" => user.email, "email" => user.email, "roles" => [ "Agent" ]
+    )
+  end
+
+  test "create_agent! returns the existing agent when the email is taken" do
+    user = users(:one)
+    stub_zammad(:post, "users", status: 422, body: { error: "Email address '#{user.email}' is already used for another user." })
+    stub_zammad(:get, "users/search", body: [ zammad_fixture("zammad/user_agent") ])
+
+    assert_equal 3, @client.create_agent!(user)
+
+    assert_requested :get, zammad_url("users/search"), query: hash_including("query" => user.email)
+  end
+
+  test "create_agent! raises when the taken email cannot be found" do
+    stub_zammad(:post, "users", status: 422, body: { error: "Email address is already used for another user." })
+    stub_zammad(:get, "users/search", body: [])
+
+    assert_raises(RuntimeError, match: /Can't find nor create triage zammad user with email/) { @client.create_agent!(users(:one)) }
+  end
+
+  test "create_agent! re-raises other Zammad errors" do
+    stub_zammad(:post, "users", status: 422, body: { error: "Invalid email" })
+
+    assert_raises(RuntimeError, match: /Invalid email/) { @client.create_agent!(users(:one)) }
+  end
+
+  test "create_responsible_subject! creates a responsible subject user" do
+    stub_zammad(:post, "users", status: 201, body: { id: 58 })
+    responsible_subject = responsible_subjects(:one)
+
+    assert_equal 58, @client.create_responsible_subject!(responsible_subject)
+
+    assert_requested :post, zammad_url("users"), query: hash_including({}), body: hash_including(
+      "firstname" => "MÚ Staré Mesto", "login" => "ops-rs-#{responsible_subject.id}", "roles" => [ "Zodpovedný Subjekt" ]
+    )
+  end
+
+  test "create_responsible_subject! returns the existing user when the login is taken" do
+    stub_zammad(:post, "users", status: 422, body: { error: "Login is already used for another user." })
+    stub_zammad(:get, "users/search", body: [ zammad_fixture("zammad/user_responsible_subject") ])
+
+    assert_equal 4242, @client.create_responsible_subject!(responsible_subjects(:pro))
+  end
+
+  test "create_responsible_subject! raises when the taken user cannot be found" do
+    stub_zammad(:post, "users", status: 422, body: { error: "Login is already used for another user." })
+    stub_zammad(:get, "users/search", body: [])
+
+    assert_raises(RuntimeError, match: /Can't create triage zammad user for responsible subject/) do
+      @client.create_responsible_subject!(responsible_subjects(:one))
+    end
+  end
+
+  test "get_groups lists Zammad groups" do
+    groups = stub_zammad(:get, "groups", body: [ { id: 1, name: "Incoming" }, { id: 2, name: "Dobrovoľníci::Bratislava" } ])
+
+    assert_equal [ "Incoming", "Dobrovoľníci::Bratislava" ], @client.get_groups.map(&:name)
+    assert_requested groups.with(query: hash_including("per_page" => "500"))
+  end
+
   private
+
+  def build_issue_update(resolves_issue:, author: users(:one))
+    update = Issues::Update.new(text: "Lavička je opravená.", author: author, published: true, resolves_issue: resolves_issue, legacy_id: 1)
+    update.build_activity(issue: issues(:two), type: Issues::UpdateActivity)
+    update.attachments.attach(io: file_fixture("avatar.png").open, filename: "avatar.png", content_type: "image/png")
+    update.save!
+    update
+  end
 
   def stub_ticket(articles: zammad_fixture("zammad/ticket_articles"), **overrides)
     stub_zammad(:get, "tickets/42", fixture: "zammad/ticket_resolution", overrides: overrides)

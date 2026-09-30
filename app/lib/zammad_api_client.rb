@@ -471,6 +471,7 @@ class ZammadApiClient
     rescue RuntimeError => e
       raise e unless e.message.include?("Couldn't find User with")
       Rails.logger.info("Couldn't find user with id: #{user_id}")
+      nil
     end
   end
 

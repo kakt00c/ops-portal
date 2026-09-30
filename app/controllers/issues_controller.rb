@@ -3,6 +3,7 @@ class IssuesController < ApplicationController
 
   before_action :ensure_user_onboarded
   before_action :set_issue, only: %i[ show edit update ]
+  before_action :remember_last_municipality, only: :index
   before_action :force_responsible_subject_login, only: :show, if: -> { params.key?(:force_rs_login) }
   before_action :check_show_permissions, only: :show
   before_action :check_edit_permissions, only: %i[ edit update ]
@@ -41,8 +42,6 @@ class IssuesController < ApplicationController
     when "map"
         @search_results = search_engine.search(scope, search_params)
     end
-
-    remember_last_municipality(@search_results.search_params)
   end
 
   def geo
@@ -112,7 +111,7 @@ class IssuesController < ApplicationController
 
   private
 
-  def remember_last_municipality(search_params)
+  def remember_last_municipality
     if search_params[:obec].present?
       session[:last_municipality] = search_params[:obec]
       session[:last_municipality_district] = search_params[:cast]
@@ -152,9 +151,11 @@ class IssuesController < ApplicationController
   ZAMMAD_TICKET_NAME_REGEXP = /Tic?ket#.-(\d+)/ # Ticket#T-300000, Tiket#R-300000
 
   def search_params
-    permitted = search_engine.required_params + [ :tab ]
+    @search_params ||= begin
+      permitted = search_engine.required_params + [ :tab ]
 
-    normalize_array_params(params, permitted).permit(*permitted).to_h
+      normalize_array_params(params, permitted).permit(*permitted).to_h
+    end
   end
 
   def search_engine

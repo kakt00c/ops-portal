@@ -1,3 +1,6 @@
+# Municipalities and Bratislava city districts with approximate centers and a few
+# real street names, so seeded issues land on sensible places on the map.
+
 DEV_SEED_MUNICIPALITIES = [
   {
     name: "Bratislava", region: "Bratislavský kraj", category: :regional_capital, municipality_type: :huge,

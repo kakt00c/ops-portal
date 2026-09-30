@@ -28,6 +28,11 @@ class SyncIssueActivityObjectToTriageJobTest < ActiveJob::TestCase
 
     triage_zammad_client_mock.expect :create_ticket_from_issue_update!, 99, [ @issue_update ]
 
+    triage_zammad_client_mock.expect :update_ticket!, nil, [
+      "99",
+      { "ops_state" => "accepted" }
+    ]
+
     triage_zammad_client_mock.expect :create_system_note!, nil, [
       @issue.resolution_external_id,
       "Stav podnetu bol zmenený na Vyriešený na základe informácie od zadávateľa podnetu."

@@ -7,7 +7,6 @@ class ZammadApiClient
   DEFAULT_ARTICLE_TYPE = "web"
   DEFAULT_ORIGIN = "portal"
   DEFAULT_ARTICLE_CONTENT_TYPE = "text/html"
-  USERS_PER_PAGE = 1000
   # TODO: consider seeding this value
   DEFAULT_OPS_ADMIN_USER = {
     firstname: "Dobrovoľník Odkazu pre starostu",
@@ -61,7 +60,6 @@ class ZammadApiClient
     case ticket.process_type
     when "portal_issue_triage", "portal_issue_resolution"
       result = build_issue_ticket_response(ticket)
-      return unless result.present?
 
       if ticket.issue_type == "praise"
         result.merge({
@@ -638,17 +636,12 @@ class ZammadApiClient
       end
     elsif article_type == :responsible_subject_portal_and_backoffice_comment
       responsible_subject = @client.user.find(author.external_id)
-      if responsible_subject.nil?
-        Rails.logger.warn("Responsible subject with id: #{author.external_id} not found in Triage Zammad")
-        nil
-      else
-        {
-          firstname: responsible_subject.firstname,
-          lastname: responsible_subject.lastname,
-          uuid: responsible_subject.uuid,
-          responsible_subject_identifier: responsible_subject.id
-        }
-      end
+      {
+        firstname: responsible_subject.firstname,
+        lastname: responsible_subject.lastname,
+        uuid: responsible_subject.uuid,
+        responsible_subject_identifier: responsible_subject.id
+      }
     end
   end
 

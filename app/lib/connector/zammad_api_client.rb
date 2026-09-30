@@ -1,7 +1,5 @@
 module Connector
   class ZammadApiClient
-    attr :client
-
     # TODO
     ANONYMOUS_USER_ID = 1
     DEFAULT_GROUP = "Incoming"
@@ -93,7 +91,6 @@ module Connector
       raise "Assignee is not in the subtask group" unless assignee.roles.include?("Agent")
 
       parent_ticket = @client.ticket.find(parent_ticket_id)
-      raise "Parent ticket not found" unless parent_ticket
 
       author = @client.user.find(author_id)
       issue_number = parent_ticket.number.gsub("OPS-", "SUB-").gsub("M-", "SUB-") + "-#{number}"
@@ -153,8 +150,6 @@ module Connector
         subtask_ticket = search_result.first
       end
 
-      raise "Subtask ticket not created" unless subtask_ticket
-
       parent_ticket_json = raw_api_request(:get, "tickets/#{parent_ticket_id}").first
       raise "Parent ticket not found" unless parent_ticket_json
 
@@ -181,7 +176,6 @@ module Connector
 
     def update_subtasks(parent_ticket_id)
       parent_ticket = @client.ticket.find(parent_ticket_id)
-      raise "Parent ticket not found" unless parent_ticket
 
       parent_ticket_json = raw_api_request(:get, "tickets/#{parent_ticket_id}").first
       raise "Parent ticket not found" unless parent_ticket_json
@@ -197,8 +191,6 @@ module Connector
         next unless item["ticket_id"]
 
         subtask_ticket = @client.ticket.find(item["ticket_id"])
-        next unless subtask_ticket
-
         subtask_ticket.address_municipality = parent_ticket.address_municipality
         subtask_ticket.address_municipality_district = parent_ticket.address_municipality_district
         subtask_ticket.address_street = parent_ticket.address_street

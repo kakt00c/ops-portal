@@ -28,7 +28,7 @@ class Triage::CreateIssueResolutionProcessTicketJobTest < ActiveJob::TestCase
     )
 
     assert_equal 99, @issue.reload.resolution_external_id
-    mock_client.verify
+    assert_mock mock_client
   end
 
   test "recovers resolution ticket ID when ticket already exists in Zammad" do

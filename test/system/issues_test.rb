@@ -16,6 +16,6 @@ class IssuesTest < ApplicationSystemTestCase
     visit issue_path(issues(:praise_published))
 
     assert_selector "h1", text: "Finally cleaned"
-    assert_text "Very good!"
+    assert_text "Very good job cleaning the park, thank you!"
   end
 end

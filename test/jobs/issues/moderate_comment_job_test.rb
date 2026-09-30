@@ -53,6 +53,6 @@ class Issues::ModerateCommentJobTest < ActiveJob::TestCase
 
     @comment.reload
     assert_not @comment.hidden?
-    assert_nil @comment.ai_evaluation
+    assert_empty @comment.ai_evaluation
   end
 end

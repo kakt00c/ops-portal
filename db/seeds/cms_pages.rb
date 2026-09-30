@@ -1,4 +1,4 @@
-def generate_cms_page(title:, slug:, category_id:, text: nil, tags: ["published"], days_ago: 7)
+def generate_cms_page(title:, slug:, category_id:, text: nil, tags: [ "published" ], days_ago: 7)
   Cms::Page.find_or_create_by!(slug: slug, category_id: category_id) do |page|
     page.title = title
     page.text = text || 5.times.map { Faker::Lorem.paragraph_by_chars }.map { |par| "<p>#{par}</p>" }.join("\n")
@@ -31,7 +31,7 @@ end
   "Pridajte sa",
   "Podporte nás",
   "Zásady ochrany osobných údajov",
-  "Partneri",
+  "Partneri"
 ].each { |title| generate_cms_page(category_id: cms_root.id, title: title, slug: title.parameterize) }
 
 # Named announcements
@@ -49,7 +49,7 @@ end
   { slug: "mobile-app-release", title: "Our Mobile App is Live!", days_ago: 2,
     text: "<p><strong>Great news!</strong> Our brand-new mobile app is now available for download on iOS and Android. Enjoy a seamless experience with enhanced features, push notifications, and improved performance. Get it today and stay connected on the go!</p>" * 4 },
   { slug: "dashboard-upgrade", title: "New and Improved User Dashboard!", days_ago: 1, tags: [],
-    text: "<p><strong>Exciting updates!</strong> Your user dashboard just got a major upgrade. We've improved navigation, added new analytics tools, and enhanced performance to make your experience smoother and more efficient. Log in now to explore the new design!</p>" * 4 },
+    text: "<p><strong>Exciting updates!</strong> Your user dashboard just got a major upgrade. We've improved navigation, added new analytics tools, and enhanced performance to make your experience smoother and more efficient. Log in now to explore the new design!</p>" * 4 }
 ].each { |params| generate_cms_page(category_id: cms_novinky.id, **params) }
 
 # Random announcements

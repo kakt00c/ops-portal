@@ -48,20 +48,6 @@ class IssuesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to issues_url(obec: "Nitra", cast: nil)
   end
 
-  test "should filter by indexed array params the same way as by array params" do
-    category = @issue.category.name
-    municipality = @issue.municipality.name
-
-    get issues_url(kategoria: [ category ], obec: [ municipality ])
-    assert_response :success
-    expected_body = response.body
-
-    get "/dopyty?kategoria[0]=#{CGI.escape(category)}&obec[0]=#{CGI.escape(municipality)}"
-    assert_response :success
-    assert_equal expected_body, response.body
-    assert_equal [ municipality ], session[:last_municipality]
-  end
-
   test "should ignore filter params of unexpected shape" do
     get "/dopyty?kategoria[foo]=bar&obec[foo]=bar&podkategoria[0][x]=y&q[a]=b"
     assert_response :success

@@ -27,7 +27,7 @@ end
 # Seed triage categories with subcategories and subtypes (subset for development)
 
 def seed_category(name)
-  category = Issues::Category.find_or_initialize_by(name: name)
+  category = Issues::Category.non_legacy.find_or_initialize_by(name: name)
   category.save!
   yield(category) if block_given?
 end

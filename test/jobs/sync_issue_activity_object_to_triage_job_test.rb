@@ -4,13 +4,23 @@ class SyncIssueActivityObjectToTriageJobTest < ActiveJob::TestCase
   setup do
     @issue = issues(:one)
 
-    @issue_update = issues_updates(:one)
+    activity = Issues::UpdateActivity.create!(issue: @issue)
+
+    @issue_update = Issues::Update.new(
+      activity: activity,
+      author: @issue.author,
+      text: "Vyriešené!",
+      resolves_issue: true,
+      published: true
+    )
 
     @issue_update.attachments.attach(
       io: File.open(Rails.root.join("test/fixtures/files/graffiti-with-geo.jpg")),
       filename: "graffiti-with-geo.jpg",
       content_type: "image/jpeg"
     )
+
+    @issue_update.save!
   end
 
   test "creates verification ticket and auto-resolves issue in triage when author marks it resolved" do

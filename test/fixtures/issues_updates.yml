@@ -1,6 +1,0 @@
-one:
-  activity: issue_one_activity_update1
-  author: one
-  text: "Vyriešené!"
-  resolves_issue: true
-  published: true

@@ -197,6 +197,7 @@ class ZammadApiClient
       title: "#{issue_update.resolves_issue? ? "Overenie" : "Aktualizácia"} podnetu #{issue_update.issue.title || 'Bez názvu'}",
       description: issue_update.text.presence || "(bez popisu)",
       group: issue_ticket.group,
+      owner: issue_ticket.owner,
       customer_id: issue_update.author&.external_id,
       origin_by_id: issue_update.author&.external_id,
       ops_state: "waiting",

@@ -83,7 +83,7 @@ class Issue < ApplicationRecord
   validates :triage_external_id, uniqueness: true, allow_nil: true
   validates :category_id, presence: true, unless: ->(issue) { issue.issue_type == "praise" || issue.archived? }
   validates_presence_of :title, :description, unless: :imported?
-  validates_presence_of :photos, unless: -> { :imported? || issue_type == "praise" }
+  validates_presence_of :photos, unless: -> { imported? || issue_type == "praise" }
   validates_length_of :title, minimum: 10, maximum: 200, allow_blank: true, unless: :imported?
   validates_length_of :description, minimum: 25, maximum: 3500, allow_blank: true, unless: :imported?
 

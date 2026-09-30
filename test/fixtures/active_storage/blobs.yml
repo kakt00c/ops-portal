@@ -1,0 +1,4 @@
+# One photo shared by every issue fixture that is neither imported nor a praise;
+# Issue requires at least one photo on save.
+issue_photo:
+  <%= ActiveStorage::FixtureSet.blob filename: "graffiti-with-geo.jpg", service_name: "test" %>

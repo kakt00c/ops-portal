@@ -1,0 +1,10 @@
+{
+  "id": 7,
+  "login": "referent@malacky.sk",
+  "firstname": "Ján",
+  "lastname": "Referent",
+  "email": "referent@malacky.sk",
+  "roles": ["Agent"],
+  "groups": { "Incoming": "full" },
+  "active": true
+}

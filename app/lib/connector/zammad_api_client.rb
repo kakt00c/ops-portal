@@ -591,8 +591,8 @@ module Connector
       rescue RuntimeError => e
         raise e unless e.message.include? "is already used for another user."
 
-        zammad_user = find_zammad_user(user_params["email"] || user_params["login"])
-        raise "Can't find nor create zammad user with email: #{user_params["email"]}" unless zammad_user
+        zammad_user = find_zammad_user(user_params[:email] || user_params[:login])
+        raise "Can't find nor create zammad user with email: #{user_params[:email]}" unless zammad_user
         zammad_user
       end
     end

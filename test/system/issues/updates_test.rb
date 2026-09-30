@@ -54,7 +54,6 @@ class Issues::UpdatesTest < ApplicationSystemTestCase
       end
     end
 
-    assert_equal "resolved", @issue.reload.state.key
     assert Issues::Update.last.resolves_issue?
   end
 

@@ -1,4 +1,5 @@
 require "test_helper"
+SimpleCov.command_name "test:system"
 require "test_helpers/auth_helper"
 require "capybara"
 
@@ -26,6 +27,10 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   include MunicipalityBoundaryTestHelper
 
   teardown do
+    # Leave the page before Capybara clears cookies. A request still in flight
+    # (a Turbo frame, a fetch from a Stimulus controller) would otherwise
+    # answer with Set-Cookie after the clear and log the next test in again.
+    visit "about:blank"
     Capybara.reset_sessions!
     ActiveRecord::Base.connection.execute("DELETE FROM user_remember_keys")
   end

@@ -1,0 +1,40 @@
+one_photo:
+  name: photos
+  record: one (Issue)
+  blob: issue_photo
+
+two_photo:
+  name: photos
+  record: two (Issue)
+  blob: issue_photo
+
+without_triage_external_id_photo:
+  name: photos
+  record: without_triage_external_id (Issue)
+  blob: issue_photo
+
+legacy1_photo:
+  name: photos
+  record: legacy1 (Issue)
+  blob: issue_photo
+
+legacy_discussion_closed_photo:
+  name: photos
+  record: legacy_discussion_closed (Issue)
+  blob: issue_photo
+
+resolved_private_photo:
+  name: photos
+  record: resolved_private (Issue)
+  blob: issue_photo
+
+sent_to_responsible_photo:
+  name: photos
+  record: sent_to_responsible (Issue)
+  blob: issue_photo
+
+resolved_by_responsible_photo:
+  name: photos
+  record: resolved_by_responsible (Issue)
+  blob: issue_photo
+

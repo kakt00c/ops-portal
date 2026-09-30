@@ -81,6 +81,7 @@ class Legacy::WidgetsControllerTest < ActionDispatch::IntegrationTest
     state = Issues::State.find_by(key: "in_progress") || issues_states(:in_progress)
     category = Issues::Category.first || issues_categories(:one)
     Issue.create!(
+      photos: [ active_storage_blobs(:issue_photo) ],
       title: "Test Issue 1",
       description: "Test description with enough characters to pass validation",
       municipality: municipality,
@@ -102,6 +103,7 @@ class Legacy::WidgetsControllerTest < ActionDispatch::IntegrationTest
     category = Issues::Category.first || issues_categories(:one)
 
     Issue.create!(
+      photos: [ active_storage_blobs(:issue_photo) ],
       title: "Private Resolved Issue",
       description: "This is a private resolved issue with enough text to be valid",
       municipality: municipality,
@@ -126,6 +128,7 @@ class Legacy::WidgetsControllerTest < ActionDispatch::IntegrationTest
     # Create multiple issues for statistics
     3.times do |i|
       Issue.create!(
+        photos: [ active_storage_blobs(:issue_photo) ],
         title: "Statistic Issue #{i}",
         description: "Test description with enough characters to pass validation requirements",
         municipality: municipality,
@@ -161,6 +164,7 @@ class Legacy::WidgetsControllerTest < ActionDispatch::IntegrationTest
     # Create many issues
     20.times do |i|
       Issue.create!(
+        photos: [ active_storage_blobs(:issue_photo) ],
         title: "Limit Test Issue #{i}",
         description: "Test description with enough characters to be valid and pass all requirements",
         municipality: municipality,

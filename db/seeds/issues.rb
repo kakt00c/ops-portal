@@ -9,46 +9,46 @@
 # SEED_ISSUES_COUNT overrides the number of generated issues.
 
 ISSUE_TEMPLATES = [
-  { category: "Komunikácie", subcategory: "cesta", subtype: "výtlk", photo: "road",
+  { category: "Komunikácie", subcategory: "cesta", subtype: "výtlk", photo: "pothole",
     titles: [ "Hlboký výtlk na ceste %{street}", "Výtlk uprostred jazdného pruhu" ],
     descriptions: [ "Na ulici %{street} je už niekoľko týždňov hlboký výtlk, autá ho musia obchádzať a v noci je takmer neviditeľný.", "Po zime sa na vozovke objavil veľký výtlk, ktorý poškodzuje pneumatiky. Prosím o opravu čo najskôr." ] },
-  { category: "Komunikácie", subcategory: "cesta", subtype: "rozbitá cesta (väčší úsek)", photo: "road",
+  { category: "Komunikácie", subcategory: "cesta", subtype: "rozbitá cesta (väčší úsek)", photo: "pothole",
     titles: [ "Rozbitý asfalt na dlhom úseku cesty", "Cesta %{street} je v dezolátnom stave" ],
     descriptions: [ "Celý úsek cesty na ulici %{street} je rozbitý, asfalt sa rozpadá a vznikajú hlboké jamy. Treba nový povrch." ] },
-  { category: "Komunikácie", subcategory: "cesta", subtype: "neodhrnutá", photo: "road",
+  { category: "Komunikácie", subcategory: "cesta", subtype: "neodhrnutá", photo: "snow",
     titles: [ "Neodhrnutý sneh na ceste %{street}" ],
     descriptions: [ "Od rána husto sneží a cesta na ulici %{street} stále nie je odhrnutá ani posypaná. Autobusy tu nemôžu prejsť." ] },
-  { category: "Komunikácie", subcategory: "cesta", subtype: "rozkopaná", photo: "road",
+  { category: "Komunikácie", subcategory: "cesta", subtype: "rozkopaná", photo: "pothole",
     titles: [ "Rozkopaná cesta po výkopových prácach" ],
     descriptions: [ "Po výkopových prácach na ulici %{street} ostala cesta rozkopaná a zasypaná len štrkom. Práce sú dávno ukončené, ale povrch nikto neopravil." ] },
-  { category: "Komunikácie", subcategory: "chodník", subtype: "poškodená dlažba", photo: "road",
+  { category: "Komunikácie", subcategory: "chodník", subtype: "poškodená dlažba", photo: "sidewalk",
     titles: [ "Uvoľnená dlažba na chodníku %{street}", "Poškodená dlažba pred vchodom do obchodu" ],
     descriptions: [ "Dlaždice na chodníku sú uvoľnené a vytŕčajú, hrozí zakopnutie hlavne pre seniorov a ľudí s kočíkom." ] },
-  { category: "Komunikácie", subcategory: "chodník", subtype: "bariéra na chodníku", photo: "road",
+  { category: "Komunikácie", subcategory: "chodník", subtype: "bariéra na chodníku", photo: "sidewalk",
     titles: [ "Bariéra na chodníku pre vozíčkarov", "Chýba bezbariérový nájazd na chodník" ],
     descriptions: [ "Na rohu ulice %{street} chýba znížený obrubník, s kočíkom alebo invalidným vozíkom sa na chodník nedá dostať." ] },
-  { category: "Komunikácie", subcategory: "chodník", subtype: "neodhrnutý", photo: "road",
+  { category: "Komunikácie", subcategory: "chodník", subtype: "neodhrnutý", photo: "snow",
     titles: [ "Zľadovatený a neodhrnutý chodník" ],
     descriptions: [ "Chodník na ulici %{street} je pokrytý ľadom a snehom, ľudia chodia po ceste. Prosím o odhrnutie a posyp." ] },
-  { category: "Komunikácie", subcategory: "cyklotrasa", subtype: "chýbajúca", photo: "road",
+  { category: "Komunikácie", subcategory: "cyklotrasa", subtype: "chýbajúca", photo: "sidewalk",
     titles: [ "Chýba prepojenie cyklotrasy", "Cyklotrasa náhle končí na ulici %{street}" ],
     descriptions: [ "Cyklotrasa končí uprostred križovatky a cyklisti musia pokračovať v hustej doprave. Chýba bezpečné prepojenie." ] },
-  { category: "Komunikácie", subcategory: "schody", subtype: "poškodená", photo: "road",
+  { category: "Komunikácie", subcategory: "schody", subtype: "poškodená", photo: "sidewalk",
     titles: [ "Poškodené schody k zastávke MHD" ],
     descriptions: [ "Betónové schody pri ulici %{street} sú popraskané, chýbajú kusy schodov a zábradlie sa kýve." ] },
-  { category: "Osvetlenie", subcategory: "osvetlenie", subtype: "nefunknčné", photo: "furniture",
+  { category: "Osvetlenie", subcategory: "osvetlenie", subtype: "nefunknčné", photo: "streetlight",
     titles: [ "Nesvieti verejné osvetlenie na ulici %{street}", "Nefunkčná lampa pri prechode pre chodcov" ],
     descriptions: [ "Už niekoľko dní nesvieti pouličná lampa, celý úsek ulice %{street} je večer úplne tmavý a nebezpečný pre chodcov." ] },
-  { category: "Osvetlenie", subcategory: "osvetlenie", subtype: "poškodený stĺp", photo: "furniture",
+  { category: "Osvetlenie", subcategory: "osvetlenie", subtype: "poškodený stĺp", photo: "streetlight",
     titles: [ "Naklonený stĺp verejného osvetlenia" ],
     descriptions: [ "Stĺp osvetlenia na ulici %{street} je po nehode naklonený a hrozí jeho pád na chodník." ] },
-  { category: "Verejný poriadok", subcategory: "reklama", subtype: "nelegálna reklama", photo: "graffiti",
+  { category: "Verejný poriadok", subcategory: "reklama", subtype: "nelegálna reklama", photo: "posters",
     titles: [ "Nelegálne billboardy pri ceste", "Plagáty nalepené na zastávke" ],
     descriptions: [ "Na ulici %{street} pribudli reklamné plagáty a billboardy bez povolenia. Zakrývajú výhľad vodičom." ] },
-  { category: "Verejný poriadok", subcategory: "neporiadok vo verejnom priestranstve", subtype: "neporiadok vo verejnom priestore", photo: "graffiti",
+  { category: "Verejný poriadok", subcategory: "neporiadok vo verejnom priestranstve", subtype: "neporiadok vo verejnom priestore", photo: "dump",
     titles: [ "Neporiadok a odpadky na námestí", "Pohodené odpadky pri lavičkách" ],
     descriptions: [ "Okolo lavičiek na ulici %{street} sa hromadia odpadky, fľaše a ohorky. Koše sú preplnené." ] },
-  { category: "Verejný poriadok", subcategory: "neporiadok vo verejnom priestranstve", subtype: "neodpratané lístie", photo: "greenery",
+  { category: "Verejný poriadok", subcategory: "neporiadok vo verejnom priestranstve", subtype: "neodpratané lístie", photo: "grass",
     titles: [ "Neodpratané lístie na chodníku" ],
     descriptions: [ "Mokré lístie na chodníku pri ulici %{street} je šmykľavé, nikto ho neodpratáva už niekoľko týždňov." ] },
   { category: "Verejný poriadok", subcategory: "vandalizmus", subtype: "rušenie nočného pokoja", photo: "graffiti",
@@ -57,51 +57,51 @@ ISSUE_TEMPLATES = [
   { category: "Verejný poriadok", subcategory: "iné", subtype: nil, photo: "graffiti",
     titles: [ "Graffiti na fasáde školy", "Posprejovaná zastávka MHD" ],
     descriptions: [ "Niekto posprejoval fasádu budovy na ulici %{street} graffiti. Prosím o odstránenie a prípadne kamerový dohľad." ] },
-  { category: "Zeleň a znečisťovanie", subcategory: "kosenie", subtype: "nepravidelne", photo: "greenery",
+  { category: "Zeleň a znečisťovanie", subcategory: "kosenie", subtype: "nepravidelne", photo: "grass",
     titles: [ "Nepokosená tráva na sídlisku", "Tráva pri ihrisku po pás" ],
     descriptions: [ "Tráva na ulici %{street} nebola kosená celé leto, je vysoká po pás a sú v nej kliešte." ] },
-  { category: "Zeleň a znečisťovanie", subcategory: "strom", subtype: "suchý", photo: "greenery",
+  { category: "Zeleň a znečisťovanie", subcategory: "strom", subtype: "suchý", photo: "fallen_tree",
     titles: [ "Suchý strom hrozí pádom", "Uschnutý strom pri detskom ihrisku" ],
     descriptions: [ "Strom pri ulici %{street} je úplne suchý, pri silnejšom vetre z neho padajú konáre. Hrozí pád na chodcov alebo autá." ] },
-  { category: "Zeleň a znečisťovanie", subcategory: "strom", subtype: "zlomený konár", photo: "greenery",
+  { category: "Zeleň a znečisťovanie", subcategory: "strom", subtype: "zlomený konár", photo: "fallen_tree",
     titles: [ "Zlomený konár visí nad chodníkom" ],
     descriptions: [ "Po búrke ostal na strome pri ulici %{street} zlomený konár, ktorý visí priamo nad chodníkom." ] },
-  { category: "Zeleň a znečisťovanie", subcategory: "krík", subtype: "neorezaný", photo: "greenery",
+  { category: "Zeleň a znečisťovanie", subcategory: "krík", subtype: "neorezaný", photo: "grass",
     titles: [ "Prerastené kríky zakrývajú výhľad na križovatke" ],
     descriptions: [ "Kríky na rohu ulice %{street} sú prerastené a vodiči nevidia prichádzajúce autá ani chodcov." ] },
-  { category: "Zvieratá", subcategory: "zver v meste", subtype: "premnožené hlodavce", photo: "greenery",
+  { category: "Zvieratá", subcategory: "zver v meste", subtype: "premnožené hlodavce", photo: "dump",
     titles: [ "Potkany pri kontajneroch" ],
     descriptions: [ "Pri kontajnerovom stanovišti na ulici %{street} sa premnožili potkany, behajú aj cez deň. Treba deratizáciu." ] },
-  { category: "Zvieratá", subcategory: "mŕtvy živočích", subtype: nil, photo: "road",
+  { category: "Zvieratá", subcategory: "mŕtvy živočích", subtype: nil, photo: "grass",
     titles: [ "Mŕtva srna pri ceste", "Uhynutá labuť na brehu" ],
     descriptions: [ "Pri ceste na ulici %{street} leží mŕtve zviera, prosím o odstránenie kadáveru." ] },
-  { category: "Skládky a vraky", subcategory: "nelegálne skládky", subtype: nil, photo: "greenery",
+  { category: "Skládky a vraky", subcategory: "nelegálne skládky", subtype: nil, photo: "dump",
     titles: [ "Čierna skládka stavebného odpadu", "Vyhodené pneumatiky a nábytok v lesíku" ],
     descriptions: [ "Za garážami na ulici %{street} vznikla čierna skládka, niekto tam vyváža stavebný odpad, staré pneumatiky a nábytok." ] },
-  { category: "Skládky a vraky", subcategory: "vraky motorových vozidiel", subtype: nil, photo: "road",
+  { category: "Skládky a vraky", subcategory: "vraky motorových vozidiel", subtype: nil, photo: "car_wreck",
     titles: [ "Vrak auta bez ŠPZ na parkovisku", "Odstavené auto roky blokuje parkovanie" ],
     descriptions: [ "Na parkovisku na ulici %{street} stojí už viac ako rok vrak auta bez evidenčných čísel, má prázdne pneumatiky a rozbité okná." ] },
-  { category: "Skládky a vraky", subcategory: "kontajnerové stanovištia", subtype: "chýbajúce", photo: "furniture",
+  { category: "Skládky a vraky", subcategory: "kontajnerové stanovištia", subtype: "chýbajúce", photo: "dump",
     titles: [ "Chýba kontajner na triedený odpad" ],
     descriptions: [ "Na ulici %{street} nie je žiadny kontajner na plasty a papier, najbližší je vzdialený pol kilometra." ] },
-  { category: "Ostatné", subcategory: "iné", subtype: nil, photo: "furniture",
+  { category: "Ostatné", subcategory: "iné", subtype: nil, photo: %w[bench playground],
     titles: [ "Rozbitá lavička v parku", "Poškodené detské ihrisko" ],
     descriptions: [ "Lavička na ulici %{street} má zlomené dosky, na ihrisku je rozbitá hojdačka a trčia z nej skrutky." ] }
 ].freeze
 
 QUESTION_TEMPLATES = [
-  { category: "Komunikácie", subcategory: "cesta", title: "Kedy sa bude opravovať cesta %{street}?",
+  { category: "Komunikácie", subcategory: "cesta", photo: "pothole", title: "Kedy sa bude opravovať cesta %{street}?",
     description: "Chcel by som sa opýtať, či je v pláne rekonštrukcia cesty na ulici %{street} a kedy sa s ňou začne." },
-  { category: "Zeleň a znečisťovanie", subcategory: "strom", title: "Prečo sa rúbu stromy na ulici %{street}?",
+  { category: "Zeleň a znečisťovanie", subcategory: "strom", photo: "fallen_tree", title: "Prečo sa rúbu stromy na ulici %{street}?",
     description: "Dnes ráno začali pracovníci rúbať zdravé stromy na ulici %{street}. Existuje na to povolenie a bude náhradná výsadba?" },
-  { category: "Skládky a vraky", subcategory: "kontajnerové stanovištia", title: "Kto zodpovedá za kontajnerové stanovište?",
+  { category: "Skládky a vraky", subcategory: "kontajnerové stanovištia", photo: "dump", title: "Kto zodpovedá za kontajnerové stanovište?",
     description: "Na koho sa môžem obrátiť ohľadom stavu kontajnerového stanovišťa na ulici %{street}? Je stále preplnené." }
 ].freeze
 
 PRAISE_TEMPLATES = [
-  { title: "Ďakujeme za nový chodník na ulici %{street}", description: "Chcem poďakovať za rýchlu opravu chodníka na ulici %{street}, konečne sa dá prejsť s kočíkom." },
-  { title: "Pochvala za vyčistený park", description: "Park pri ulici %{street} je po jarnom upratovaní krásne čistý, ďakujeme všetkým, čo sa o to postarali." },
-  { title: "Vďaka za nové lavičky", description: "Nové lavičky a koše na ulici %{street} sú skvelé, seniori si konečne majú kde sadnúť." }
+  { photo: "sidewalk", title: "Ďakujeme za nový chodník na ulici %{street}", description: "Chcem poďakovať za rýchlu opravu chodníka na ulici %{street}, konečne sa dá prejsť s kočíkom." },
+  { photo: "grass", title: "Pochvala za vyčistený park", description: "Park pri ulici %{street} je po jarnom upratovaní krásne čistý, ďakujeme všetkým, čo sa o to postarali." },
+  { photo: "bench", title: "Vďaka za nové lavičky", description: "Nové lavičky a koše na ulici %{street} sú skvelé, seniori si konečne majú kde sadnúť." }
 ].freeze
 
 COMMENT_TEXTS = [
@@ -191,19 +191,19 @@ else
       title = pick.(template[:titles])
       description = pick.(template[:descriptions])
       category, subcategory, subtype = find_classification.(template[:category], template[:subcategory], template[:subtype])
-      photo = template[:photo]
+      photo = pick.(Array(template[:photo]))
       state_key, _, resolution_process = weighted_pick.(ISSUE_STATE_WEIGHTS)
     when :question
       template = pick.(QUESTION_TEMPLATES)
       title, description = template.values_at(:title, :description)
       category, subcategory, subtype = find_classification.(template[:category], template[:subcategory], nil)
-      photo = pick.(photos.keys)
+      photo = template[:photo]
       state_key, _, resolution_process = weighted_pick.(ISSUE_STATE_WEIGHTS.reject { |key, *| key == "archived" })
     when :praise
       template = pick.(PRAISE_TEMPLATES)
       title, description = template.values_at(:title, :description)
       category = subcategory = subtype = nil
-      photo = pick.(photos.keys)
+      photo = template[:photo]
       state_key = weighted_pick.([ [ "resolved", 8 ], [ "waiting", 1 ], [ "rejected", 1 ] ]).first
       resolution_process = false
     end

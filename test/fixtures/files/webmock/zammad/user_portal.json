@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "login": "ops-user-1",
+  "firstname": "Jozef Mokry",
+  "lastname": "",
+  "email": "",
+  "origin": "portal",
+  "organization": null,
+  "roles": ["Portal User"],
+  "groups": {},
+  "active": true
+}

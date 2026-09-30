@@ -1,0 +1,12 @@
+{
+  "id": 3,
+  "login": "agent@example.org",
+  "firstname": "Agent",
+  "lastname": "Smith",
+  "email": "agent@example.org",
+  "origin": null,
+  "organization": null,
+  "roles": ["Agent"],
+  "groups": { "Incoming": "full" },
+  "active": true
+}

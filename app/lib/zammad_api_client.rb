@@ -617,7 +617,7 @@ class ZammadApiClient
     @client.user.search(query: query).first
   end
 
-  def build_author_response(article_type, author, zammad_api_client: TriageZammadEnvironment.client.client)
+  def build_author_response(article_type, author)
     return DEFAULT_OPS_ADMIN_USER if [ :agent_portal_comment, :agent_portal_and_backoffice_comment, :agent_backoffice_comment ].include?(article_type)
 
     return unless author
@@ -636,7 +636,7 @@ class ZammadApiClient
         }
       end
     elsif article_type == :responsible_subject_portal_and_backoffice_comment
-      responsible_subject = zammad_api_client.user.find(author.external_id)
+      responsible_subject = @client.user.find(author.external_id)
       if responsible_subject.nil?
         Rails.logger.warn("Responsible subject with id: #{author.external_id} not found in Triage Zammad")
         nil
@@ -776,7 +776,7 @@ class ZammadApiClient
     body.gsub(Regexp.union(tags), "").strip
   end
 
-  def get_article_type(article, process_type, zammad_api_client: @client)
+  def get_article_type(article, process_type)
     return if article.internal
     return :system_note if article.sender == "System"
 
@@ -789,7 +789,7 @@ class ZammadApiClient
     when "portal_issue_resolution"
       return :unknown_user_portal_comment if article.sender == "Customer" && article.origin_by_id == nil && article.created_by_id == ENV.fetch("TRIAGE_ZAMMAD_TECH_USER_ID").to_i
 
-      article_author = zammad_api_client.user.find(article.origin_by_id || article.created_by_id)
+      article_author = @client.user.find(article.origin_by_id || article.created_by_id)
       return :user_portal_comment if article.sender == "Customer" && article_author&.origin == "portal"
 
       if article.sender == "Customer" && responsible_subject_article_author?(article_author)
@@ -824,12 +824,13 @@ class ZammadApiClient
   def automated_email?(article)
     return false unless article.type == "email"
 
-    preferences = article.respond_to?(:preferences) ? article.preferences : {}
-    auto_submitted = preferences&.[]("Auto-Submitted") || preferences&.[](:"Auto-Submitted")
+    # zammad_api resources expose attributes via method_missing, so respond_to? is always false for them
+    preferences = article.preferences || {}
+    auto_submitted = preferences["Auto-Submitted"] || preferences[:"Auto-Submitted"]
     return true if [ "auto-generated", "auto-replied" ].include?(auto_submitted.to_s.downcase)
 
-    sender = article.respond_to?(:from) ? article.from.to_s : ""
-    subject = article.respond_to?(:subject) ? article.subject.to_s : ""
+    sender = article.from.to_s
+    subject = article.subject.to_s
 
     AUTOMATED_EMAIL_SENDER_PATTERNS.any? { |pattern| sender.match?(pattern) } ||
       AUTOMATED_EMAIL_SUBJECT_PATTERNS.any? { |pattern| subject.match?(pattern) }

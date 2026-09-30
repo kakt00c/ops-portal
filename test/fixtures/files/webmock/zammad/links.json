@@ -1,0 +1,8 @@
+{
+  "links": [
+    { "link_type": "parent", "link_object": "Ticket", "link_object_value": 42 },
+    { "link_type": "parent", "link_object": "Ticket", "link_object_value": 43 },
+    { "link_type": "child", "link_object": "Ticket", "link_object_value": 44 }
+  ],
+  "assets": {}
+}

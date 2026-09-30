@@ -1,0 +1,13 @@
+{
+  "id": 4242,
+  "login": "ops-rs-4242",
+  "firstname": "Mesto Malacky",
+  "lastname": "",
+  "email": "podatelna@malacky.sk",
+  "uuid": "7d3c1a52-6f1e-4d61-9f0e-2b9a8c4e5f10",
+  "origin": null,
+  "organization": null,
+  "roles": ["Zodpovedný Subjekt"],
+  "groups": {},
+  "active": true
+}

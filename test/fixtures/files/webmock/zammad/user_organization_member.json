@@ -1,0 +1,12 @@
+{
+  "id": 77,
+  "login": "referent@staremesto.sk",
+  "firstname": "Ján",
+  "lastname": "Referent",
+  "email": "referent@staremesto.sk",
+  "origin": null,
+  "organization": "MÚ Staré Mesto",
+  "roles": ["Customer"],
+  "groups": {},
+  "active": true
+}

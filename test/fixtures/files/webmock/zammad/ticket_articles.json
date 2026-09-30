@@ -1,0 +1,69 @@
+[
+  {
+    "id": 101,
+    "ticket_id": 42,
+    "uuid": "0c8f5b8e-1c1d-4a4e-9a57-8c6f0f7b6a01",
+    "sender": "Customer",
+    "type": "web",
+    "internal": false,
+    "content_type": "text/html",
+    "body": "Lavička na námestí má odlomené dosky a nedá sa na nej sedieť.",
+    "origin_by_id": 1,
+    "created_by_id": 1,
+    "from": "Jozef Mokry",
+    "subject": null,
+    "preferences": {},
+    "attachments": [
+      {
+        "id": 501,
+        "filename": "lavicka.jpg",
+        "size": "2048",
+        "preferences": { "Mime-Type": "image/jpeg" }
+      },
+      {
+        "id": 502,
+        "filename": "message.html",
+        "size": "512",
+        "preferences": { "Content-Type": "text/html" }
+      }
+    ],
+    "created_at": "2024-11-05T09:59:21.000Z",
+    "updated_at": "2024-11-05T09:59:21.000Z"
+  },
+  {
+    "id": 102,
+    "ticket_id": 42,
+    "uuid": null,
+    "sender": "Agent",
+    "type": "note",
+    "internal": false,
+    "content_type": "text/html",
+    "body": "[[ops portal]] Podnet sme odstúpili mestskej časti.",
+    "origin_by_id": null,
+    "created_by_id": 3,
+    "from": "Agent Smith",
+    "subject": null,
+    "preferences": {},
+    "attachments": [],
+    "created_at": "2024-11-06T09:00:00.000Z",
+    "updated_at": "2024-11-06T09:00:00.000Z"
+  },
+  {
+    "id": 103,
+    "ticket_id": 42,
+    "uuid": null,
+    "sender": "Agent",
+    "type": "note",
+    "internal": true,
+    "content_type": "text/html",
+    "body": "Interná poznámka pre dobrovoľníkov.",
+    "origin_by_id": null,
+    "created_by_id": 3,
+    "from": "Agent Smith",
+    "subject": null,
+    "preferences": {},
+    "attachments": [],
+    "created_at": "2024-11-06T09:30:00.000Z",
+    "updated_at": "2024-11-06T09:30:00.000Z"
+  }
+]

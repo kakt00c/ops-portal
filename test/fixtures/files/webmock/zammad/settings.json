@@ -1,0 +1,4 @@
+[
+  { "name": "product_name", "state_current": { "value": "Triáž" } },
+  { "name": "import_mode", "state_current": { "value": true } }
+]

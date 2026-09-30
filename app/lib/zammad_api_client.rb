@@ -825,10 +825,10 @@ class ZammadApiClient
   def automated_email?(article)
     return false unless article.type == "email"
 
-    # zammad_api resources expose attributes via method_missing, so respond_to? is always false for them
+    # Zammad's Channel::Filter::AutoResponseCheck turns headers like Auto-Submitted into this flag;
+    # the zammad_api gem symbolizes the keys
     preferences = article.preferences || {}
-    auto_submitted = preferences["Auto-Submitted"] || preferences[:"Auto-Submitted"]
-    return true if [ "auto-generated", "auto-replied" ].include?(auto_submitted.to_s.downcase)
+    return true if preferences[:"is-auto-response"] == true
 
     sender = article.from.to_s
     subject = article.subject.to_s

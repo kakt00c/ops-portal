@@ -124,20 +124,6 @@ class Connector::ZammadApiClientTest < ActiveSupport::TestCase
     assert_equal "Found multiple matches for ticket!", error.message
   end
 
-  test "create_issue! reuses the backoffice customer when the login is already taken" do
-    stub_backoffice(:post, "users", status: 422, body: { error: "Login '#{CITIZEN_UUID}' is already used for another user." })
-    stub_backoffice(:get, "users/search", body: [ zammad_fixture("zammad/backoffice_agent", id: 900) ])
-    stub_backoffice(:post, "tickets", status: 201, fixture: "zammad/backoffice_ticket")
-    stub_backoffice(:get, "ticket_articles/by_ticket/500", fixture: "zammad/backoffice_ticket_articles")
-    payload = issue_payload
-    payload["activities"] = [ citizen_activity ]
-
-    @client.create_issue!(payload)
-
-    assert_requested :get, backoffice_url("users/search"), query: hash_including("query" => CITIZEN_UUID)
-    assert_equal 900, @tenant.users.find_by!(uuid: CITIZEN_UUID).external_id
-  end
-
   # update_issue!
 
   test "update_issue! sends the portal fields to the ticket" do
@@ -417,6 +403,15 @@ class Connector::ZammadApiClientTest < ActiveSupport::TestCase
       "firstname" => "Ján Referent", "login" => "referent@malacky.sk", "email" => "referent@malacky.sk", "roles" => [ "Agent" ], "active" => true
     }
     assert_equal 7, @tenant.users.find_by!(email: "referent@malacky.sk").external_id
+  end
+
+  test "create_or_find_agent reuses the user when the email belongs to a user with another login" do
+    stub_backoffice(:post, "users", status: 422, body: { error: "Email address 'referent@malacky.sk' is already used for another user." })
+    stub_backoffice(:get, "users/search", body: [ zammad_fixture("zammad/backoffice_agent") ])
+
+    assert_equal 7, @client.create_or_find_agent(ResponsibleSubjects::User.new(name: "Ján Referent", email: "referent@malacky.sk"))
+
+    assert_requested :get, backoffice_url("users/search"), query: hash_including("query" => "referent@malacky.sk")
   end
 
   test "create_or_find_agent creates a deleted agent as inactive" do

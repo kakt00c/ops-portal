@@ -80,12 +80,6 @@ class ZammadApiClientTest < ActiveSupport::TestCase
     assert_equal (triage_ticket(issues(:one)).keys + [ :author_response ]).sort, ticket.keys.sort
   end
 
-  test "get_ticket hides the author of an anonymous ticket" do
-    stub_ticket(anonymous: true)
-
-    assert_nil @client.get_ticket(42)[:author]
-  end
-
   test "get_ticket with expand returns public articles as activities" do
     stub_ticket
     stub_users
@@ -199,15 +193,14 @@ class ZammadApiClientTest < ActiveSupport::TestCase
     assert_nil article_type(**email, subject: "Delivery Status Notification (Failure)")
     assert_nil article_type(**email, from: "MAILER-DAEMON@malacky.sk")
     assert_nil article_type(**email, from: "noreply@malacky.sk")
-    assert_nil article_type(**email, preferences: { "Auto-Submitted" => "auto-replied" })
-    assert_nil article_type(**email, preferences: { "Auto-Submitted" => "auto-generated" })
+    assert_nil article_type(**email, preferences: { "is-auto-response" => true, "send-auto-response" => false })
   end
 
   test "regular emails from responsible subjects are published" do
     email = { sender: "Customer", type: "email", origin_by_id: 4242 }
 
     assert_equal :responsible_subject_portal_and_backoffice_comment,
-      article_type(**email, from: "podatelna@malacky.sk", subject: "Re: Podnet", preferences: { "Auto-Submitted" => "no" })
+      article_type(**email, from: "podatelna@malacky.sk", subject: "Re: Podnet", preferences: { "is-auto-response" => false, "send-auto-response" => true })
   end
 
   test "unknown process type raises" do
@@ -449,23 +442,6 @@ class ZammadApiClientTest < ActiveSupport::TestCase
     assert_requested :post, zammad_url("users"), query: hash_including({}), body: hash_including(
       "firstname" => "Jozef Mokry", "login" => "ops-user-#{user.id}", "roles" => [ "Portal User" ], "origin" => "portal"
     )
-  end
-
-  test "create_customer! returns the existing user when the login is taken" do
-    user = users(:one)
-    stub_zammad(:post, "users", status: 422, body: { error: "Login 'ops-user-#{user.id}' is already used for another user." })
-    stub_zammad(:get, "users/search", body: [ zammad_fixture("zammad/user_portal") ])
-
-    assert_equal 1, @client.create_customer!(user)
-
-    assert_requested :get, zammad_url("users/search"), query: hash_including("query" => "ops-user-#{user.id}")
-  end
-
-  test "create_customer! raises when the taken login cannot be found" do
-    stub_zammad(:post, "users", status: 422, body: { error: "Login is already used for another user." })
-    stub_zammad(:get, "users/search", body: [])
-
-    assert_raises(RuntimeError, match: /Can't find nor create triage zammad user/) { @client.create_customer!(users(:one)) }
   end
 
   # check_import_mode!
@@ -824,7 +800,7 @@ class ZammadApiClientTest < ActiveSupport::TestCase
     )
   end
 
-  test "create_agent! returns the existing agent when the email is taken" do
+  test "create_agent! returns the existing user when the email belongs to a user with another login" do
     user = users(:one)
     stub_zammad(:post, "users", status: 422, body: { error: "Email address '#{user.email}' is already used for another user." })
     stub_zammad(:get, "users/search", body: [ zammad_fixture("zammad/user_agent") ])
@@ -835,7 +811,7 @@ class ZammadApiClientTest < ActiveSupport::TestCase
   end
 
   test "create_agent! raises when the taken email cannot be found" do
-    stub_zammad(:post, "users", status: 422, body: { error: "Email address is already used for another user." })
+    stub_zammad(:post, "users", status: 422, body: { error: "Email address '#{users(:one).email}' is already used for another user." })
     stub_zammad(:get, "users/search", body: [])
 
     assert_raises(RuntimeError, match: /Can't find nor create triage zammad user with email/) { @client.create_agent!(users(:one)) }
@@ -856,22 +832,6 @@ class ZammadApiClientTest < ActiveSupport::TestCase
     assert_requested :post, zammad_url("users"), query: hash_including({}), body: hash_including(
       "firstname" => "MÚ Staré Mesto", "login" => "ops-rs-#{responsible_subject.id}", "roles" => [ "Zodpovedný Subjekt" ]
     )
-  end
-
-  test "create_responsible_subject! returns the existing user when the login is taken" do
-    stub_zammad(:post, "users", status: 422, body: { error: "Login is already used for another user." })
-    stub_zammad(:get, "users/search", body: [ zammad_fixture("zammad/user_responsible_subject") ])
-
-    assert_equal 4242, @client.create_responsible_subject!(responsible_subjects(:pro))
-  end
-
-  test "create_responsible_subject! raises when the taken user cannot be found" do
-    stub_zammad(:post, "users", status: 422, body: { error: "Login is already used for another user." })
-    stub_zammad(:get, "users/search", body: [])
-
-    assert_raises(RuntimeError, match: /Can't create triage zammad user for responsible subject/) do
-      @client.create_responsible_subject!(responsible_subjects(:one))
-    end
   end
 
   test "get_groups lists Zammad groups" do

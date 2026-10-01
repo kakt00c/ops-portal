@@ -40,7 +40,7 @@ class Issues::IssuesUpdatesController < ApplicationController
 
     if @update.save
       if @update.author == @issue.author && !@issue.resolved? && @update.resolves_issue?
-        @issue.update!(state: Issues::State.find_by!(key: "marked_as_resolved"))
+        @issue.update!(state: Issues::State.find_by!(key: "resolved"))
         SyncIssueToTriageJob.perform_later(@issue, sync_activities: false)
       end
 

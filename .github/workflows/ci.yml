@@ -109,6 +109,14 @@ jobs:
           path: ${{ github.workspace }}/tmp/screenshots
           if-no-files-found: ignore
 
+      - name: Keep coverage report
+        uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: coverage
+          path: ${{ github.workspace }}/coverage
+          if-no-files-found: ignore
+
   dev-deploy:
     name: Deploy to DEV environment
     if: github.ref == 'refs/heads/main'

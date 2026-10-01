@@ -10,6 +10,7 @@ waiting:
 in_progress:
   name: V riešení
   key: in_progress
+  legacy_id: 2
   color: "#5598C4"
 
 resolved:
@@ -25,3 +26,43 @@ resolved_private:
 archived:
   name: Archivovaný
   key: archived
+
+sent_to_responsible:
+  name: Zaslaný zodpovednému
+  key: sent_to_responsible
+  color: "#F5A623"
+
+referred:
+  name: Odstúpený
+  key: referred
+  color: "#8B572A"
+
+unresolved:
+  name: Neriešený
+  key: unresolved
+  color: "#D0021B"
+
+rejected:
+  name: Zamietnutý
+  key: rejected
+  color: "#D0021B"
+
+closed:
+  name: Uzavretý
+  key: closed
+  color: "#4A4A4A"
+
+marked_as_resolved:
+  name: Označený za vyriešený
+  key: marked_as_resolved
+  color: "#7ED321"
+
+duplicate:
+  name: Duplicitný
+  key: duplicate
+  color: "#9B9B9B"
+
+waiting_for_author:
+  name: Čaká na autora
+  key: waiting_for_author
+  color: "#F8E71C"

@@ -10,8 +10,8 @@ module SearchEngine
       @filters.flat_map(&:required_params) + [ :sort, :page ]
     end
 
-    def search(scope, permitted_params)
-      results = build_results_with_filters(permitted_params)
+    def search(scope, params)
+      results = build_results_with_filters(params)
       search_params = results.search_params
 
       scope = apply_filters(scope, search_params)
@@ -25,8 +25,8 @@ module SearchEngine
       results
     end
 
-    def stats(scope, permitted_params, &block)
-      results = build_results_with_filters(permitted_params)
+    def stats(scope, params, &block)
+      results = build_results_with_filters(params)
 
       scope = apply_filters(scope, results.search_params)
 
@@ -55,9 +55,9 @@ module SearchEngine
       scope
     end
 
-    def build_results_with_filters(permitted_params)
+    def build_results_with_filters(params)
       results = Results.new
-      results.search_params = permitted_params.to_h.with_indifferent_access
+      results.search_params = params.to_h.with_indifferent_access
 
       @filters.each do |filter|
         filter.add_applied_filter(results)

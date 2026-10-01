@@ -23,21 +23,24 @@
         <span>Zmena zodpovedného subjektu</span>
 
         <% if change.previous_responsible_subject %>
-          <span class="state-badge state-unknown" style="background-color: #f1f5f9; color: #475569;">
+          <span class="state-badge state-unknown">
             <%= change.previous_responsible_subject.subject_name %>
           </span>
         <% else %>
-          <span class="state-badge state-unknown">neznámeho subjektu</span>
+          <span class="state-badge state-unknown">neznámy</span>
         <% end %>
 
-        <span>na</span>
+        <svg class="arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
 
         <% if change.new_responsible_subject %>
-          <span class="state-badge state-unknown" style="background-color: #e2e8f0; color: #1e293b; font-weight: 600;">
+          <span class="state-badge state-unknown">
             <%= change.new_responsible_subject.subject_name %>
           </span>
         <% else %>
-          <span class="state-badge state-unknown">nikoho</span>
+          <span class="state-badge state-unknown">žiadny</span>
         <% end %>
       </div>
     </div>

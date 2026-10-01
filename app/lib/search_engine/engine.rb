@@ -1,20 +1,24 @@
 module SearchEngine
   class Engine
-    def initialize(filters:, sorts: [], per_page: nil, default_permitted_params: [])
+    def initialize(filters:, sorts: [], per_page: nil)
       @filters = filters
       @sorts = sorts
       @per_page = per_page
-      @default_permitted_params = default_permitted_params
+    end
+
+    def required_params
+      @filters.flat_map(&:required_params) + [ :sort, :page ]
     end
 
     def search(scope, params)
-      scope = apply_filters(scope, params)
-      scope = apply_sort(scope, params)
-
-      scope = scope.page(params[:page])
-      scope = scope.per(@per_page) if @per_page
-
       results = build_results_with_filters(params)
+      search_params = results.search_params
+
+      scope = apply_filters(scope, search_params)
+      scope = apply_sort(scope, search_params)
+
+      scope = scope.page(search_params[:page])
+      scope = scope.per(@per_page) if @per_page
 
       results.hits = scope
 
@@ -22,9 +26,9 @@ module SearchEngine
     end
 
     def stats(scope, params, &block)
-      scope = apply_filters(scope, params)
-
       results = build_results_with_filters(params)
+
+      scope = apply_filters(scope, results.search_params)
 
       scope = scope.reorder("") # reset order due to optional fulltext search
 
@@ -53,13 +57,7 @@ module SearchEngine
 
     def build_results_with_filters(params)
       results = Results.new
-      permitted_params = @filters.each_with_object(@default_permitted_params) do |filter, p|
-        filter.add_permitted_params(p)
-      end
-
-      permitted_params << :sort
-
-      results.search_params = params.permit(*permitted_params)
+      results.search_params = params.to_h.with_indifferent_access
 
       @filters.each do |filter|
         filter.add_applied_filter(results)

@@ -80,4 +80,10 @@ class Issues::SearchTest < ApplicationSystemTestCase
     assert_text "V riešení"
     assert_text "Odstúpený"
   end
+
+  test "filter links keep the current tab" do
+    visit issues_path(tab: "stats", obec: "Nitra")
+
+    assert_includes find("a[title='Odstrániť tento filter']", visible: :all)[:href], "tab=stats"
+  end
 end

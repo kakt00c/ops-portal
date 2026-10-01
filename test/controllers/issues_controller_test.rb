@@ -48,6 +48,12 @@ class IssuesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to issues_url(obec: "Nitra", cast: nil)
   end
 
+  test "should ignore filter params of unexpected shape" do
+    get "/dopyty?kategoria[foo]=bar&obec[foo]=bar&podkategoria[0][x]=y&q[a]=b"
+    assert_response :success
+    assert_nil session[:last_municipality]
+  end
+
   test "should not show resolved_private issues" do
     get issue_url(issues(:resolved_private))
     assert_response :not_found

@@ -12,7 +12,7 @@ class MunicipalityBoundariesImportTest < ActiveSupport::TestCase
 
     geometry = square_geometry(
       center_lat: municipality.latitude,
-      center_lon: municipality.longtitude,
+      center_lon: municipality.longitude,
       size: 0.001
     )
 
@@ -24,7 +24,7 @@ class MunicipalityBoundariesImportTest < ActiveSupport::TestCase
     boundary = create_municipality_boundary(
       municipality: nil,
       center_lat: municipality.latitude,
-      center_lon: municipality.longtitude,
+      center_lon: municipality.longitude,
       size: 0.001,
       boundary_kind: "municipality"
     )
@@ -43,7 +43,7 @@ class MunicipalityBoundariesImportTest < ActiveSupport::TestCase
     municipality_boundary = create_municipality_boundary(
       municipality: municipality,
       center_lat: municipality.latitude,
-      center_lon: municipality.longtitude,
+      center_lon: municipality.longitude,
       size: 0.02,
       boundary_kind: "municipality"
     )
@@ -69,14 +69,14 @@ class MunicipalityBoundariesImportTest < ActiveSupport::TestCase
     municipality_boundary = create_municipality_boundary(
       municipality: municipality,
       center_lat: municipality.latitude,
-      center_lon: municipality.longtitude,
+      center_lon: municipality.longitude,
       size: 0.02,
       boundary_kind: "municipality"
     )
 
     imported, skipped = send(
       :import_features,
-      [ district_feature(name: "Unknown District", center_lat: municipality.latitude, center_lon: municipality.longtitude, size: 0.001) ],
+      [ district_feature(name: "Unknown District", center_lat: municipality.latitude, center_lon: municipality.longitude, size: 0.001) ],
       municipality: municipality,
       municipality_boundary: municipality_boundary,
       municipality_hint: municipality.name,

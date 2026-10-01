@@ -7,8 +7,8 @@ Piešťany:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.833385467529297
-  longitude: 48.58631679923957
+  latitude: 48.58631679923957
+  longitude: 17.833385467529297
   population: 28925
   active: true
   category: town
@@ -18,8 +18,8 @@ Piešťany:
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   legacy_id: 28
   aliases:
-  - piestany
-  - Piešťany
+    - piestany
+    - Piešťany
   active_on_old_portal: false
   archived: false
 
@@ -32,8 +32,8 @@ Vinodol:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.2046009
-  longitude: 48.1892167
+  latitude: 48.1892167
+  longitude: 18.2046009
   population: 1973
   active: true
   category: village
@@ -42,8 +42,8 @@ Vinodol:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - vinodol
-  - Vinodol
+    - vinodol
+    - Vinodol
   active_on_old_portal: true
   archived: false
 
@@ -56,8 +56,8 @@ Rajec:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.6332398
-  longitude: 49.0891318
+  latitude: 49.0891318
+  longitude: 18.6332398
   population:
   active: true
   category: town
@@ -66,8 +66,8 @@ Rajec:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - rajec
-  - Rajec
+    - rajec
+    - Rajec
   active_on_old_portal: false
   archived: true
 
@@ -80,8 +80,8 @@ Rajec:
   municipality_type: other
   has_municipality_districts: true
   handled_by: 1
-  latitude: 18.6545663
-  longitude: 48.0470922
+  latitude: 48.0470922
+  longitude: 18.6545663
   population: 7522
   active: true
   category: town
@@ -90,8 +90,8 @@ Rajec:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - zeliezovce
-  - Želiezovce
+    - zeliezovce
+    - Želiezovce
   active_on_old_portal: true
   archived: false
 
@@ -104,8 +104,8 @@ Spišská Nová Ves:
   municipality_type: other
   has_municipality_districts: true
   handled_by: 2
-  latitude: 20.5729469
-  longitude: 48.9431138
+  latitude: 48.9431138
+  longitude: 20.5729469
   population: 39193
   active: true
   category: town
@@ -114,8 +114,8 @@ Spišská Nová Ves:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - spisska-nova-ves
-  - Spišská Nová Ves
+    - spisska-nova-ves
+    - Spišská Nová Ves
   active_on_old_portal: false
   archived: true
 
@@ -128,8 +128,8 @@ Spišská Nová Ves:
   municipality_type: other
   has_municipality_districts: true
   handled_by: 2
-  latitude: 18.7408001
-  longitude: 49.2194498
+  latitude: 49.2194498
+  longitude: 18.7408001
   population: 85400
   active: true
   category: regional_capital
@@ -138,8 +138,8 @@ Spišská Nová Ves:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - zilina
-  - Žilina
+    - zilina
+    - Žilina
   active_on_old_portal: true
   archived: false
 
@@ -152,8 +152,8 @@ Prešov:
   municipality_type: other
   has_municipality_districts: true
   handled_by: 2
-  latitude: 21.2400295
-  longitude: 49.0016751
+  latitude: 49.0016751
+  longitude: 21.2400295
   population: 92786
   active: true
   category: regional_capital
@@ -162,8 +162,8 @@ Prešov:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - presov
-  - Prešov
+    - presov
+    - Prešov
   active_on_old_portal: true
   archived: false
 
@@ -176,8 +176,8 @@ Dobšiná:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.3669606
-  longitude: 48.8198946
+  latitude: 48.8198946
+  longitude: 20.3669606
   population: 5148
   active: true
   category: town
@@ -186,8 +186,8 @@ Dobšiná:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - dobsina
-  - Dobšiná
+    - dobsina
+    - Dobšiná
   active_on_old_portal: true
   archived: false
 
@@ -200,8 +200,8 @@ Dobšiná:
   municipality_type: other
   has_municipality_districts: true
   handled_by: 1
-  latitude: 17.8757207
-  longitude: 48.1514404
+  latitude: 48.1514404
+  longitude: 17.8757207
   population: 23764
   active: true
   category: town
@@ -210,8 +210,8 @@ Dobšiná:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - sala
-  - Šaľa
+    - sala
+    - Šaľa
   active_on_old_portal: true
   archived: false
 
@@ -224,8 +224,8 @@ Sliač:
   municipality_type: other
   has_municipality_districts: true
   handled_by: 2
-  latitude: 19.1383558
-  longitude: 48.6171747
+  latitude: 48.6171747
+  longitude: 19.1383558
   population: 4812
   active: true
   category: town
@@ -234,8 +234,8 @@ Sliač:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - sliac
-  - Sliač
+    - sliac
+    - Sliač
   active_on_old_portal: true
   archived: false
 
@@ -248,8 +248,8 @@ Babín:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 1
-  latitude: 19.3823568
-  longitude: 49.3323414
+  latitude: 49.3323414
+  longitude: 19.3823568
   population: 1417
   active: true
   category: village
@@ -258,8 +258,8 @@ Babín:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - babin
-  - Babín
+    - babin
+    - Babín
   active_on_old_portal: true
   archived: false
 
@@ -272,8 +272,8 @@ Kežmarok:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.4295429
-  longitude: 49.1373227
+  latitude: 49.1373227
+  longitude: 20.4295429
   population: 16552
   active: true
   category: town
@@ -282,8 +282,8 @@ Kežmarok:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - kezmarok
-  - Kežmarok
+    - kezmarok
+    - Kežmarok
   active_on_old_portal: true
   archived: false
 
@@ -296,8 +296,8 @@ Trstené pri Hornáde:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 21.334066
-  longitude: 48.5732392
+  latitude: 48.5732392
+  longitude: 21.334066
   population: 1565
   active: true
   category: village
@@ -306,8 +306,8 @@ Trstené pri Hornáde:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - trstene-pri-hornade
-  - Trstené pri Hornáde
+    - trstene-pri-hornade
+    - Trstené pri Hornáde
   active_on_old_portal: false
   archived: true
 
@@ -320,8 +320,8 @@ trencin:
   municipality_type: other
   has_municipality_districts: true
   handled_by: 1
-  latitude: 18.0407528
-  longitude: 48.8944464
+  latitude: 48.8944464
+  longitude: 18.0407528
   population: 55832
   active: true
   category: regional_capital
@@ -330,8 +330,8 @@ trencin:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - trencin
-  - Trenčín
+    - trencin
+    - Trenčín
   active_on_old_portal: true
   archived: false
 
@@ -344,8 +344,8 @@ trencin:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.7565253
-  longitude: 48.461331
+  latitude: 48.461331
+  longitude: 17.7565253
   population: 1606
   active: true
   category: village
@@ -354,8 +354,8 @@ trencin:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - cervenik
-  - Červeník
+    - cervenik
+    - Červeník
   active_on_old_portal: true
   archived: false
 
@@ -368,8 +368,8 @@ Modra:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.3072873
-  longitude: 48.3344706
+  latitude: 48.3344706
+  longitude: 17.3072873
   population: 9056
   active: true
   category: town
@@ -378,8 +378,8 @@ Modra:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - modra
-  - Modra
+    - modra
+    - Modra
   active_on_old_portal: false
   archived: false
 
@@ -402,8 +402,8 @@ Humenné:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - humenne
-  - Humenné
+    - humenne
+    - Humenné
   active_on_old_portal: true
   archived: false
 
@@ -416,8 +416,8 @@ Svätý Jur:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.2119074
-  longitude: 48.2543374
+  latitude: 48.2543374
+  longitude: 17.2119074
   population: 5141
   active: true
   category: town
@@ -426,8 +426,8 @@ Svätý Jur:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - svaty-jur
-  - Svätý Jur
+    - svaty-jur
+    - Svätý Jur
   active_on_old_portal: true
   archived: false
 
@@ -440,8 +440,8 @@ Skalica:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.2278639
-  longitude: 48.8460561
+  latitude: 48.8460561
+  longitude: 17.2278639
   population: 14466
   active: true
   category: town
@@ -450,8 +450,8 @@ Skalica:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - skalica
-  - Skalica
+    - skalica
+    - Skalica
   active_on_old_portal: true
   archived: false
 
@@ -464,8 +464,8 @@ Skalica:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.3650735
-  longitude: 48.6576726
+  latitude: 48.6576726
+  longitude: 20.3650735
   population: 1517
   active: true
   category: village
@@ -474,8 +474,8 @@ Skalica:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - stitnik
-  - Štítnik
+    - stitnik
+    - Štítnik
   active_on_old_portal: false
   archived: true
 
@@ -488,8 +488,8 @@ Stará Ľubovňa:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.6905301
-  longitude: 49.3022126
+  latitude: 49.3022126
+  longitude: 20.6905301
   population: 16359
   active: true
   category: town
@@ -498,8 +498,8 @@ Stará Ľubovňa:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - stara-lubovna
-  - Stará Ľubovňa
+    - stara-lubovna
+    - Stará Ľubovňa
   active_on_old_portal: true
   archived: false
 
@@ -512,8 +512,8 @@ Považská Bystrica:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.4481529
-  longitude: 49.1169161
+  latitude: 49.1169161
+  longitude: 18.4481529
   population: 41220
   active: true
   category: town
@@ -522,8 +522,8 @@ Považská Bystrica:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - povazska-bystrica
-  - Považská Bystrica
+    - povazska-bystrica
+    - Považská Bystrica
   active_on_old_portal: true
   archived: false
 
@@ -536,8 +536,8 @@ Moldava n. Bodvou:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.9965578
-  longitude: 48.6126411
+  latitude: 48.6126411
+  longitude: 20.9965578
   population: 10006
   active: true
   category: town
@@ -546,8 +546,8 @@ Moldava n. Bodvou:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - moldava
-  - Moldava n. Bodvou
+    - moldava
+    - Moldava n. Bodvou
   active_on_old_portal: true
   archived: false
 
@@ -560,8 +560,8 @@ Trnava:
   municipality_type: other
   has_municipality_districts: true
   handled_by: 1
-  latitude: 17.5951127
-  longitude: 48.3735186
+  latitude: 48.3735186
+  longitude: 17.5951127
   population: 70286
   active: true
   category: regional_capital
@@ -570,8 +570,8 @@ Trnava:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - trnava
-  - Trnava
+    - trnava
+    - Trnava
   active_on_old_portal: false
   archived: false
 
@@ -584,8 +584,8 @@ Košice:
   municipality_type: huge
   has_municipality_districts: true
   handled_by: 2
-  latitude: 21.2577999
-  longitude: 48.7210053
+  latitude: 48.7210053
+  longitude: 21.2577999
   population: 239797
   active: true
   category: regional_capital
@@ -594,8 +594,8 @@ Košice:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - kosice
-  - Košice
+    - kosice
+    - Košice
   active_on_old_portal: true
   archived: false
 
@@ -608,8 +608,8 @@ Turzovka:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.6267788
-  longitude: 49.40532
+  latitude: 49.40532
+  longitude: 18.6267788
   population: 7745
   active: true
   category: town
@@ -618,8 +618,8 @@ Turzovka:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - turzovka
-  - Turzovka
+    - turzovka
+    - Turzovka
   active_on_old_portal: false
   archived: true
 
@@ -632,8 +632,8 @@ Senec:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.3981035
-  longitude: 48.2166758
+  latitude: 48.2166758
+  longitude: 17.3981035
   population: 17806
   active: true
   category: town
@@ -642,8 +642,8 @@ Senec:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - senec
-  - Senec
+    - senec
+    - Senec
   active_on_old_portal: true
   archived: false
 
@@ -656,8 +656,8 @@ Hlohovec:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.7993934
-  longitude: 48.4302016
+  latitude: 48.4302016
+  longitude: 17.7993934
   population: 22396
   active: true
   category: town
@@ -666,8 +666,8 @@ Hlohovec:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - hlohovec
-  - Hlohovec
+    - hlohovec
+    - Hlohovec
   active_on_old_portal: false
   archived: false
 
@@ -680,8 +680,8 @@ Nitra:
   municipality_type: other
   has_municipality_districts: true
   handled_by: 1
-  latitude: 18.086038
-  longitude: 48.3128725
+  latitude: 48.3128725
+  longitude: 18.086038
   population: 87285
   active: true
   category: regional_capital
@@ -690,8 +690,8 @@ Nitra:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - nitra
-  - Nitra
+    - nitra
+    - Nitra
   active_on_old_portal: false
   archived: false
 
@@ -704,8 +704,8 @@ Svidník:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 21.5683369
-  longitude: 49.3062472
+  latitude: 49.3062472
+  longitude: 21.5683369
   population: 11000
   active: true
   category: town
@@ -714,8 +714,8 @@ Svidník:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - svidnik
-  - Svidník
+    - svidnik
+    - Svidník
   active_on_old_portal: false
   archived: true
 
@@ -728,8 +728,8 @@ Bánov:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.1911346
-  longitude: 48.0484309
+  latitude: 48.0484309
+  longitude: 18.1911346
   population: 3709
   active: true
   category: village
@@ -738,8 +738,8 @@ Bánov:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - banov
-  - Bánov
+    - banov
+    - Bánov
   active_on_old_portal: false
   archived: true
 
@@ -752,8 +752,8 @@ Levice:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.6011482
-  longitude: 48.2192923
+  latitude: 48.2192923
+  longitude: 18.6011482
   population: 34226
   active: true
   category: town
@@ -762,8 +762,8 @@ Levice:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - levice
-  - Levice
+    - levice
+    - Levice
   active_on_old_portal: false
   archived: false
 
@@ -776,8 +776,8 @@ Semerovo:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.3558186
-  longitude: 48.0116905
+  latitude: 48.0116905
+  longitude: 18.3558186
   population:
   active: true
   category: village
@@ -786,8 +786,8 @@ Semerovo:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - semerovo
-  - Semerovo
+    - semerovo
+    - Semerovo
   active_on_old_portal: false
   archived: true
 
@@ -800,8 +800,8 @@ Stupava:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.0318863
-  longitude: 48.2749212
+  latitude: 48.2749212
+  longitude: 17.0318863
   population:
   active: true
   category: town
@@ -810,9 +810,9 @@ Stupava:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - stupava
-  - Stupava
-  - Stupava
+    - stupava
+    - Stupava
+    - Stupava
   active_on_old_portal: false
   archived: true
 
@@ -825,8 +825,8 @@ Alekšince:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.947471
-  longitude: 48.3669668
+  latitude: 48.3669668
+  longitude: 17.947471
   population:
   active: true
   category: village
@@ -835,8 +835,8 @@ Alekšince:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - aleksince
-  - Alekšince
+    - aleksince
+    - Alekšince
   active_on_old_portal: false
   archived: true
 
@@ -849,8 +849,8 @@ Zohor:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 16.982887
-  longitude: 48.3174603
+  latitude: 48.3174603
+  longitude: 16.982887
   population:
   active: true
   category: village
@@ -859,8 +859,8 @@ Zohor:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - zohor
-  - Zohor
+    - zohor
+    - Zohor
   active_on_old_portal: true
   archived: false
 
@@ -873,8 +873,8 @@ Janova Lehota:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.7824115
-  longitude: 48.6592237
+  latitude: 48.6592237
+  longitude: 18.7824115
   population:
   active: true
   category: village
@@ -883,8 +883,8 @@ Janova Lehota:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - janova-lehota
-  - Janova Lehota
+    - janova-lehota
+    - Janova Lehota
   active_on_old_portal: false
   archived: true
 
@@ -897,8 +897,8 @@ Borský Svätý Jur:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.0498101
-  longitude: 48.6149393
+  latitude: 48.6149393
+  longitude: 17.0498101
   population:
   active: true
   category: village
@@ -907,8 +907,8 @@ Borský Svätý Jur:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - borsky-svaty-jur
-  - Borský Svätý Jur
+    - borsky-svaty-jur
+    - Borský Svätý Jur
   active_on_old_portal: true
   archived: false
 
@@ -921,8 +921,8 @@ Stropkov:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 21.6518244
-  longitude: 49.2026191
+  latitude: 49.2026191
+  longitude: 21.6518244
   population:
   active: true
   category: town
@@ -931,8 +931,8 @@ Stropkov:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - stropkov
-  - Stropkov
+    - stropkov
+    - Stropkov
   active_on_old_portal: true
   archived: false
 
@@ -945,8 +945,8 @@ Studienka:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.1369059
-  longitude: 48.5266072
+  latitude: 48.5266072
+  longitude: 17.1369059
   population:
   active: true
   category: village
@@ -955,8 +955,8 @@ Studienka:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - studienka
-  - Studienka
+    - studienka
+    - Studienka
   active_on_old_portal: false
   archived: true
 
@@ -969,8 +969,8 @@ Zemianske Kostoľany:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.5261226
-  longitude: 48.6830496
+  latitude: 48.6830496
+  longitude: 18.5261226
   population:
   active: true
   category: village
@@ -979,8 +979,8 @@ Zemianske Kostoľany:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - zemianske-kostolany
-  - Zemianske Kostoľany
+    - zemianske-kostolany
+    - Zemianske Kostoľany
   active_on_old_portal: false
   archived: false
 
@@ -993,8 +993,8 @@ Trstená:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.6106129
-  longitude: 49.3598544
+  latitude: 49.3598544
+  longitude: 19.6106129
   population:
   active: true
   category: town
@@ -1003,8 +1003,8 @@ Trstená:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - trstena
-  - Trstená
+    - trstena
+    - Trstená
   active_on_old_portal: false
   archived: true
 
@@ -1017,8 +1017,8 @@ Lendak:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.3519188
-  longitude: 49.2372876
+  latitude: 49.2372876
+  longitude: 20.3519188
   population:
   active: true
   category: village
@@ -1027,8 +1027,8 @@ Lendak:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - lendak
-  - Lendak
+    - lendak
+    - Lendak
   active_on_old_portal: false
   archived: true
 
@@ -1041,8 +1041,8 @@ Letanovce:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.4670197
-  longitude: 48.9797269
+  latitude: 48.9797269
+  longitude: 20.4670197
   population:
   active: true
   category: village
@@ -1051,8 +1051,8 @@ Letanovce:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - letanovce
-  - Letanovce
+    - letanovce
+    - Letanovce
   active_on_old_portal: false
   archived: false
 
@@ -1065,8 +1065,8 @@ Kláštor pod Znievom:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.8049067
-  longitude: 48.9727869
+  latitude: 48.9727869
+  longitude: 18.8049067
   population:
   active: true
   category: village
@@ -1075,8 +1075,8 @@ Kláštor pod Znievom:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - klastor-pod-znievom
-  - Kláštor pod Znievom
+    - klastor-pod-znievom
+    - Kláštor pod Znievom
   active_on_old_portal: true
   archived: false
 
@@ -1089,8 +1089,8 @@ Myjava:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.5673661
-  longitude: 48.7517448
+  latitude: 48.7517448
+  longitude: 17.5673661
   population:
   active: true
   category: town
@@ -1099,8 +1099,8 @@ Myjava:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - myjava
-  - Myjava
+    - myjava
+    - Myjava
   active_on_old_portal: false
   archived: true
 
@@ -1113,8 +1113,8 @@ Trebišov:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 21.715555
-  longitude: 48.6284913
+  latitude: 48.6284913
+  longitude: 21.715555
   population:
   active: true
   category: town
@@ -1123,8 +1123,8 @@ Trebišov:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - trebisov
-  - Trebišov
+    - trebisov
+    - Trebišov
   active_on_old_portal: true
   archived: false
 
@@ -1137,8 +1137,8 @@ Bošáca:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.838206
-  longitude: 48.8287441
+  latitude: 48.8287441
+  longitude: 17.838206
   population:
   active: true
   category: village
@@ -1147,8 +1147,8 @@ Bošáca:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - bosaca
-  - Bošáca
+    - bosaca
+    - Bošáca
   active_on_old_portal: false
   archived: true
 
@@ -1161,8 +1161,8 @@ Teplička:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.5899614
-  longitude: 48.9085759
+  latitude: 48.9085759
+  longitude: 20.5899614
   population:
   active: true
   category: village
@@ -1171,8 +1171,8 @@ Teplička:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - teplicka
-  - Teplička
+    - teplicka
+    - Teplička
   active_on_old_portal: false
   archived: true
 
@@ -1185,8 +1185,8 @@ Horovce:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.2567777
-  longitude: 49.0449897
+  latitude: 49.0449897
+  longitude: 18.2567777
   population:
   active: true
   category: village
@@ -1195,8 +1195,8 @@ Horovce:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - horovce
-  - Horovce
+    - horovce
+    - Horovce
   active_on_old_portal: true
   archived: false
 
@@ -1209,8 +1209,8 @@ ABC:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.105405
-  longitude: 48.2598952
+  latitude: 48.2598952
+  longitude: 18.105405
   population:
   active: true
   category: village
@@ -1219,8 +1219,8 @@ ABC:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - abc
-  - ABC
+    - abc
+    - ABC
   active_on_old_portal: true
   archived: false
 
@@ -1233,8 +1233,8 @@ Pečovská Nová Ves:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 21.0413611
-  longitude: 49.122122
+  latitude: 49.122122
+  longitude: 21.0413611
   population:
   active: true
   category: village
@@ -1243,8 +1243,8 @@ Pečovská Nová Ves:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - pecovska-nova-ves
-  - Pečovská Nová Ves
+    - pecovska-nova-ves
+    - Pečovská Nová Ves
   active_on_old_portal: false
   archived: true
 
@@ -1257,8 +1257,8 @@ Nové Mesto nad Váhom:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.8253958
-  longitude: 48.7568395
+  latitude: 48.7568395
+  longitude: 17.8253958
   population:
   active: true
   category: town
@@ -1267,8 +1267,8 @@ Nové Mesto nad Váhom:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - nove-mesto-nad-vahom
-  - Nové Mesto nad Váhom
+    - nove-mesto-nad-vahom
+    - Nové Mesto nad Váhom
   active_on_old_portal: true
   archived: false
 
@@ -1291,8 +1291,8 @@ Ostrý Grúň:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - ostry-grun
-  - Ostrý Grúň
+    - ostry-grun
+    - Ostrý Grúň
   active_on_old_portal: true
   archived: false
 
@@ -1305,8 +1305,8 @@ Chmeľnica:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.7316332
-  longitude: 49.2959462
+  latitude: 49.2959462
+  longitude: 20.7316332
   population:
   active: true
   category: village
@@ -1315,8 +1315,8 @@ Chmeľnica:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - chmelnica
-  - Chmeľnica
+    - chmelnica
+    - Chmeľnica
   active_on_old_portal: false
   archived: true
 
@@ -1329,8 +1329,8 @@ Sečovce:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 21.6516064
-  longitude: 48.7012301
+  latitude: 48.7012301
+  longitude: 21.6516064
   population:
   active: true
   category: town
@@ -1339,8 +1339,8 @@ Sečovce:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - secovce
-  - Sečovce
+    - secovce
+    - Sečovce
   active_on_old_portal: false
   archived: true
 
@@ -1353,8 +1353,8 @@ Sečovce:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.8548946
-  longitude: 48.5905012
+  latitude: 48.5905012
+  longitude: 18.8548946
   population:
   active: true
   category: town
@@ -1363,8 +1363,8 @@ Sečovce:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - ziar-nad-hronom
-  - Žiar nad Hronom
+    - ziar-nad-hronom
+    - Žiar nad Hronom
   active_on_old_portal: false
   archived: true
 
@@ -1377,8 +1377,8 @@ Sečovce:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.7897828
-  longitude: 49.4385551
+  latitude: 49.4385551
+  longitude: 18.7897828
   population:
   active: true
   category: town
@@ -1387,8 +1387,8 @@ Sečovce:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - cadca
-  - Čadca
+    - cadca
+    - Čadca
   active_on_old_portal: true
   archived: false
 
@@ -1411,8 +1411,8 @@ Vysoké Tatry:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - vysoke-tatry
-  - Vysoké Tatry
+    - vysoke-tatry
+    - Vysoké Tatry
   active_on_old_portal: false
   archived: true
 
@@ -1425,8 +1425,8 @@ Ochodnica:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.792932
-  longitude: 49.3479194
+  latitude: 49.3479194
+  longitude: 18.792932
   population:
   active: true
   category: village
@@ -1435,8 +1435,8 @@ Ochodnica:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - ochodnica
-  - Ochodnica
+    - ochodnica
+    - Ochodnica
   active_on_old_portal: false
   archived: true
 
@@ -1449,8 +1449,8 @@ Horná Súča:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.9792276
-  longitude: 48.9722929
+  latitude: 48.9722929
+  longitude: 17.9792276
   population:
   active: true
   category: village
@@ -1459,8 +1459,8 @@ Horná Súča:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - horna-suca
-  - Horná Súča
+    - horna-suca
+    - Horná Súča
   active_on_old_portal: false
   archived: true
 
@@ -1473,8 +1473,8 @@ Vinosady:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.2875579
-  longitude: 48.3095335
+  latitude: 48.3095335
+  longitude: 17.2875579
   population:
   active: true
   category: village
@@ -1483,8 +1483,8 @@ Vinosady:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - vinosady
-  - Vinosady
+    - vinosady
+    - Vinosady
   active_on_old_portal: true
   archived: false
 
@@ -1497,8 +1497,8 @@ Pezinok:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.2666557
-  longitude: 48.2891353
+  latitude: 48.2891353
+  longitude: 17.2666557
   population:
   active: true
   category: town
@@ -1507,8 +1507,8 @@ Pezinok:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - pezinok
-  - Pezinok
+    - pezinok
+    - Pezinok
   active_on_old_portal: false
   archived: false
 
@@ -1521,8 +1521,8 @@ Hviezdoslavov:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.3481669
-  longitude: 48.0674096
+  latitude: 48.0674096
+  longitude: 17.3481669
   population:
   active: true
   category: village
@@ -1531,8 +1531,8 @@ Hviezdoslavov:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - hviezdoslavov
-  - Hviezdoslavov
+    - hviezdoslavov
+    - Hviezdoslavov
   active_on_old_portal: true
   archived: false
 
@@ -1545,8 +1545,8 @@ Biely Kostol:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.5318549
-  longitude: 48.3668689
+  latitude: 48.3668689
+  longitude: 17.5318549
   population:
   active: true
   category: village
@@ -1555,8 +1555,8 @@ Biely Kostol:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - biely-kostol
-  - Biely Kostol
+    - biely-kostol
+    - Biely Kostol
   active_on_old_portal: false
   archived: false
 
@@ -1569,8 +1569,8 @@ Nálepkovo:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.6202732
-  longitude: 48.8419138
+  latitude: 48.8419138
+  longitude: 20.6202732
   population:
   active: true
   category: village
@@ -1579,8 +1579,8 @@ Nálepkovo:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - nalepkovo
-  - Nálepkovo
+    - nalepkovo
+    - Nálepkovo
   active_on_old_portal: false
   archived: true
 
@@ -1593,8 +1593,8 @@ Hnúšťa:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.9536192
-  longitude: 48.5746472
+  latitude: 48.5746472
+  longitude: 19.9536192
   population:
   active: true
   category: town
@@ -1603,8 +1603,8 @@ Hnúšťa:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - hnusta
-  - Hnúšťa
+    - hnusta
+    - Hnúšťa
   active_on_old_portal: true
   archived: false
 
@@ -1617,8 +1617,8 @@ Veľká Ida:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 21.1673945
-  longitude: 48.5976622
+  latitude: 48.5976622
+  longitude: 21.1673945
   population:
   active: true
   category: village
@@ -1627,8 +1627,8 @@ Veľká Ida:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - velka-ida
-  - Veľká Ida
+    - velka-ida
+    - Veľká Ida
   active_on_old_portal: false
   archived: true
 
@@ -1641,8 +1641,8 @@ Rozhanovce:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 21.3439355
-  longitude: 48.7513968
+  latitude: 48.7513968
+  longitude: 21.3439355
   population:
   active: true
   category: village
@@ -1651,8 +1651,8 @@ Rozhanovce:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - rozhanovce
-  - Rozhanovce
+    - rozhanovce
+    - Rozhanovce
   active_on_old_portal: true
   archived: false
 
@@ -1665,8 +1665,8 @@ Horna Dolna:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.8856688
-  longitude: 48.8221575
+  latitude: 48.8221575
+  longitude: 18.8856688
   population:
   active: true
   category: village
@@ -1675,8 +1675,8 @@ Horna Dolna:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - horna-dolna
-  - Horna Dolna
+    - horna-dolna
+    - Horna Dolna
   active_on_old_portal: true
   archived: false
 
@@ -1689,8 +1689,8 @@ Jablonica:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.4207721
-  longitude: 48.6067793
+  latitude: 48.6067793
+  longitude: 17.4207721
   population:
   active: true
   category: village
@@ -1699,8 +1699,8 @@ Jablonica:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - jablonica
-  - Jablonica
+    - jablonica
+    - Jablonica
   active_on_old_portal: false
   archived: true
 
@@ -1713,8 +1713,8 @@ Križovany nad Dudváhom:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.6564901
-  longitude: 48.324917
+  latitude: 48.324917
+  longitude: 17.6564901
   population:
   active: true
   category: village
@@ -1723,8 +1723,8 @@ Križovany nad Dudváhom:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - krizovany-nad-dudvahom
-  - Križovany nad Dudváhom
+    - krizovany-nad-dudvahom
+    - Križovany nad Dudváhom
   active_on_old_portal: false
   archived: true
 
@@ -1737,8 +1737,8 @@ Zavar:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.6736431
-  longitude: 48.351445
+  latitude: 48.351445
+  longitude: 17.6736431
   population:
   active: true
   category: village
@@ -1747,8 +1747,8 @@ Zavar:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - zavar
-  - Zavar
+    - zavar
+    - Zavar
   active_on_old_portal: true
   archived: false
 
@@ -1761,8 +1761,8 @@ Dubnica nad Váhom:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.1709914
-  longitude: 48.9617553
+  latitude: 48.9617553
+  longitude: 18.1709914
   population:
   active: true
   category: town
@@ -1771,8 +1771,8 @@ Dubnica nad Váhom:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - dubnica-nad-vahom
-  - Dubnica nad Váhom
+    - dubnica-nad-vahom
+    - Dubnica nad Váhom
   active_on_old_portal: false
   archived: false
 
@@ -1785,8 +1785,8 @@ Snina:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 22.1583021
-  longitude: 48.987657
+  latitude: 48.987657
+  longitude: 22.1583021
   population:
   active: true
   category: town
@@ -1795,8 +1795,8 @@ Snina:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - snina
-  - Snina
+    - snina
+    - Snina
   active_on_old_portal: true
   archived: false
 
@@ -1809,8 +1809,8 @@ Snina:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.3138117
-  longitude: 48.0280123
+  latitude: 48.0280123
+  longitude: 17.3138117
   population:
   active: true
   category: town
@@ -1819,8 +1819,8 @@ Snina:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - samorin
-  - Šamorín
+    - samorin
+    - Šamorín
   active_on_old_portal: true
   archived: false
 
@@ -1833,8 +1833,8 @@ Dolný Kubín:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.2968746
-  longitude: 49.212679
+  latitude: 49.212679
+  longitude: 19.2968746
   population:
   active: true
   category: town
@@ -1843,8 +1843,8 @@ Dolný Kubín:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - dolny-kubin
-  - Dolný Kubín
+    - dolny-kubin
+    - Dolný Kubín
   active_on_old_portal: false
   archived: false
 
@@ -1857,8 +1857,8 @@ Horná Dolná:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.9798474
-  longitude: 48.658344
+  latitude: 48.658344
+  longitude: 17.9798474
   population:
   active: true
   category: village
@@ -1867,8 +1867,8 @@ Horná Dolná:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - horna-dolna
-  - Horná Dolná
+    - horna-dolna
+    - Horná Dolná
   active_on_old_portal: true
   archived: false
 
@@ -1881,8 +1881,8 @@ Námestovo:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.4812155
-  longitude: 49.404472
+  latitude: 49.404472
+  longitude: 19.4812155
   population:
   active: true
   category: town
@@ -1891,8 +1891,8 @@ Námestovo:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - namestovo
-  - Námestovo
+    - namestovo
+    - Námestovo
   active_on_old_portal: false
   archived: true
 
@@ -1905,8 +1905,8 @@ Veľké Úľany:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.5770214
-  longitude: 48.1657877
+  latitude: 48.1657877
+  longitude: 17.5770214
   population:
   active: true
   category: village
@@ -1915,8 +1915,8 @@ Veľké Úľany:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - velke-ulany
-  - Veľké Úľany
+    - velke-ulany
+    - Veľké Úľany
   active_on_old_portal: false
   archived: true
 
@@ -1929,8 +1929,8 @@ Veľké Úľany:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.6555054
-  longitude: 48.7471321
+  latitude: 48.7471321
+  longitude: 19.6555054
   population:
   active: true
   category: village
@@ -1939,8 +1939,8 @@ Veľké Úľany:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - cierny-balog
-  - Čierny Balog
+    - cierny-balog
+    - Čierny Balog
   active_on_old_portal: true
   archived: false
 
@@ -1953,8 +1953,8 @@ Hamuliakovo:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.2520798
-  longitude: 48.0379862
+  latitude: 48.0379862
+  longitude: 17.2520798
   population:
   active: true
   category: village
@@ -1963,8 +1963,8 @@ Hamuliakovo:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - hamuliakovo
-  - Hamuliakovo
+    - hamuliakovo
+    - Hamuliakovo
   active_on_old_portal: true
   archived: false
 
@@ -1977,8 +1977,8 @@ Bystričany:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.5100381
-  longitude: 48.6604318
+  latitude: 48.6604318
+  longitude: 18.5100381
   population:
   active: true
   category: village
@@ -1987,8 +1987,8 @@ Bystričany:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - bystricany
-  - Bystričany
+    - bystricany
+    - Bystričany
   active_on_old_portal: false
   archived: true
 
@@ -2001,8 +2001,8 @@ Moravany nad Váhom:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.8614682
-  longitude: 48.5989232
+  latitude: 48.5989232
+  longitude: 17.8614682
   population:
   active: true
   category: village
@@ -2011,8 +2011,8 @@ Moravany nad Váhom:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - moravany-nad-vahom
-  - Moravany nad Váhom
+    - moravany-nad-vahom
+    - Moravany nad Váhom
   active_on_old_portal: true
   archived: false
 
@@ -2025,8 +2025,8 @@ Dolný Lopašov:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.6423912
-  longitude: 48.5771553
+  latitude: 48.5771553
+  longitude: 17.6423912
   population:
   active: true
   category: village
@@ -2035,8 +2035,8 @@ Dolný Lopašov:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - dolny-lopasov
-  - Dolný Lopašov
+    - dolny-lopasov
+    - Dolný Lopašov
   active_on_old_portal: false
   archived: true
 
@@ -2049,8 +2049,8 @@ Istebné:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.2214836
-  longitude: 49.2115262
+  latitude: 49.2115262
+  longitude: 19.2214836
   population:
   active: true
   category: village
@@ -2059,8 +2059,8 @@ Istebné:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - istebne
-  - Istebné
+    - istebne
+    - Istebné
   active_on_old_portal: true
   archived: false
 
@@ -2073,8 +2073,8 @@ Istebné:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.6541263
-  longitude: 49.0622939
+  latitude: 49.0622939
+  longitude: 18.6541263
   population:
   active: true
   category: village
@@ -2083,8 +2083,8 @@ Istebné:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - durcina
-  - Ďurčiná
+    - durcina
+    - Ďurčiná
   active_on_old_portal: false
   archived: true
 
@@ -2097,8 +2097,8 @@ Ivanka pri Dunaji:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.2557153
-  longitude: 48.1897372
+  latitude: 48.1897372
+  longitude: 17.2557153
   population:
   active: true
   category: village
@@ -2107,8 +2107,8 @@ Ivanka pri Dunaji:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - ivanka-pri-dunaji
-  - Ivanka pri Dunaji
+    - ivanka-pri-dunaji
+    - Ivanka pri Dunaji
   active_on_old_portal: false
   archived: false
 
@@ -2121,8 +2121,8 @@ Trenčianske Bohuslavice:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.8580896
-  longitude: 48.8025995
+  latitude: 48.8025995
+  longitude: 17.8580896
   population:
   active: true
   category: village
@@ -2131,8 +2131,8 @@ Trenčianske Bohuslavice:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - trencianske-bohuslavice
-  - Trenčianske Bohuslavice
+    - trencianske-bohuslavice
+    - Trenčianske Bohuslavice
   active_on_old_portal: false
   archived: true
 
@@ -2145,8 +2145,8 @@ bratislava:
   municipality_type: huge
   has_municipality_districts: true
   handled_by: 1
-  latitude: 17.109832763671875
-  longitude: 48.13470457551313
+  latitude: 48.13470457551313
+  longitude: 17.109832763671875
   population: 428672
   active: true
   category: regional_capital
@@ -2155,8 +2155,8 @@ bratislava:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - bratislava
-  - Bratislava
+    - bratislava
+    - Bratislava
   active_on_old_portal: false
   archived: false
 
@@ -2169,8 +2169,8 @@ Nové Zámky:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.1640649
-  longitude: 47.9860672
+  latitude: 47.9860672
+  longitude: 18.1640649
   population: 39219
   active: true
   category: town
@@ -2179,8 +2179,8 @@ Nové Zámky:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - nove-zamky
-  - Nové Zámky
+    - nove-zamky
+    - Nové Zámky
   active_on_old_portal: true
   archived: false
 
@@ -2193,8 +2193,8 @@ Zlaté Moravce:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.3976342
-  longitude: 48.3832287
+  latitude: 48.3832287
+  longitude: 18.3976342
   population:
   active: true
   category: town
@@ -2203,8 +2203,8 @@ Zlaté Moravce:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - zlate-moravce
-  - Zlaté Moravce
+    - zlate-moravce
+    - Zlaté Moravce
   active_on_old_portal: true
   archived: false
 
@@ -2217,8 +2217,8 @@ Malacky:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.0182641
-  longitude: 48.4363404
+  latitude: 48.4363404
+  longitude: 17.0182641
   population:
   active: true
   category: town
@@ -2227,9 +2227,9 @@ Malacky:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - malacky
-  - Malacky
-  - Malacky
+    - malacky
+    - Malacky
+    - Malacky
   active_on_old_portal: false
   archived: false
 
@@ -2242,8 +2242,8 @@ Smolenice:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.4300631
-  longitude: 48.5058478
+  latitude: 48.5058478
+  longitude: 17.4300631
   population:
   active: true
   category: village
@@ -2252,8 +2252,8 @@ Smolenice:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - smolenice
-  - Smolenice
+    - smolenice
+    - Smolenice
   active_on_old_portal: true
   archived: false
 
@@ -2266,8 +2266,8 @@ Plavé Vozokany:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.4654954
-  longitude: 48.0700072
+  latitude: 48.0700072
+  longitude: 18.4654954
   population:
   active: true
   category: village
@@ -2276,8 +2276,8 @@ Plavé Vozokany:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - plave-vozokany
-  - Plavé Vozokany
+    - plave-vozokany
+    - Plavé Vozokany
   active_on_old_portal: true
   archived: false
 
@@ -2290,8 +2290,8 @@ Liptovský Mikuláš:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.6192067
-  longitude: 49.0811487
+  latitude: 49.0811487
+  longitude: 19.6192067
   population: 31900
   active: true
   category: town
@@ -2300,8 +2300,8 @@ Liptovský Mikuláš:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - liptovsky-mikulas
-  - Liptovský Mikuláš
+    - liptovsky-mikulas
+    - Liptovský Mikuláš
   active_on_old_portal: false
   archived: false
 
@@ -2314,8 +2314,8 @@ Vyšná Jedľová:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 21.541009
-  longitude: 49.3477922
+  latitude: 49.3477922
+  longitude: 21.541009
   population:
   active: true
   category: village
@@ -2324,8 +2324,8 @@ Vyšná Jedľová:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - vysna-jedlova
-  - Vyšná Jedľová
+    - vysna-jedlova
+    - Vyšná Jedľová
   active_on_old_portal: true
   archived: false
 
@@ -2338,8 +2338,8 @@ Rožkovany:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.990072
-  longitude: 49.1380819
+  latitude: 49.1380819
+  longitude: 20.990072
   population:
   active: true
   category: village
@@ -2348,8 +2348,8 @@ Rožkovany:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - rozkovany
-  - Rožkovany
+    - rozkovany
+    - Rožkovany
   active_on_old_portal: false
   archived: true
 
@@ -2362,8 +2362,8 @@ Prievidza:
   municipality_type: other
   has_municipality_districts: true
   handled_by: 1
-  latitude: 18.6221523
-  longitude: 48.7729271
+  latitude: 48.7729271
+  longitude: 18.6221523
   population: 48800
   active: true
   category: town
@@ -2372,8 +2372,8 @@ Prievidza:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - prievidza
-  - Prievidza
+    - prievidza
+    - Prievidza
   active_on_old_portal: false
   archived: false
 
@@ -2386,8 +2386,8 @@ Jablonov nad Turňou:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.6728556
-  longitude: 48.5932808
+  latitude: 48.5932808
+  longitude: 20.6728556
   population:
   active: true
   category: village
@@ -2396,8 +2396,8 @@ Jablonov nad Turňou:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - jablonov-nad-turnou
-  - Jablonov nad Turňou
+    - jablonov-nad-turnou
+    - Jablonov nad Turňou
   active_on_old_portal: true
   archived: false
 
@@ -2410,8 +2410,8 @@ Jasenie:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.4604621
-  longitude: 48.8356453
+  latitude: 48.8356453
+  longitude: 19.4604621
   population:
   active: true
   category: village
@@ -2420,8 +2420,8 @@ Jasenie:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - jasenie
-  - Jasenie
+    - jasenie
+    - Jasenie
   active_on_old_portal: true
   archived: false
 
@@ -2434,8 +2434,8 @@ Bystrička:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.8787145
-  longitude: 49.0495064
+  latitude: 49.0495064
+  longitude: 18.8787145
   population:
   active: true
   category: village
@@ -2444,8 +2444,8 @@ Bystrička:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - bystricka
-  - Bystrička
+    - bystricka
+    - Bystrička
   active_on_old_portal: true
   archived: false
 
@@ -2458,8 +2458,8 @@ Súľov-Hradná:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.5881376
-  longitude: 49.1646961
+  latitude: 49.1646961
+  longitude: 18.5881376
   population:
   active: true
   category: village
@@ -2468,8 +2468,8 @@ Súľov-Hradná:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - sulov-hradna
-  - Súľov-Hradná
+    - sulov-hradna
+    - Súľov-Hradná
   active_on_old_portal: true
   archived: false
 
@@ -2482,8 +2482,8 @@ Zeleneč:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.5986861
-  longitude: 48.3318979
+  latitude: 48.3318979
+  longitude: 17.5986861
   population:
   active: true
   category: village
@@ -2492,8 +2492,8 @@ Zeleneč:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - zelenec
-  - Zeleneč
+    - zelenec
+    - Zeleneč
   active_on_old_portal: true
   archived: false
 
@@ -2506,8 +2506,8 @@ Bátovce:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.7445651
-  longitude: 48.2909126
+  latitude: 48.2909126
+  longitude: 18.7445651
   population:
   active: true
   category: village
@@ -2516,8 +2516,8 @@ Bátovce:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - batovce
-  - Bátovce
+    - batovce
+    - Bátovce
   active_on_old_portal: false
   archived: true
 
@@ -2530,8 +2530,8 @@ Bučany:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.700311
-  longitude: 48.4186727
+  latitude: 48.4186727
+  longitude: 17.700311
   population:
   active: true
   category: village
@@ -2540,8 +2540,8 @@ Bučany:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - bucany
-  - Bučany
+    - bucany
+    - Bučany
   active_on_old_portal: false
   archived: true
 
@@ -2554,8 +2554,8 @@ Turany:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.036836
-  longitude: 49.1166864
+  latitude: 49.1166864
+  longitude: 19.036836
   population:
   active: true
   category: town
@@ -2564,8 +2564,8 @@ Turany:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - turany
-  - Turany
+    - turany
+    - Turany
   active_on_old_portal: false
   archived: true
 
@@ -2578,8 +2578,8 @@ Bojnice:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.5826867
-  longitude: 48.7788386
+  latitude: 48.7788386
+  longitude: 18.5826867
   population:
   active: true
   category: town
@@ -2588,8 +2588,8 @@ Bojnice:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - bojnice
-  - Bojnice
+    - bojnice
+    - Bojnice
   active_on_old_portal: false
   archived: true
 
@@ -2602,8 +2602,8 @@ Vlkanová:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.1469393
-  longitude: 48.6682906
+  latitude: 48.6682906
+  longitude: 19.1469393
   population:
   active: true
   category: village
@@ -2612,8 +2612,8 @@ Vlkanová:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - vlkanova
-  - Vlkanová
+    - vlkanova
+    - Vlkanová
   active_on_old_portal: true
   archived: false
 
@@ -2626,8 +2626,8 @@ Poprad:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.295414
-  longitude: 49.0511221
+  latitude: 49.0511221
+  longitude: 20.295414
   population:
   active: true
   category: town
@@ -2636,8 +2636,8 @@ Poprad:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - poprad
-  - Poprad
+    - poprad
+    - Poprad
   active_on_old_portal: true
   archived: false
 
@@ -2650,8 +2650,8 @@ Lietavská Lúčka:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.722629
-  longitude: 49.1754242
+  latitude: 49.1754242
+  longitude: 18.722629
   population:
   active: true
   category: village
@@ -2660,8 +2660,8 @@ Lietavská Lúčka:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - lietavska-lucka
-  - Lietavská Lúčka
+    - lietavska-lucka
+    - Lietavská Lúčka
   active_on_old_portal: true
   archived: false
 
@@ -2674,8 +2674,8 @@ Medzev:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.8923605
-  longitude: 48.6998208
+  latitude: 48.6998208
+  longitude: 20.8923605
   population:
   active: true
   category: town
@@ -2684,8 +2684,8 @@ Medzev:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - medzev
-  - Medzev
+    - medzev
+    - Medzev
   active_on_old_portal: true
   archived: false
 
@@ -2698,8 +2698,8 @@ Vyšná Šebastová:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 21.3231864
-  longitude: 49.0157912
+  latitude: 49.0157912
+  longitude: 21.3231864
   population:
   active: true
   category: village
@@ -2708,8 +2708,8 @@ Vyšná Šebastová:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - vysna-sebastova
-  - Vyšná Šebastová
+    - vysna-sebastova
+    - Vyšná Šebastová
   active_on_old_portal: false
   archived: true
 
@@ -2722,8 +2722,8 @@ Cífer:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.4900401
-  longitude: 48.3133734
+  latitude: 48.3133734
+  longitude: 17.4900401
   population:
   active: true
   category: village
@@ -2732,8 +2732,8 @@ Cífer:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - cifer
-  - Cífer
+    - cifer
+    - Cífer
   active_on_old_portal: false
   archived: false
 
@@ -2746,8 +2746,8 @@ Sabinov:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 21.0978
-  longitude: 49.1027696
+  latitude: 49.1027696
+  longitude: 21.0978
   population:
   active: true
   category: town
@@ -2756,8 +2756,8 @@ Sabinov:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - sabinov
-  - Sabinov
+    - sabinov
+    - Sabinov
   active_on_old_portal: false
   archived: false
 
@@ -2770,8 +2770,8 @@ Dubník:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.4119227
-  longitude: 47.9575017
+  latitude: 47.9575017
+  longitude: 18.4119227
   population:
   active: true
   category: village
@@ -2780,8 +2780,8 @@ Dubník:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - dubnik
-  - Dubník
+    - dubnik
+    - Dubník
   active_on_old_portal: false
   archived: true
 
@@ -2794,8 +2794,8 @@ Dvory nad Žitavou:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.2642292
-  longitude: 47.9926466
+  latitude: 47.9926466
+  longitude: 18.2642292
   population:
   active: true
   category: village
@@ -2804,8 +2804,8 @@ Dvory nad Žitavou:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - dvory-nad-zitavou
-  - Dvory nad Žitavou
+    - dvory-nad-zitavou
+    - Dvory nad Žitavou
   active_on_old_portal: false
   archived: true
 
@@ -2818,8 +2818,8 @@ Plášťovce:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.9778348
-  longitude: 48.159809
+  latitude: 48.159809
+  longitude: 18.9778348
   population:
   active: true
   category: village
@@ -2828,8 +2828,8 @@ Plášťovce:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - plastovce
-  - Plášťovce
+    - plastovce
+    - Plášťovce
   active_on_old_portal: false
   archived: true
 
@@ -2842,8 +2842,8 @@ Dolné Vestenice:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.3961313
-  longitude: 48.7040264
+  latitude: 48.7040264
+  longitude: 18.3961313
   population:
   active: true
   category: village
@@ -2852,8 +2852,8 @@ Dolné Vestenice:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - dolne-vestenice
-  - Dolné Vestenice
+    - dolne-vestenice
+    - Dolné Vestenice
   active_on_old_portal: false
   archived: false
 
@@ -2866,8 +2866,8 @@ Stará Turá:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.6873737
-  longitude: 48.7808907
+  latitude: 48.7808907
+  longitude: 17.6873737
   population:
   active: true
   category: town
@@ -2876,8 +2876,8 @@ Stará Turá:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - stara-tura
-  - Stará Turá
+    - stara-tura
+    - Stará Turá
   active_on_old_portal: false
   archived: false
 
@@ -2890,8 +2890,8 @@ Lozorno:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.0429424
-  longitude: 48.3324209
+  latitude: 48.3324209
+  longitude: 17.0429424
   population:
   active: true
   category: village
@@ -2900,8 +2900,8 @@ Lozorno:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - lozorno
-  - Lozorno
+    - lozorno
+    - Lozorno
   active_on_old_portal: false
   archived: false
 
@@ -2914,8 +2914,8 @@ Senica:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.3639576
-  longitude: 48.6765247
+  latitude: 48.6765247
+  longitude: 17.3639576
   population:
   active: true
   category: town
@@ -2924,8 +2924,8 @@ Senica:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - senica
-  - Senica
+    - senica
+    - Senica
   active_on_old_portal: false
   archived: false
 
@@ -2938,8 +2938,8 @@ Handlová:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.7557462
-  longitude: 48.7222258
+  latitude: 48.7222258
+  longitude: 18.7557462
   population:
   active: true
   category: town
@@ -2948,8 +2948,8 @@ Handlová:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - handlova
-  - Handlová
+    - handlova
+    - Handlová
   active_on_old_portal: false
   archived: false
 
@@ -2962,8 +2962,8 @@ Komárno:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.1294132
-  longitude: 47.7625785
+  latitude: 47.7625785
+  longitude: 18.1294132
   population:
   active: true
   category: town
@@ -2972,8 +2972,8 @@ Komárno:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - komarno
-  - Komárno
+    - komarno
+    - Komárno
   active_on_old_portal: false
   archived: false
 
@@ -2986,8 +2986,8 @@ Púchov:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.3241203
-  longitude: 49.1235654
+  latitude: 49.1235654
+  longitude: 18.3241203
   population:
   active: true
   category: town
@@ -2996,8 +2996,8 @@ Púchov:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - puchov
-  - Púchov
+    - puchov
+    - Púchov
   active_on_old_portal: false
   archived: false
 
@@ -3010,8 +3010,8 @@ Zázrivá:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.1527715
-  longitude: 49.2745705
+  latitude: 49.2745705
+  longitude: 19.1527715
   population:
   active: true
   category: village
@@ -3020,8 +3020,8 @@ Zázrivá:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - zazriva
-  - Zázrivá
+    - zazriva
+    - Zázrivá
   active_on_old_portal: false
   archived: false
 
@@ -3034,8 +3034,8 @@ Lučenec:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.6690601
-  longitude: 48.3286673
+  latitude: 48.3286673
+  longitude: 19.6690601
   population:
   active: true
   category: town
@@ -3044,8 +3044,8 @@ Lučenec:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - lucenec
-  - Lučenec
+    - lucenec
+    - Lučenec
   active_on_old_portal: false
   archived: false
 
@@ -3058,8 +3058,8 @@ Nová Baňa:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.6421894
-  longitude: 48.4216874
+  latitude: 48.4216874
+  longitude: 18.6421894
   population:
   active: true
   category: town
@@ -3068,8 +3068,8 @@ Nová Baňa:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - nova-bana
-  - Nová Baňa
+    - nova-bana
+    - Nová Baňa
   active_on_old_portal: false
   archived: false
 
@@ -3082,8 +3082,8 @@ Spišské Tomášovce:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.4723971
-  longitude: 48.9623817
+  latitude: 48.9623817
+  longitude: 20.4723971
   population:
   active: true
   category: village
@@ -3092,8 +3092,8 @@ Spišské Tomášovce:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - spisske-tomasovce
-  - Spišské Tomášovce
+    - spisske-tomasovce
+    - Spišské Tomášovce
   active_on_old_portal: false
   archived: false
 
@@ -3106,8 +3106,8 @@ Tešedíkovo:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.8464305
-  longitude: 48.1061652
+  latitude: 48.1061652
+  longitude: 17.8464305
   population:
   active: true
   category: village
@@ -3116,8 +3116,8 @@ Tešedíkovo:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - tesedikovo
-  - Tešedíkovo
+    - tesedikovo
+    - Tešedíkovo
   active_on_old_portal: false
   archived: true
 
@@ -3130,8 +3130,8 @@ banska_bystrica:
   municipality_type: other
   has_municipality_districts: true
   handled_by: 1
-  latitude: 19.1461917
-  longitude: 48.736277
+  latitude: 48.736277
+  longitude: 19.1461917
   population: 78068
   active: true
   category: regional_capital
@@ -3140,18 +3140,18 @@ banska_bystrica:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - Banská Bystrica
-  - Iliaš
-  - Rakytovce
-  - Kremnička
-  - Kráľová
-  - Radvaň
-  - Podlavice
-  - Skubín
-  - Jakub
-  - Kostiviarska
-  - Uľanka
-  - banska-bystrica
+    - Banská Bystrica
+    - Iliaš
+    - Rakytovce
+    - Kremnička
+    - Kráľová
+    - Radvaň
+    - Podlavice
+    - Skubín
+    - Jakub
+    - Kostiviarska
+    - Uľanka
+    - banska-bystrica
   active_on_old_portal: false
   archived: false
 
@@ -3164,8 +3164,8 @@ Holíč:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.161572
-  longitude: 48.8132665
+  latitude: 48.8132665
+  longitude: 17.161572
   population:
   active: true
   category: town
@@ -3174,8 +3174,8 @@ Holíč:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - holic
-  - Holíč
+    - holic
+    - Holíč
   active_on_old_portal: false
   archived: true
 
@@ -3188,8 +3188,8 @@ Martin:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.9218558
-  longitude: 49.0652929
+  latitude: 49.0652929
+  longitude: 18.9218558
   population: 56526
   active: true
   category: town
@@ -3198,8 +3198,8 @@ Martin:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - martin
-  - Martin
+    - martin
+    - Martin
   active_on_old_portal: false
   archived: true
 
@@ -3212,8 +3212,8 @@ Jarok:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.9604137
-  longitude: 48.2773889
+  latitude: 48.2773889
+  longitude: 17.9604137
   population:
   active: true
   category: village
@@ -3222,8 +3222,8 @@ Jarok:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - jarok
-  - Jarok
+    - jarok
+    - Jarok
   active_on_old_portal: false
   archived: true
 
@@ -3236,8 +3236,8 @@ Turňa nad Bodvou:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.8776599
-  longitude: 48.6004045
+  latitude: 48.6004045
+  longitude: 20.8776599
   population:
   active: true
   category: village
@@ -3246,8 +3246,8 @@ Turňa nad Bodvou:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - turna-nad-bodvou
-  - Turňa nad Bodvou
+    - turna-nad-bodvou
+    - Turňa nad Bodvou
   active_on_old_portal: false
   archived: true
 
@@ -3260,8 +3260,8 @@ Brezová pod Bradlom:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.5401983
-  longitude: 48.664999
+  latitude: 48.664999
+  longitude: 17.5401983
   population:
   active: true
   category: town
@@ -3270,8 +3270,8 @@ Brezová pod Bradlom:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - brezova-pod-bradlom
-  - Brezová pod Bradlom
+    - brezova-pod-bradlom
+    - Brezová pod Bradlom
   active_on_old_portal: false
   archived: false
 
@@ -3284,8 +3284,8 @@ Vranov nad Topľou:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 21.6825245
-  longitude: 48.8904721
+  latitude: 48.8904721
+  longitude: 21.6825245
   population:
   active: true
   category: town
@@ -3294,8 +3294,8 @@ Vranov nad Topľou:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - vranov-nad-toplou
-  - Vranov nad Topľou
+    - vranov-nad-toplou
+    - Vranov nad Topľou
   active_on_old_portal: false
   archived: true
 
@@ -3308,8 +3308,8 @@ Bánovce nad Bebravou:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.2591798
-  longitude: 48.7187376
+  latitude: 48.7187376
+  longitude: 18.2591798
   population: 20353
   active: true
   category: town
@@ -3318,8 +3318,8 @@ Bánovce nad Bebravou:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - banovce-nad-bebravou
-  - Bánovce nad Bebravou
+    - banovce-nad-bebravou
+    - Bánovce nad Bebravou
   active_on_old_portal: false
   archived: true
 
@@ -3332,8 +3332,8 @@ Rajecké Teplice:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.684853
-  longitude: 49.1252712
+  latitude: 49.1252712
+  longitude: 18.684853
   population: 2938
   active: true
   category: town
@@ -3342,8 +3342,8 @@ Rajecké Teplice:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - rajecke-teplice
-  - Rajecké Teplice
+    - rajecke-teplice
+    - Rajecké Teplice
   active_on_old_portal: false
   archived: true
 
@@ -3356,8 +3356,8 @@ Zvolen:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.1256291
-  longitude: 48.5758623
+  latitude: 48.5758623
+  longitude: 19.1256291
   population: 43100
   active: true
   category: town
@@ -3366,8 +3366,8 @@ Zvolen:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - zvolen
-  - Zvolen
+    - zvolen
+    - Zvolen
   active_on_old_portal: false
   archived: true
 
@@ -3380,8 +3380,8 @@ Koškovce:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 21.9550399
-  longitude: 49.0477047
+  latitude: 49.0477047
+  longitude: 21.9550399
   population:
   active: true
   category: village
@@ -3390,8 +3390,8 @@ Koškovce:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - koskovce
-  - Koškovce
+    - koskovce
+    - Koškovce
   active_on_old_portal: false
   archived: true
 
@@ -3404,8 +3404,8 @@ Nižný Hrušov:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 21.7695865
-  longitude: 48.8102286
+  latitude: 48.8102286
+  longitude: 21.7695865
   population:
   active: true
   category: village
@@ -3414,8 +3414,8 @@ Nižný Hrušov:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - nizny-hrusov
-  - Nižný Hrušov
+    - nizny-hrusov
+    - Nižný Hrušov
   active_on_old_portal: false
   archived: true
 
@@ -3428,8 +3428,8 @@ Levoča:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.588875
-  longitude: 49.0260192
+  latitude: 49.0260192
+  longitude: 20.588875
   population:
   active: true
   category: town
@@ -3438,8 +3438,8 @@ Levoča:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - levoca
-  - Levoča
+    - levoca
+    - Levoča
   active_on_old_portal: false
   archived: true
 
@@ -3452,8 +3452,8 @@ Levoča:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.4053151
-  longitude: 49.3917746
+  latitude: 49.3917746
+  longitude: 20.4053151
   population:
   active: true
   category: village
@@ -3462,8 +3462,8 @@ Levoča:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - cerveny-klastor
-  - Červený Kláštor
+    - cerveny-klastor
+    - Červený Kláštor
   active_on_old_portal: false
   archived: true
 
@@ -3476,8 +3476,8 @@ Košeca:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.2620813
-  longitude: 49.0098444
+  latitude: 49.0098444
+  longitude: 18.2620813
   population:
   active: true
   category: village
@@ -3486,8 +3486,8 @@ Košeca:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - koseca
-  - Košeca
+    - koseca
+    - Košeca
   active_on_old_portal: false
   archived: true
 
@@ -3500,8 +3500,8 @@ Drahovce:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.8010704
-  longitude: 48.5177303
+  latitude: 48.5177303
+  longitude: 17.8010704
   population:
   active: true
   category: village
@@ -3510,8 +3510,8 @@ Drahovce:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - drahovce
-  - Drahovce
+    - drahovce
+    - Drahovce
   active_on_old_portal: false
   archived: true
 
@@ -3524,8 +3524,8 @@ Zákamenné:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.3044227
-  longitude: 49.3853203
+  latitude: 49.3853203
+  longitude: 19.3044227
   population:
   active: true
   category: village
@@ -3534,8 +3534,8 @@ Zákamenné:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - zakamenne
-  - Zákamenné
+    - zakamenne
+    - Zákamenné
   active_on_old_portal: false
   archived: true
 
@@ -3548,8 +3548,8 @@ Zákamenné:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.3827191
-  longitude: 48.4446314
+  latitude: 48.4446314
+  longitude: 18.3827191
   population:
   active: true
   category: village
@@ -3558,8 +3558,8 @@ Zákamenné:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - zikava
-  - Žikava
+    - zikava
+    - Žikava
   active_on_old_portal: false
   archived: true
 
@@ -3572,8 +3572,8 @@ Mýtna:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.5537528
-  longitude: 48.4667479
+  latitude: 48.4667479
+  longitude: 19.5537528
   population:
   active: true
   category: village
@@ -3582,8 +3582,8 @@ Mýtna:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - mytna
-  - Mýtna
+    - mytna
+    - Mýtna
   active_on_old_portal: false
   archived: true
 
@@ -3596,8 +3596,8 @@ Valaská:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.574422
-  longitude: 48.8149789
+  latitude: 48.8149789
+  longitude: 19.574422
   population:
   active: true
   category: village
@@ -3606,8 +3606,8 @@ Valaská:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - valaska
-  - Valaská
+    - valaska
+    - Valaská
   active_on_old_portal: false
   archived: true
 
@@ -3620,8 +3620,8 @@ Hlboké nad Váhom:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.5932722
-  longitude: 49.2114441
+  latitude: 49.2114441
+  longitude: 18.5932722
   population:
   active: true
   category: village
@@ -3630,8 +3630,8 @@ Hlboké nad Váhom:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - hlboke-nad-vahom
-  - Hlboké nad Váhom
+    - hlboke-nad-vahom
+    - Hlboké nad Váhom
   active_on_old_portal: false
   archived: true
 
@@ -3644,8 +3644,8 @@ Liptovský Hrádok:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.7275984
-  longitude: 49.0397084
+  latitude: 49.0397084
+  longitude: 19.7275984
   population:
   active: true
   category: town
@@ -3654,8 +3654,8 @@ Liptovský Hrádok:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - liptovsky-hradok
-  - Liptovský Hrádok
+    - liptovsky-hradok
+    - Liptovský Hrádok
   active_on_old_portal: false
   archived: true
 
@@ -3668,8 +3668,8 @@ Malachov:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.0886974
-  longitude: 48.710247
+  latitude: 48.710247
+  longitude: 19.0886974
   population:
   active: true
   category: village
@@ -3678,8 +3678,8 @@ Malachov:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - malachov
-  - Malachov
+    - malachov
+    - Malachov
   active_on_old_portal: false
   archived: true
 
@@ -3692,8 +3692,8 @@ Hontianske Nemce:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.9909628
-  longitude: 48.2847618
+  latitude: 48.2847618
+  longitude: 18.9909628
   population:
   active: true
   category: village
@@ -3702,8 +3702,8 @@ Hontianske Nemce:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - hontianske-nemce
-  - Hontianske Nemce
+    - hontianske-nemce
+    - Hontianske Nemce
   active_on_old_portal: false
   archived: true
 
@@ -3716,8 +3716,8 @@ Nová Ves nad Žitavou:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.3227505
-  longitude: 48.2893947
+  latitude: 48.2893947
+  longitude: 18.3227505
   population:
   active: true
   category: village
@@ -3726,8 +3726,8 @@ Nová Ves nad Žitavou:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - nova-ves-nad-zitavou
-  - Nová Ves nad Žitavou
+    - nova-ves-nad-zitavou
+    - Nová Ves nad Žitavou
   active_on_old_portal: false
   archived: true
 
@@ -3740,8 +3740,8 @@ Ostrov:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.766854
-  longitude: 48.6294485
+  latitude: 48.6294485
+  longitude: 17.766854
   population:
   active: true
   category: village
@@ -3750,8 +3750,8 @@ Ostrov:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - ostrov
-  - Ostrov
+    - ostrov
+    - Ostrov
   active_on_old_portal: false
   archived: true
 
@@ -3764,8 +3764,8 @@ Vyšná Myšľa:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 21.3875266
-  longitude: 48.6341487
+  latitude: 48.6341487
+  longitude: 21.3875266
   population:
   active: true
   category: village
@@ -3774,8 +3774,8 @@ Vyšná Myšľa:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - vysna-mysla
-  - Vyšná Myšľa
+    - vysna-mysla
+    - Vyšná Myšľa
   active_on_old_portal: false
   archived: true
 
@@ -3788,8 +3788,8 @@ Prievaly:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 17.3495369
-  longitude: 48.557108
+  latitude: 48.557108
+  longitude: 17.3495369
   population:
   active: true
   category: village
@@ -3798,8 +3798,8 @@ Prievaly:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - prievaly
-  - Prievaly
+    - prievaly
+    - Prievaly
   active_on_old_portal: false
   archived: true
 
@@ -3812,8 +3812,8 @@ Podhájska:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.3399932
-  longitude: 48.102287
+  latitude: 48.102287
+  longitude: 18.3399932
   population:
   active: true
   category: village
@@ -3822,8 +3822,8 @@ Podhájska:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - podhajska
-  - Podhájska
+    - podhajska
+    - Podhájska
   active_on_old_portal: false
   archived: true
 
@@ -3836,8 +3836,8 @@ Kostolište:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 16.9868224
-  longitude: 48.4467096
+  latitude: 48.4467096
+  longitude: 16.9868224
   population:
   active: true
   category: village
@@ -3846,8 +3846,8 @@ Kostolište:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - kostoliste
-  - Kostolište
+    - kostoliste
+    - Kostolište
   active_on_old_portal: false
   archived: true
 
@@ -3860,8 +3860,8 @@ Rimavská Baňa:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 19.9412593
-  longitude: 48.5111467
+  latitude: 48.5111467
+  longitude: 19.9412593
   population:
   active: true
   category: village
@@ -3870,8 +3870,8 @@ Rimavská Baňa:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - rimavska-bana
-  - Rimavská Baňa
+    - rimavska-bana
+    - Rimavská Baňa
   active_on_old_portal: false
   archived: true
 
@@ -3884,8 +3884,8 @@ Krásno nad Kysucou:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 18.8324337
-  longitude: 49.3960567
+  latitude: 49.3960567
+  longitude: 18.8324337
   population:
   active: true
   category: town
@@ -3894,8 +3894,8 @@ Krásno nad Kysucou:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - krasno-nad-kysucou
-  - Krásno nad Kysucou
+    - krasno-nad-kysucou
+    - Krásno nad Kysucou
   active_on_old_portal: false
   archived: true
 
@@ -3908,8 +3908,8 @@ Jesenské:
   municipality_type: other
   has_municipality_districts: false
   handled_by: 2
-  latitude: 20.0744473
-  longitude: 48.3040723
+  latitude: 48.3040723
+  longitude: 20.0744473
   population:
   active: true
   category: village
@@ -3918,7 +3918,7 @@ Jesenské:
   created_at: "2025-03-07 10:07:42.078049000 +0100"
   updated_at: "2025-03-07 10:07:42.078049000 +0100"
   aliases:
-  - jesenske
-  - Jesenské
+    - jesenske
+    - Jesenské
   active_on_old_portal: false
   archived: true

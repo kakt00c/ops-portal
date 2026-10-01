@@ -299,8 +299,7 @@ namespace :municipality_boundaries do
   end
 
   def municipality_location_point_sql
-    # Municipality rows currently store longitude in `latitude` and latitude in `longitude`.
-    "ST_SetSRID(ST_MakePoint(municipalities.latitude, municipalities.longitude), 4326)"
+    "ST_SetSRID(ST_MakePoint(municipalities.longitude, municipalities.latitude), 4326)"
   end
 
   def import_boundary(municipality, district, geometry, boundary_kind:)

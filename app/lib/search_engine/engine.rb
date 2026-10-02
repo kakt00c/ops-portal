@@ -17,7 +17,7 @@ module SearchEngine
       scope = apply_filters(scope, search_params)
       scope = apply_sort(scope, search_params)
 
-      scope = scope.page(search_params[:page])
+      scope = scope.page(params[:page])
       scope = scope.per(@per_page) if @per_page
 
       results.hits = scope
@@ -57,7 +57,7 @@ module SearchEngine
 
     def build_results_with_filters(params)
       results = Results.new
-      results.search_params = params.to_h.with_indifferent_access
+      results.search_params = params.to_h.with_indifferent_access.except(:page)
 
       @filters.each do |filter|
         filter.add_applied_filter(results)

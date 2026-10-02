@@ -86,4 +86,11 @@ class Issues::SearchTest < ApplicationSystemTestCase
 
     assert_includes find("a[title='Odstrániť tento filter']", visible: :all)[:href], "tab=stats"
   end
+
+  test "filter and sort links drop the current page" do
+    visit issues_path(page: 2, obec: "Nitra")
+
+    assert_selector "a[title='Odstrániť tento filter']", visible: :all
+    assert_no_selector "a[href*='page=']:not(nav.pagination a), input[name='page'], [data-geolocate-url-value*='page=']", visible: :all
+  end
 end

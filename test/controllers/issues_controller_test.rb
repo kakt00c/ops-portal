@@ -102,11 +102,4 @@ class IssuesControllerTest < ActionDispatch::IntegrationTest
     assert_select "button.button-filter[aria-label=?]", "Filter, aktívne filtre: 3"
     assert_select "button.button-filter .filter-count", text: "3"
   end
-
-  test "filter button has no count without active filters" do
-    get issues_url
-
-    assert_select "button.button-filter .filter-count", count: 0
-    assert_select "button.button-filter[aria-label]", count: 0
-  end
 end

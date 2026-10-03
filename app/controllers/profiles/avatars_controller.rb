@@ -4,7 +4,7 @@ class Profiles::AvatarsController < ApplicationController
     if current_user.save
       redirect_to edit_profile_path, notice: "Fotka bola úspešne zmenená."
     else
-      redirect_to edit_profile_path, error: current_user.errors.full_messages.join(", ")
+      redirect_to edit_profile_path, alert: current_user.errors.full_messages.join(", ")
     end
   end
 

@@ -5,7 +5,8 @@ export default class extends Controller {
     static classes = ["supported"]
 
     static values = {
-        url: String
+        url: String,
+        active: Boolean
     }
 
     connect() {
@@ -15,6 +16,12 @@ export default class extends Controller {
     }
 
     redirect() {
+        // the location filter is on, so clicking again turns it off
+        if (this.activeValue) {
+            Turbo.visit(this.urlValue);
+            return;
+        }
+
         // mobile devices throttle geolocation so cache it
         const cachedPin = this.getCachedPin();
 

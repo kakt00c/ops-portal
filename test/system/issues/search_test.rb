@@ -81,6 +81,20 @@ class Issues::SearchTest < ApplicationSystemTestCase
     assert_text "Odstúpený"
   end
 
+  test "clicking my location again turns the distance filter off" do
+    @bratislava.update_columns(latitude: 48.1440, longitude: 17.1090)
+    @nitra.update_columns(latitude: 48.3069, longitude: 18.0869)
+
+    visit issues_path(pin: "48.1440,17.1090")
+    assert_text @bratislava.title
+    assert_no_text @nitra.title
+
+    click_on "Moja poloha"
+
+    assert_text @nitra.title
+    assert_no_current_path(/pin=/)
+  end
+
   test "filter links keep the current tab" do
     visit issues_path(tab: "stats", obec: "Nitra")
 

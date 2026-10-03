@@ -86,18 +86,11 @@ class ProfilesTest < ApplicationSystemTestCase
 
     visit edit_profile_path
     assert_selector "h1", text: "Osobné údaje"
+    assert_selector "input[name='user[avatar]'][accept='image/*']", visible: :all
 
     page.attach_file("user[avatar]", file_fixture("responsible_subject_emails/ivanka_expected.txt"), make_visible: true)
 
     assert_text "Profilová fotka môže byť iba obrázok."
     assert_not user.reload.avatar.attached?
-  end
-
-  test "profile picture file picker offers only images" do
-    login_as(users(:one))
-
-    visit edit_profile_path
-
-    assert_selector "input[name='user[avatar]'][accept='image/*']", visible: :all
   end
 end

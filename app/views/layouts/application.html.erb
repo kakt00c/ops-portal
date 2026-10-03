@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="sk">
   <head>
-    <title><%= content_for?(:title) ? "#{content_for(:title)} | Odkaz pre starostu" : "Odkaz pre starostu"  %></title>
     <meta charset="UTF-8">
+    <% page_title = content_for?(:title) ? "#{content_for(:title)} | Odkaz pre starostu" : "Odkaz pre starostu – nahláste podnet svojej obci" %>
+    <% page_description = content_for?(:description) ? content_for(:description) : "Je vo vašom okolí potrebné niečo vyriešiť? Odfoťte, odošlite a sledujte riešenie podnetu samosprávou." %>
+    <% canonical_url = content_for?(:canonical_url) ? content_for(:canonical_url) : request.base_url + request.path %>
+    <title><%= page_title %></title>
+    <meta name="description" content="<%= page_description %>">
+    <link rel="canonical" href="<%= canonical_url %>">
+    <% if content_for?(:robots) %>
+      <meta name="robots" content="<%= content_for(:robots) %>">
+    <% end %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="view-transition" content="same-origin">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta property="og:title" content="<%= content_for?(:title) ? "#{content_for(:title)} | Odkaz pre starostu" : "Odkaz pre starostu"  %>">
-    <meta property="og:type" content="article" />
-    <meta property="og:description" content="Je vo vašom okolí potrebné niečo vyriešiť? Odfoťte, odošlite a sledujte riešenie podnetu samosprávou.">
-    <meta property="og:image" content="<%= image_url('og-image.png') %>">
-    <%= tag.meta property: "og:url", content: content_for?(:canonical_url) ? content_for(:canonical_url) : request.base_url + request.path %>
+    <meta property="og:title" content="<%= page_title %>">
+    <meta property="og:type" content="<%= content_for?(:og_type) ? content_for(:og_type) : "website" %>">
+    <meta property="og:description" content="<%= page_description %>">
+    <meta property="og:image" content="<%= content_for?(:og_image) ? content_for(:og_image) : image_url('og-image.png') %>">
+    <%= tag.meta property: "og:url", content: canonical_url %>
     <meta name="twitter:card" content="summary_large_image">
 
     <%= yield :head %>

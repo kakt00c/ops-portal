@@ -35,7 +35,7 @@
           </picture>
         </figure>
         <%= f.label :avatar, 'Zmeniť fotku', class: 'button button-transparent' %>
-        <%= f.file_field :avatar, accept: "capture=camera;image/*", data: { action: 'auto-submit#submit' }, class: "sr-only" %>
+        <%= f.file_field :avatar, accept: "image/*", data: { action: 'auto-submit#submit' }, class: "sr-only" %>
         <%= f.submit "Zmeniť fotku", class: 'sr-only' %>
       </div>
     </div>

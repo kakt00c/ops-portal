@@ -11,8 +11,8 @@ class MunicipalityBoundariesImportTest < ActiveSupport::TestCase
     municipality = municipalities("Piešťany")
 
     geometry = square_geometry(
-      center_lat: municipality_real_latitude(municipality),
-      center_lon: municipality_real_longitude(municipality),
+      center_lat: municipality.latitude,
+      center_lon: municipality.longitude,
       size: 0.001
     )
 
@@ -23,8 +23,8 @@ class MunicipalityBoundariesImportTest < ActiveSupport::TestCase
     municipality = municipalities("Piešťany")
     boundary = create_municipality_boundary(
       municipality: nil,
-      center_lat: municipality_real_latitude(municipality),
-      center_lon: municipality_real_longitude(municipality),
+      center_lat: municipality.latitude,
+      center_lon: municipality.longitude,
       size: 0.001,
       boundary_kind: "municipality"
     )
@@ -42,8 +42,8 @@ class MunicipalityBoundariesImportTest < ActiveSupport::TestCase
     district = municipality_districts("stare_mesto_ba")
     municipality_boundary = create_municipality_boundary(
       municipality: municipality,
-      center_lat: municipality_real_latitude(municipality),
-      center_lon: municipality_real_longitude(municipality),
+      center_lat: municipality.latitude,
+      center_lon: municipality.longitude,
       size: 0.02,
       boundary_kind: "municipality"
     )
@@ -68,15 +68,15 @@ class MunicipalityBoundariesImportTest < ActiveSupport::TestCase
     municipality = municipalities("bratislava")
     municipality_boundary = create_municipality_boundary(
       municipality: municipality,
-      center_lat: municipality_real_latitude(municipality),
-      center_lon: municipality_real_longitude(municipality),
+      center_lat: municipality.latitude,
+      center_lon: municipality.longitude,
       size: 0.02,
       boundary_kind: "municipality"
     )
 
     imported, skipped = send(
       :import_features,
-      [ district_feature(name: "Unknown District", center_lat: municipality_real_latitude(municipality), center_lon: municipality_real_longitude(municipality), size: 0.001) ],
+      [ district_feature(name: "Unknown District", center_lat: municipality.latitude, center_lon: municipality.longitude, size: 0.001) ],
       municipality: municipality,
       municipality_boundary: municipality_boundary,
       municipality_hint: municipality.name,
@@ -117,13 +117,5 @@ class MunicipalityBoundariesImportTest < ActiveSupport::TestCase
         ]
       ]
     }
-  end
-
-  def municipality_real_latitude(municipality)
-    municipality.longitude
-  end
-
-  def municipality_real_longitude(municipality)
-    municipality.latitude
   end
 end

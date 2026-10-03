@@ -4,7 +4,7 @@
        data-controller="search-map"
        data-search-map-target="map"
        data-search-map-geo-json-url-value="<%= geo_issues_path(@search_results.search_params.except(:tab, :sort)) %>"
-       data-search-map-base-search-url-value="<%= issues_path(@search_results.search_params.merge(tab: :list)) %>"
+       data-search-map-base-search-url-value="<%= issues_path(@search_results.search_params.merge(tab: :list, **without_location_params)) %>"
        data-search-map-bbox-filter-value="<%= @search_results.search_params[:oblast] %>"
        data-search-map-geo-filter-param-value="oblast"
        data-search-map-pin-value="<%= @search_results.search_params[:pin] %>"

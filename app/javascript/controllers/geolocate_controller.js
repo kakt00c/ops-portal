@@ -41,11 +41,10 @@ export default class extends Controller {
     }
 
     doRedirect(lat, lon) {
-        let url = this.urlValue;
-        const separator = url.includes('?') ? '&' : '?';
-        url = `${url}${separator}pin=${lat},${lon}`;
+        const url = new URL(this.urlValue, window.location.origin);
+        url.searchParams.set('pin', `${lat},${lon}`);
 
-        Turbo.visit(url);
+        Turbo.visit(url.toString());
     }
 
     cachePin(lat, lon) {

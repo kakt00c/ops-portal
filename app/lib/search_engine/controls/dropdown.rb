@@ -15,7 +15,7 @@ module SearchEngine
         delegate :to_partial_path, to: :control
       end
 
-      def initialize(param_name:, label:, items:, filter:, filter_label: -> { _1 }, multiple: true, default_label: "Všetko", sort: true)
+      def initialize(param_name:, label:, items:, filter:, filter_label: -> { _1 }, multiple: true, default_label: "Všetko", sort: true, clear_params: [])
         @param_name = param_name
         @label = label
         @items = items
@@ -24,6 +24,7 @@ module SearchEngine
         @multiple = multiple
         @default_label = default_label
         @sort = sort
+        @clear_params = clear_params
       end
 
       def apply(scope, params)
@@ -40,10 +41,12 @@ module SearchEngine
 
         values = Array(results.search_params[@param_name])
 
+        base_params = results.search_params.except(*@clear_params)
+
         values.each do |value|
           results.applied_filters << RemoveFilter.new(
             label: @filter_label.respond_to?(:call) ? @filter_label.call(value) : @filter_label,
-            remove_filter_params: results.search_params.merge(@param_name => (values - [ value ]).uniq),
+            remove_filter_params: base_params.merge(@param_name => (values - [ value ]).uniq),
           )
         end
       end
@@ -55,13 +58,15 @@ module SearchEngine
 
         values = Array(results.search_params[@param_name])
 
+        base_params = results.search_params.except(*@clear_params)
+
         out = items.map do |value|
           Item.new(
             label: value,
             value: value,
             selected: values.include?(value),
-            add_params: results.search_params.merge(@param_name => @multiple ? (values + [ value ]).uniq : value),
-            remove_params: results.search_params.merge(@param_name => @multiple ? (values - [ value ]).uniq : nil),
+            add_params: base_params.merge(@param_name => @multiple ? (values + [ value ]).uniq : value),
+            remove_params: base_params.merge(@param_name => @multiple ? (values - [ value ]).uniq : nil),
           )
         end
 

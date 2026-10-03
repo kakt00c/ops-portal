@@ -17,6 +17,11 @@ module IssuesHelper
     end
   end
 
+  # Nil values for every location param, to merge into a search URL that sets a new location.
+  def without_location_params
+    IssuesController::LOCATION_PARAMS.index_with(nil)
+  end
+
   def praise_image_tag(issue)
     image_tag "pochvala-#{(issue.id % 6) + 1}.png", alt: "Pochvala"
   end

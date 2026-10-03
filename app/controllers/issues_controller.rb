@@ -1,6 +1,9 @@
 class IssuesController < ApplicationController
   include NormalizedParams
 
+  # Location filters are mutually exclusive: setting one of them clears the others.
+  LOCATION_PARAMS = %i[ obec cast pin oblast ].freeze
+
   before_action :ensure_user_onboarded
   before_action :set_issue, only: %i[ show edit update ]
   before_action :remember_last_municipality, only: :index
@@ -270,6 +273,7 @@ class IssuesController < ApplicationController
         SearchEngine::Controls::Autocomplete.new(
           param_name: :obec,
           label: "Obec",
+          clear_params: LOCATION_PARAMS - %i[ obec cast ],
           items: -> { Municipality.active.where(active_on_old_portal: false).order(Arel.sql("name COLLATE unicode")).pluck(:name) },
           filter: ->(scope, params) do
             # push down ids as constants so optimizer can use stats
@@ -281,6 +285,7 @@ class IssuesController < ApplicationController
         SearchEngine::Controls::Dropdown.new(
           param_name: :cast,
           label: "Mestská časť",
+          clear_params: LOCATION_PARAMS - %i[ obec cast ],
           items: ->(params) do
             return [] unless params[:obec].present?
 

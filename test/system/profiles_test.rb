@@ -79,4 +79,18 @@ class ProfilesTest < ApplicationSystemTestCase
     assert user.avatar.attached?
     assert_equal "avatar.png", user.avatar.filename.to_s
   end
+
+  test "citizen user sees an error when the new profile picture is not an image" do
+    user = users(:one)
+    login_as(user)
+
+    visit edit_profile_path
+    assert_selector "h1", text: "Osobné údaje"
+    assert_selector "input[name='user[avatar]'][accept='image/*']", visible: :all
+
+    page.attach_file("user[avatar]", file_fixture("responsible_subject_emails/ivanka_expected.txt"), make_visible: true)
+
+    assert_text "Profilová fotka môže byť iba obrázok."
+    assert_not user.reload.avatar.attached?
+  end
 end

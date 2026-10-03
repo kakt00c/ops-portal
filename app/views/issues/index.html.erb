@@ -36,13 +36,19 @@
     <div class="podnety-con">
       <!-- Navigation -->
       <nav class="suggestions">
-        <button class="button button-filter" data-action="click->toggle#show">
+        <% active_filters_count = @search_results.applied_filters.size %>
+        <%= tag.button class: "button button-filter",
+                       data: { action: "click->toggle#show" },
+                       aria: { label: ("Filter, aktívne filtre: #{active_filters_count}" if active_filters_count.positive?) } do %>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
             <path d="M15,1.25c-1.81,0-3.33,1.29-3.67,3H1v1.5h10.33c.35,1.71,1.86,3,3.67,3,2.07,0,3.75-1.68,3.75-3.75s-1.68-3.75-3.75-3.75ZM15,7.25c-1.24,0-2.25-1.01-2.25-2.25s1.01-2.25,2.25-2.25,2.25,1.01,2.25,2.25-1.01,2.25-2.25,2.25Z"/>
             <path d="M19,14.25h-10.33c-.35-1.71-1.86-3-3.67-3-2.07,0-3.75,1.68-3.75,3.75s1.68,3.75,3.75,3.75c1.81,0,3.33-1.29,3.67-3h10.33v-1.5ZM5,17.25c-1.24,0-2.25-1.01-2.25-2.25s1.01-2.25,2.25-2.25,2.25,1.01,2.25,2.25-1.01,2.25-2.25,2.25Z"/>
           </svg>
           <span>Filter</span>
-        </button>
+          <% if active_filters_count.positive? %>
+            <span class="filter-count" aria-hidden="true"><%= active_filters_count %></span>
+          <% end %>
+        <% end %>
         <%= link_to search_issues_path(tab: :list), class: class_names('button button-transparent button-list button-suggestion', 'button-suggestion-active': @tab == 'list') do %>
           <span>Zoznam</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

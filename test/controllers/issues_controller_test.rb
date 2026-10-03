@@ -95,4 +95,18 @@ class IssuesControllerTest < ActionDispatch::IntegrationTest
     assert feature.dig("properties").key?("min_latitude")
     assert_nil feature.dig("properties", "title")
   end
+
+  test "filter button shows the number of active filters" do
+    get issues_url(obec: [ "Bratislava", "Nitra" ], obdobie: "Tento rok")
+
+    assert_select "button.button-filter[aria-label=?]", "Filter, aktívne filtre: 3"
+    assert_select "button.button-filter .filter-count", text: "3"
+  end
+
+  test "filter button has no count without active filters" do
+    get issues_url
+
+    assert_select "button.button-filter .filter-count", count: 0
+    assert_select "button.button-filter[aria-label]", count: 0
+  end
 end

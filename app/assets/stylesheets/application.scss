@@ -2063,9 +2063,8 @@ button.button-filter .filter-count {
   border-radius: 100%;
   background: variables.$red;
   color: variables.$white;
-  font-size: 0.75em;
-  font-weight: 600;
-  text-align: center;
+  font-size: variables.em(13,16);
+  font-weight: variables.$normal;
   pointer-events: none;
 }
 /*

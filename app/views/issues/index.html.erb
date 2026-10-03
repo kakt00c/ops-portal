@@ -1,7 +1,14 @@
-<% content_for(:title, "Nahlásené dopyty") %>
+<% if listed_municipality %>
+  <% content_for :title, "Podnety v obci #{listed_municipality.name}" %>
+  <% content_for :description, "Nahlásené podnety obyvateľov obce #{listed_municipality.name} – stav riešenia, mapa a štatistiky na portáli Odkaz pre starostu." %>
+  <%# one indexable page per municipality: other filters, paging and tabs collapse into it %>
+  <% content_for :canonical_url, issues_url(obec: listed_municipality.name) %>
+<% else %>
+  <% content_for :title, "Nahlásené dopyty" %>
+<% end %>
 
 <section class="podnety">
-  <h1>Nahlásené dopyty</h1>
+  <h1>Nahlásené dopyty<%= " – #{listed_municipality.name}" if listed_municipality %></h1>
 
   <div class="podnety-general-con" data-controller="toggle">
     <div class="podnety-filter-con" data-toggle-target="toggleable" data-action="click->toggle#hide:self">

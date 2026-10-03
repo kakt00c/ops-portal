@@ -22,6 +22,22 @@ class SeoTest < ApplicationSystemTestCase
     assert_no_selector "meta[name=robots]", visible: :all
   end
 
+  test "municipality issue list has its own title and canonical without other filters" do
+    municipality = issues(:two).municipality
+    visit issues_path(obec: municipality.name, page: 2, tab: "map")
+
+    assert_equal "Podnety v obci #{municipality.name} | Odkaz pre starostu", page.title
+    assert_selector "h1", text: "Nahlásené dopyty – #{municipality.name}"
+    assert_selector "link[rel=canonical][href$='#{issues_path(obec: municipality.name)}']", visible: :all
+  end
+
+  test "unfiltered issue list is canonical to itself" do
+    visit issues_path(page: 2)
+
+    assert_equal "Nahlásené dopyty | Odkaz pre starostu", page.title
+    assert_selector "link[rel=canonical][href$='#{issues_path}']", visible: :all
+  end
+
   test "login page is not indexed" do
     visit "/login"
 

@@ -13,7 +13,7 @@ module IssuesHelper
   # Used to give each municipality's list its own title and canonical URL.
   def listed_municipality
     name = Array(params[:obec]).compact_blank
-    return unless name.one?
+    return unless name.one? && name.first.is_a?(String)
 
     @listed_municipality ||= Municipality.active.find_by(name: name.first)
   end
